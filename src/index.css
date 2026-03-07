@@ -1,0 +1,170 @@
+:root {
+  /* Colors - Dark Fantasy Palette */
+  --bg-color: #0f0a0d;
+  /* Deep purple-black background */
+
+  /* Accents */
+  --accent-gold: #d4af37;
+  /* Bright gold for active/important */
+  --accent-gold-dim: rgba(212, 175, 55, 0.4);
+  --accent-crimson: #a01a22;
+  /* Health, damage, dangerous */
+  --accent-arcane: #4d2b86;
+  /* Spellcasting, magic */
+
+  /* Text */
+  --text-main: #e8e0d5;
+  /* Parchment white/light tan */
+  --text-muted: rgba(232, 224, 213, 0.6);
+  /* Faded ink */
+
+  /* Typography */
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Outfit', 'Inter', sans-serif;
+
+  /* Glassmorphism System */
+  --glass-bg: rgba(18, 12, 16, 0.55);
+  --glass-bg-hover: rgba(26, 18, 24, 0.75);
+  --glass-border: rgba(212, 175, 55, 0.12);
+  --glass-border-strong: rgba(212, 175, 55, 0.35);
+  --glass-border-subtle: rgba(255, 255, 255, 0.05);
+  --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+  --glass-blur: blur(16px);
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  min-height: 100vh;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image:
+    radial-gradient(circle at 10% 40%, rgba(77, 43, 134, 0.18), transparent 35%),
+    radial-gradient(circle at 90% 20%, rgba(160, 26, 34, 0.12), transparent 40%),
+    radial-gradient(circle at 50% 100%, rgba(212, 175, 55, 0.05), transparent 40%);
+  background-attachment: fixed;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  color: var(--accent-gold);
+  letter-spacing: 0.8px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--glass-border);
+  color: var(--text-main);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem;
+  transition: all var(--transition-fast);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 8px var(--accent-gold-dim);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Custom Checkbox Styling */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--accent-gold-dim);
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+input[type="checkbox"]:checked {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+input[type="checkbox"]:checked::after {
+  content: '✦';
+  color: var(--accent-gold);
+  font-size: 14px;
+  line-height: 1;
+  text-shadow: 0 0 4px var(--accent-gold);
+}
+
+/* Base Glassmorphism Panel Utility */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow);
+  padding: 1.25rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn var(--transition-normal);
+}

@@ -1,0 +1,178 @@
+import { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { useCharacterStore } from '../../store/useCharacterStore';
+import { fetchAllSpells, searchList, fetchSpellDetails } from '../../services/dndApi';
+
+const SpellLevel = ({ level, allSpellsList }) => {
+    const data = useCharacterStore(state => state.character.spellcasting);
+    const updateNestedField = useCharacterStore(state => state.updateNestedField);
+    const levelData = data.spells[level] || [];
+    const slotData = data.slots[level] || { total: 0, expended: 0 };
+
+    const [isSearching, setIsSearching] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [searchResults, setSearchResults] = useState([]);
+    const [expandedSpell, setExpandedSpell] = useState(null);
+
+    useEffect(() => {
+        if (searchQuery.length > 1) {
+            setSearchResults(searchList(allSpellsList, searchQuery, { level }));
+        } else {
+            setSearchResults([]);
+        }
+    }, [searchQuery, allSpellsList, level]);
+
+    const handleSelectOfficialSpell = async (spellIndex) => {
+        const details = await fetchSpellDetails(spellIndex);
+        if (!details) return;
+
+        let descText = details.desc ? details.desc.join('\n') : '';
+        if (details.higher_level && details.higher_level.length > 0) descText += '\n\nAt Higher Levels: ' + details.higher_level.join(' ');
+
+        const newSpell = {
+            name: details.name,
+            castingTime: details.casting_time,
+            range: details.range,
+            components: details.components ? details.components.join(', ') : '',
+            duration: details.duration,
+            desc: descText
+        };
+
+        updateNestedField('spellcasting', 'spells', {
+            ...data.spells,
+            [level]: [...levelData, newSpell]
+        });
+
+        setIsSearching(false);
+        setSearchQuery('');
+    };
+
+    const removeSpell = (idx) => {
+        const newSpells = levelData.filter((_, i) => i !== idx);
+        updateNestedField('spellcasting', 'spells', {
+            ...data.spells,
+            [level]: newSpells
+        });
+    };
+
+    const toggleSlot = (increment) => {
+        const newVal = Math.max(0, Math.min(slotData.total, slotData.expended + increment));
+        updateNestedField('spellcasting', 'slots', {
+            ...data.slots,
+            [level]: { ...slotData, expended: newVal }
+        });
+    };
+
+    const setTotalSlots = (val) => {
+        updateNestedField('spellcasting', 'slots', {
+            ...data.slots,
+            [level]: { ...slotData, total: parseInt(val) || 0 }
+        });
+    };
+
+    return (
+        <div className="glass-panel spell-level-box">
+            <div className="spell-level-header">
+                <h4 className="level-title">{level === 0 ? 'Cantrips (0 Level)' : `Level ${level}`}</h4>
+
+                {level > 0 && (
+                    <div className="slots-container">
+                        <span>Slots</span>
+                        <input
+                            type="number"
+                            value={slotData.total}
+                            onChange={(e) => setTotalSlots(e.target.value)}
+                            title="Total Slots"
+                            className="slot-input"
+                        />
+                        <div className="slot-expended">
+                            <button className="btn-sm" onClick={() => toggleSlot(-1)}>-</button>
+                            <span className="slot-count">{slotData.total - slotData.expended}</span>
+                            <button className="btn-sm" onClick={() => toggleSlot(1)} disabled={slotData.expended >= slotData.total}>Use</button>
+                        </div>
+                    </div>
+                )}
+            </div>
+
+            <div className="spell-list">
+                {levelData.map((spell, idx) => {
+                    const isExpanded = expandedSpell === idx;
+                    return (
+                        <div key={idx} className="spell-item">
+                            <div className="spell-item-header">
+                                <span className="spell-name" onClick={() => setExpandedSpell(isExpanded ? null : idx)}>
+                                    {isExpanded ? '▼' : '▶'} {spell.name}
+                                </span>
+                                <button className="btn-danger-icon" onClick={() => removeSpell(idx)}>✕</button>
+                            </div>
+
+                            {isExpanded && (
+                                <div className="spell-details">
+                                    <div className="spell-meta">
+                                        <div><strong>Time:</strong> {spell.castingTime}</div>
+                                        <div><strong>Range:</strong> {spell.range}</div>
+                                        <div><strong>Comp:</strong> {spell.components}</div>
+                                        <div><strong>Duration:</strong> {spell.duration}</div>
+                                    </div>
+                                    <p className="spell-desc">{spell.desc}</p>
+                                </div>
+                            )}
+                        </div>
+                    );
+                })}
+            </div>
+
+            <div className="add-spell-controls">
+                {isSearching ? (
+                    <div className="api-search-container">
+                        <input
+                            type="text"
+                            autoFocus
+                            placeholder="Search via 5e API..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                        />
+                        <button className="btn-sm btn-danger ml-2" onClick={() => setIsSearching(false)}>Cancel</button>
+
+                        {searchResults.length > 0 && (
+                            <ul className="search-dropdown glass-panel">
+                                {searchResults.map(res => (
+                                    <li key={res.index} onClick={() => handleSelectOfficialSpell(res.index)}>
+                                        {res.name}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
+                ) : (
+                    <button className="btn btn-sm btn-primary" onClick={() => setIsSearching(true)}>+ Add Spell from API</button>
+                )}
+            </div>
+        </div>
+    );
+};
+
+export const SpellSlotTracker = () => {
+    const { data: allSpells } = useQuery({
+        queryKey: ['spells'],
+        queryFn: fetchAllSpells
+    });
+
+    const levelsColumn1 = [0, 1, 2, 3, 4];
+    const levelsColumn2 = [5, 6, 7, 8, 9];
+
+    return (
+        <div className="spell-tracker-container">
+            <div className="spell-tracker-column">
+                {levelsColumn1.map(level => (
+                    <SpellLevel key={level} level={level} allSpellsList={allSpells} />
+                ))}
+            </div>
+            <div className="spell-tracker-column">
+                {levelsColumn2.map(level => (
+                    <SpellLevel key={level} level={level} allSpellsList={allSpells} />
+                ))}
+            </div>
+        </div>
+    );
+};
