@@ -10,9 +10,13 @@ const SpellLevel = ({ level, allSpellsList }) => {
     const slotData = data.slots[level] || { total: 0, expended: 0 };
 
     const [isSearching, setIsSearching] = useState(false);
+    const [isAddingCustom, setIsAddingCustom] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [expandedSpell, setExpandedSpell] = useState(null);
+    const [customSpell, setCustomSpell] = useState({
+        name: '', castingTime: '', range: '', components: '', duration: '', desc: ''
+    });
 
     useEffect(() => {
         if (searchQuery.length > 1) {
@@ -45,6 +49,18 @@ const SpellLevel = ({ level, allSpellsList }) => {
 
         setIsSearching(false);
         setSearchQuery('');
+    };
+
+    const handleAddCustomSpell = () => {
+        if (!customSpell.name.trim()) return;
+
+        updateNestedField('spellcasting', 'spells', {
+            ...data.spells,
+            [level]: [...levelData, { ...customSpell }]
+        });
+
+        setCustomSpell({ name: '', castingTime: '', range: '', components: '', duration: '', desc: '' });
+        setIsAddingCustom(false);
     };
 
     const removeSpell = (idx) => {
@@ -144,8 +160,59 @@ const SpellLevel = ({ level, allSpellsList }) => {
                             </ul>
                         )}
                     </div>
+                ) : isAddingCustom ? (
+                    <div className="custom-spell-form glass-panel">
+                        <input
+                            type="text"
+                            autoFocus
+                            placeholder="Spell Name *"
+                            value={customSpell.name}
+                            onChange={(e) => setCustomSpell({ ...customSpell, name: e.target.value })}
+                        />
+                        <div className="custom-spell-row">
+                            <input
+                                type="text"
+                                placeholder="Casting Time"
+                                value={customSpell.castingTime}
+                                onChange={(e) => setCustomSpell({ ...customSpell, castingTime: e.target.value })}
+                            />
+                            <input
+                                type="text"
+                                placeholder="Range"
+                                value={customSpell.range}
+                                onChange={(e) => setCustomSpell({ ...customSpell, range: e.target.value })}
+                            />
+                        </div>
+                        <div className="custom-spell-row">
+                            <input
+                                type="text"
+                                placeholder="Components"
+                                value={customSpell.components}
+                                onChange={(e) => setCustomSpell({ ...customSpell, components: e.target.value })}
+                            />
+                            <input
+                                type="text"
+                                placeholder="Duration"
+                                value={customSpell.duration}
+                                onChange={(e) => setCustomSpell({ ...customSpell, duration: e.target.value })}
+                            />
+                        </div>
+                        <textarea
+                            placeholder="Description..."
+                            rows={3}
+                            value={customSpell.desc}
+                            onChange={(e) => setCustomSpell({ ...customSpell, desc: e.target.value })}
+                        />
+                        <div className="custom-spell-actions">
+                            <button className="btn btn-sm btn-primary" onClick={handleAddCustomSpell}>Add Spell</button>
+                            <button className="btn-sm btn-danger ml-2" onClick={() => setIsAddingCustom(false)}>Cancel</button>
+                        </div>
+                    </div>
                 ) : (
-                    <button className="btn btn-sm btn-primary" onClick={() => setIsSearching(true)}>+ Add Spell from API</button>
+                    <div className="add-spell-buttons">
+                        <button className="btn btn-sm btn-primary" onClick={() => setIsSearching(true)}>+ From API</button>
+                        <button className="btn btn-sm btn-secondary" onClick={() => setIsAddingCustom(true)}>+ Custom Spell</button>
+                    </div>
                 )}
             </div>
         </div>
