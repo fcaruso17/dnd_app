@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-import { z } from 'zod';
 
 // Default empty character structure based on 5E mechanics
 const defaultCharacterState = {
@@ -10,26 +9,25 @@ const defaultCharacterState = {
         race: '',
         alignment: '',
         experiencePoints: 0,
-        classes: [{ className: '', level: 1 }] // Array for multiclassing
+        classes: [{ id: crypto.randomUUID(), className: '', level: 1 }] // Array for multiclassing
     },
     attributes: {
         str: 10, dex: 10, con: 10, int: 10, wis: 10, cha: 10
     },
     vitals: {
         armorClass: 10,
-        initiativeBonus: 0,
         speed: 30,
         hpMax: 10,
         hpCurrent: 10,
         hpTemp: 0,
-        hitDice: [{ class: '', die: 'd8', total: 1, expended: 0 }],
+        hitDice: [{ id: crypto.randomUUID(), class: '', die: 'd8', total: 1, expended: 0 }],
         deathSaves: { successes: 0, failures: 0 }
     },
     skillsSaves: {
         inspiration: false,
         proficiencies: [],
         expertise: [],
-        savingThrowProficiencies: [],
+        saveProficiencies: [],
     },
     combat: {
         attacks: [] // { name, bonus, damage, type }
@@ -72,24 +70,12 @@ const defaultCharacterState = {
     }
 };
 
-const characterSchema = z.object({
-    header: z.object({ classes: z.array(z.any()).optional() }).passthrough().optional(),
-    attributes: z.object({ str: z.any().optional() }).passthrough().optional(),
-    vitals: z.object({ hpMax: z.any().optional() }).passthrough().optional(),
-    skillsSaves: z.object({ proficiencies: z.array(z.string()).optional() }).passthrough().optional(),
-    combat: z.object({ attacks: z.array(z.any()).optional() }).passthrough().optional(),
-    inventory: z.object({ gp: z.any().optional() }).passthrough().optional(),
-    traits: z.object({ personality: z.string().optional() }).passthrough().optional(),
-    details: z.object({ age: z.string().optional() }).passthrough().optional(),
-    spellcasting: z.object({ classes: z.array(z.any()).optional() }).passthrough().optional()
-}).passthrough();
-
 const getInitialState = () => {
     const saved = localStorage.getItem('dnd-character');
     if (saved) {
         try {
             return JSON.parse(saved);
-        } catch (err) {
+        } catch {
             console.error("Failed to parse local storage data.");
             return defaultCharacterState;
         }
@@ -101,27 +87,16 @@ export const useCharacterStore = create((set, get) => ({
     character: getInitialState(),
     lastSaved: Date.now(),
 
-    updateSection: (section, payload) => set((state) => {
-        const newCharacter = {
-            ...state.character,
-            [section]: {
-                ...state.character[section],
-                ...payload
-            }
-        };
-        return { character: newCharacter, lastSaved: Date.now() };
-    }),
-
-    updateNestedField: (section, field, value) => set((state) => {
-        const newCharacter = {
+    updateNestedField: (section, field, value) => set((state) => ({
+        character: {
             ...state.character,
             [section]: {
                 ...state.character[section],
                 [field]: value
             }
-        };
-        return { character: newCharacter, lastSaved: Date.now() };
-    }),
+        },
+        lastSaved: Date.now()
+    })),
 
     resetCharacter: () => {
         if (window.confirm("Are you sure you want to reset all character data?")) {
@@ -132,18 +107,11 @@ export const useCharacterStore = create((set, get) => ({
     importCharacter: (jsonData) => {
         try {
             const parsed = JSON.parse(jsonData);
-            // Validate schema structurally so we don't crash when passing random JSON
-            const validatedData = characterSchema.parse(parsed);
-
-            set({ character: { ...defaultCharacterState, ...validatedData }, lastSaved: Date.now() });
+            if (typeof parsed !== 'object' || parsed === null) throw new Error('Not an object');
+            set({ character: { ...defaultCharacterState, ...parsed }, lastSaved: Date.now() });
             alert("Character imported successfully!");
-        } catch (e) {
-            if (e instanceof z.ZodError) {
-                console.error("Zod Validation Failed:", e.errors);
-                alert("Imported JSON has invalid structure for this D&D character sheet.");
-            } else {
-                alert("Invalid JSON file format.");
-            }
+        } catch {
+            alert("Invalid JSON file format.");
         }
     },
 
@@ -179,7 +147,11 @@ export const useCharacterStore = create((set, get) => ({
 useCharacterStore.subscribe(
     (state, prevState) => {
         if (state.character !== prevState.character) {
-            localStorage.setItem('dnd-character', JSON.stringify(state.character));
+            try {
+                localStorage.setItem('dnd-character', JSON.stringify(state.character));
+            } catch (err) {
+                console.error("Failed to save character to localStorage:", err);
+            }
         }
     }
 );
