@@ -30,6 +30,22 @@
     gap: 0.5rem;
 }
 
+.spell-class-row input[type="text"],
+.spell-class-row-header span:first-child {
+    flex: 2;
+}
+
+.spell-class-row select,
+.spell-class-row input[type="number"],
+.spell-class-row-header span:nth-child(n+2):not(:last-child) {
+    flex: 1;
+}
+
+.spell-class-row-header span:last-child {
+    width: 32px;
+    flex: none;
+}
+
 .spell-tracker-container {
     display: flex;
     gap: 1.5rem;
