@@ -1,37 +1,52 @@
-# D&D Digital Character Sheet
+# The Codex — D&D Digital Character Sheet
 
-Welcome to your new premium, fully-digital alternative to the 3-page physical Dungeons & Dragons Character Sheet!
+A fully-digital, backend-free alternative to the 3-page physical Dungeons & Dragons 5e Character Sheet. Built with React and designed to feel like a living artifact from the world your character inhabits.
 
-Built as a modern React application, this project is designed to be highly interactive, portable, and completely backend-free, allowing you to seamlessly manage your campaigns from any device.
+## Features
 
-## Core Features
+- **8 Visual Themes**: Switch between Shadow Realm, Parchment & Ink, Arcane Scholar, Infernal Pact, Celestial Dawn, Eldritch Void, Druid's Grove, and Frost Citadel using the swatch picker in the header. Each theme ships with its own font pairing — typography changes with the palette. Light and dark themes are tuned for WCAG AA contrast. Your preference persists across sessions.
+- **Trait Chips**: Personality, Ideals, Bonds, Flaws, and Features & Traits live as compact clickable chips in the character header. Click any chip to open a focused modal editor — keeping the main sheet uncluttered.
+- **Multiclassing Support**: Add multiple classes — total level and proficiency bonus recalculate automatically. Pool hit dice and manage separate spell save DCs per caster class.
+- **D&D 5e API Integration**: Search for weapons, armor, and spells via `dnd5eapi.co`. Official stat blocks (damage dice, casting time, range, components, description) are pulled directly into your sheet.
+- **Auto-Save**: Every change is written to `localStorage` instantly. Close the tab and return exactly where you left off — including which tab you were on.
+- **Export / Import JSON**: Back up your character or share it with your DM. Full character data round-trips cleanly as a `.json` file.
+- **Character Portrait**: Upload a custom portrait from your machine. Stored as base64 — no image hosting required.
+- **Accessible by Design**: Keyboard-navigable tabs (arrow keys), ARIA roles throughout, death saves use both color and shape (✓/✕), and the browser tab title reflects your character's name.
 
-- **Premium Dark Fantasy Interface**: Styled natively using vanilla CSS with a sleek dark mode, glassmorphism layouts, and immersive typography.
-- **Multiclassing Support (Official 5e Mechanics)**: Add an array of classes and the application automatically recalculates your **Total Character Level** and **Proficiency Bonus**. You can cleanly pool multiple hit dice and manage separate spell save DCs for each class!
-- **D&D 5e API Integration**: Fully synced with `dnd5eapi.co`. Search for weapons or spells and instantly pull official damage dice, casting times, ranges, and lengthy spell descriptions directly into your character sheet.
-- **Auto-Save via Local Storage**: Every keystroke, HP adjustment, or expended spell slot is automatically saved to your browser locally. Close your tab and come back right where you left off.
-- **Portability (Export / Import JSON)**: Easily share your character with your Dungeon Master or friends! Click "Export .json" to backup your entire sheet, and use "Import" to seamlessly load it up on another machine. 
-- **Native Image Uploading**: Upload a custom character portrait directly from your computer. The image is saved reliably without needing to host it on an obscure file-server.
+## Tech Stack
 
-## How It Works
+| Layer | Tool |
+|---|---|
+| UI | React 19 |
+| Build | Vite |
+| State | Zustand (auto-persisted to localStorage) |
+| Data fetching | TanStack Query v5 |
+| API | [D&D 5e API](https://www.dnd5eapi.co) (public, no auth) |
+| Fonts | Cinzel + Crimson Pro (Google Fonts) |
+| Deployment | GitHub Pages via GitHub Actions |
 
-This is a traditional Single-Page Application constructed with **React** and bundled using **Vite**. 
+## Quick Start
 
-All data is managed globally via standard React Context logic, which continuously serializes your character's state to your `window.localStorage`. This provides a zero-latency, zero-cost, persistent experience without ever needing to setup a cloud database or a backend server.
-
-The D&D API connection utilizes a lightweight caching service to ensure you securely and softly ping their servers without spamming duplicate requests when searching.
-
-## Quick Start (Local Setup)
-
-1. Ensure you have [Node.js](https://nodejs.org/) installed on your machine.
-2. In the terminal, navigate to the `dnd_app` directory.
-3. If you haven't already, install the dependencies with:
+1. Make sure [Node.js](https://nodejs.org/) is installed.
+2. Clone the repo and install dependencies:
    ```bash
    npm install
    ```
-4. Start the local Vite development server:
+3. Start the dev server:
    ```bash
    npm run dev
    ```
-5. Open your browser and navigate to `http://localhost:5173` to start playing!
-6. When you are finished with your session, return to the terminal where you ran `npm run dev` and press `Ctrl + C` on your keyboard to gracefully close the local server.
+4. Open `http://localhost:5173` in your browser.
+5. When done, press `Ctrl + C` in the terminal to stop the server.
+
+## Other Commands
+
+```bash
+npm run build    # Production build → ./dist
+npm run preview  # Preview production build locally
+npm run lint     # ESLint
+```
+
+## Deployment
+
+Pushing to `main` automatically triggers a GitHub Actions workflow that builds the app and deploys `./dist` to the `gh-pages` branch. The live site updates within ~1–3 minutes of a merge.
