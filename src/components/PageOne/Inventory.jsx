@@ -1,22 +1,32 @@
 import { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { useCharacterStore } from '../../store/useCharacterStore';
 import { fetchEquipment, fetchEquipmentDetails, searchList } from '../../services/dndApi';
+import { ApiSearchDropdown } from '../shared/ApiSearchDropdown';
+
+const CURRENCIES = [
+    { key: 'cp', label: 'CP' },
+    { key: 'sp', label: 'SP' },
+    { key: 'ep', label: 'EP' },
+    { key: 'gp', label: 'GP' },
+    { key: 'pp', label: 'PP' },
+];
 
 export const Inventory = () => {
     const data = useCharacterStore(state => state.character.inventory);
     const updateNestedField = useCharacterStore(state => state.updateNestedField);
 
-    const [equipmentList, setEquipmentList] = useState(null);
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [isSearching, setIsSearching] = useState(false);
 
-    useEffect(() => {
-        fetchEquipment().then(list => setEquipmentList(list));
-    }, []);
+    const { data: equipmentList } = useQuery({
+        queryKey: ['equipment'],
+        queryFn: fetchEquipment
+    });
 
     useEffect(() => {
-        if (searchQuery.length > 1) {
+        if (searchQuery.length > 0 && equipmentList) {
             setSearchResults(searchList(equipmentList, searchQuery));
         } else {
             setSearchResults([]);
@@ -25,47 +35,34 @@ export const Inventory = () => {
 
     const handleSelectEquipment = async (itemIndex) => {
         setIsSearching(true);
-        const details = await fetchEquipmentDetails(itemIndex);
-        setIsSearching(false);
-
-        if (details) {
-            const currentEquip = data.equipment;
-            // Append name, and maybe weight or generic property if useful, but just name is safe
-            const newEntry = details.name;
-            const updatedEquip = currentEquip ? `${currentEquip}\n${newEntry}` : newEntry;
-            updateNestedField('inventory', 'equipment', updatedEquip);
-            setSearchQuery('');
-            setSearchResults([]);
+        try {
+            const details = await fetchEquipmentDetails(itemIndex);
+            if (details) {
+                const updatedEquip = data.equipment ? `${data.equipment}\n${details.name}` : details.name;
+                updateNestedField('inventory', 'equipment', updatedEquip);
+                setSearchQuery('');
+                setSearchResults([]);
+            }
+        } catch (err) {
+            console.error("Failed to fetch equipment details:", err);
+        } finally {
+            setIsSearching(false);
         }
-    };
-
-    const handleCurrencyChange = (type, value) => {
-        updateNestedField('inventory', type, parseInt(value) || 0);
     };
 
     return (
         <div className="glass-panel inventory-container">
             <div className="currency-box">
-                <div className="currency-row">
-                    <input type="number" value={data.cp} onChange={(e) => handleCurrencyChange('cp', e.target.value)} />
-                    <span className="cp-label">CP</span>
-                </div>
-                <div className="currency-row">
-                    <input type="number" value={data.sp} onChange={(e) => handleCurrencyChange('sp', e.target.value)} />
-                    <span className="sp-label">SP</span>
-                </div>
-                <div className="currency-row">
-                    <input type="number" value={data.ep} onChange={(e) => handleCurrencyChange('ep', e.target.value)} />
-                    <span className="ep-label">EP</span>
-                </div>
-                <div className="currency-row">
-                    <input type="number" value={data.gp} onChange={(e) => handleCurrencyChange('gp', e.target.value)} />
-                    <span className="gp-label">GP</span>
-                </div>
-                <div className="currency-row">
-                    <input type="number" value={data.pp} onChange={(e) => handleCurrencyChange('pp', e.target.value)} />
-                    <span className="pp-label">PP</span>
-                </div>
+                {CURRENCIES.map(({ key, label }) => (
+                    <div key={key} className="currency-row">
+                        <input
+                            type="number"
+                            value={data[key]}
+                            onChange={(e) => updateNestedField('inventory', key, parseInt(e.target.value) || 0)}
+                        />
+                        <span className={`${key}-label`}>{label}</span>
+                    </div>
+                ))}
             </div>
 
             <div className="equipment-box">
@@ -77,24 +74,15 @@ export const Inventory = () => {
                 />
             </div>
 
-            <div className="api-search-container" style={{ marginTop: '0.5rem' }}>
-                <input
-                    type="text"
+            <div className="inventory-search-wrapper">
+                <ApiSearchDropdown
                     placeholder="Search API for Armor/Gear..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
+                    query={searchQuery}
+                    onQueryChange={setSearchQuery}
+                    results={searchResults}
+                    isLoading={isSearching}
+                    onSelect={handleSelectEquipment}
                 />
-                {isSearching && <span className="loading-spinner">↺</span>}
-
-                {searchResults.length > 0 && (
-                    <ul className="search-dropdown glass-panel">
-                        {searchResults.map(res => (
-                            <li key={res.index} onClick={() => handleSelectEquipment(res.index)}>
-                                {res.name}
-                            </li>
-                        ))}
-                    </ul>
-                )}
             </div>
         </div>
     );

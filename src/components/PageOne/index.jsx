@@ -3,14 +3,13 @@ import { Attributes } from './Attributes';
 import { Vitals } from './Vitals';
 import { Skills } from './Skills';
 import { Actions } from './Actions';
-import { Traits } from './Traits';
 import { Inventory } from './Inventory';
 import { OtherProficiencies } from './OtherProficiencies';
 import './PageOne.css';
 
 const LeftColumn = () => (
-    <div className="left-column-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', gridArea: 'left_col' }}>
-        <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+    <div className="left-column-wrapper">
+        <div className="left-column-top">
             <Attributes />
             <Skills />
         </div>
@@ -19,16 +18,10 @@ const LeftColumn = () => (
 );
 
 const CenterColumn = () => (
-    <div className="center-column-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', gridArea: 'center_col' }}>
+    <div className="center-column-wrapper">
         <Vitals />
         <Actions />
         <Inventory />
-    </div>
-);
-
-const RightColumn = () => (
-    <div className="right-column-wrapper" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', gridArea: 'right_col' }}>
-        <Traits />
     </div>
 );
 
@@ -38,7 +31,6 @@ export const PageOneCore = () => {
             <Header />
             <LeftColumn />
             <CenterColumn />
-            <RightColumn />
         </div>
     );
 };

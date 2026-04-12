@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useCharacterStore } from '../../store/useCharacterStore';
 import { fetchAllSpells, searchList, fetchSpellDetails } from '../../services/dndApi';
+import { ApiSearchDropdown } from '../shared/ApiSearchDropdown';
 
 const SpellLevel = ({ level, allSpellsList }) => {
     const data = useCharacterStore(state => state.character.spellcasting);
@@ -19,7 +20,7 @@ const SpellLevel = ({ level, allSpellsList }) => {
     });
 
     useEffect(() => {
-        if (searchQuery.length > 1) {
+        if (searchQuery.length > 0) {
             setSearchResults(searchList(allSpellsList, searchQuery, { level }));
         } else {
             setSearchResults([]);
@@ -27,47 +28,49 @@ const SpellLevel = ({ level, allSpellsList }) => {
     }, [searchQuery, allSpellsList, level]);
 
     const handleSelectOfficialSpell = async (spellIndex) => {
-        const details = await fetchSpellDetails(spellIndex);
-        if (!details) return;
+        try {
+            const details = await fetchSpellDetails(spellIndex);
+            if (!details) return;
 
-        let descText = details.desc ? details.desc.join('\n') : '';
-        if (details.higher_level && details.higher_level.length > 0) descText += '\n\nAt Higher Levels: ' + details.higher_level.join(' ');
+            let descText = details.desc ? details.desc.join('\n') : '';
+            if (details.higher_level && details.higher_level.length > 0) {
+                descText += '\n\nAt Higher Levels: ' + details.higher_level.join(' ');
+            }
 
-        const newSpell = {
-            name: details.name,
-            castingTime: details.casting_time,
-            range: details.range,
-            components: details.components ? details.components.join(', ') : '',
-            duration: details.duration,
-            desc: descText
-        };
-
-        updateNestedField('spellcasting', 'spells', {
-            ...data.spells,
-            [level]: [...levelData, newSpell]
-        });
-
-        setIsSearching(false);
-        setSearchQuery('');
+            updateNestedField('spellcasting', 'spells', {
+                ...data.spells,
+                [level]: [...levelData, {
+                    id: crypto.randomUUID(),
+                    name: details.name,
+                    castingTime: details.casting_time,
+                    range: details.range,
+                    components: details.components ? details.components.join(', ') : '',
+                    duration: details.duration,
+                    desc: descText
+                }]
+            });
+        } catch (err) {
+            console.error("Failed to fetch spell details:", err);
+        } finally {
+            setIsSearching(false);
+            setSearchQuery('');
+        }
     };
 
     const handleAddCustomSpell = () => {
         if (!customSpell.name.trim()) return;
-
         updateNestedField('spellcasting', 'spells', {
             ...data.spells,
-            [level]: [...levelData, { ...customSpell }]
+            [level]: [...levelData, { id: crypto.randomUUID(), ...customSpell }]
         });
-
         setCustomSpell({ name: '', castingTime: '', range: '', components: '', duration: '', desc: '' });
         setIsAddingCustom(false);
     };
 
     const removeSpell = (idx) => {
-        const newSpells = levelData.filter((_, i) => i !== idx);
         updateNestedField('spellcasting', 'spells', {
             ...data.spells,
-            [level]: newSpells
+            [level]: levelData.filter((_, i) => i !== idx)
         });
     };
 
@@ -102,7 +105,7 @@ const SpellLevel = ({ level, allSpellsList }) => {
                             className="slot-input"
                         />
                         <div className="slot-expended">
-                            <button className="btn-sm" onClick={() => toggleSlot(-1)}>-</button>
+                            <button className="btn-sm" onClick={() => toggleSlot(-1)} aria-label="Recover spell slot">-</button>
                             <span className="slot-count">{slotData.total - slotData.expended}</span>
                             <button className="btn-sm" onClick={() => toggleSlot(1)} disabled={slotData.expended >= slotData.total}>Use</button>
                         </div>
@@ -114,12 +117,12 @@ const SpellLevel = ({ level, allSpellsList }) => {
                 {levelData.map((spell, idx) => {
                     const isExpanded = expandedSpell === idx;
                     return (
-                        <div key={idx} className="spell-item">
+                        <div key={spell.id || idx} className="spell-item">
                             <div className="spell-item-header">
                                 <span className="spell-name" onClick={() => setExpandedSpell(isExpanded ? null : idx)}>
                                     {isExpanded ? '▼' : '▶'} {spell.name}
                                 </span>
-                                <button className="btn-danger-icon" onClick={() => removeSpell(idx)}>✕</button>
+                                <button className="btn-danger-icon" onClick={() => removeSpell(idx)} aria-label="Remove spell">✕</button>
                             </div>
 
                             {isExpanded && (
@@ -141,24 +144,14 @@ const SpellLevel = ({ level, allSpellsList }) => {
             <div className="add-spell-controls">
                 {isSearching ? (
                     <div className="api-search-container">
-                        <input
-                            type="text"
-                            autoFocus
+                        <ApiSearchDropdown
                             placeholder="Search via 5e API..."
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
+                            query={searchQuery}
+                            onQueryChange={setSearchQuery}
+                            results={searchResults}
+                            onSelect={handleSelectOfficialSpell}
                         />
                         <button className="btn-sm btn-danger ml-2" onClick={() => setIsSearching(false)}>Cancel</button>
-
-                        {searchResults.length > 0 && (
-                            <ul className="search-dropdown glass-panel">
-                                {searchResults.map(res => (
-                                    <li key={res.index} onClick={() => handleSelectOfficialSpell(res.index)}>
-                                        {res.name}
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
                     </div>
                 ) : isAddingCustom ? (
                     <div className="custom-spell-form glass-panel">

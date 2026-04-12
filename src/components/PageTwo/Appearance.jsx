@@ -64,7 +64,7 @@ export const Appearance = () => {
                     {data.portraitBase64 ? (
                         <>
                             <img src={data.portraitBase64} alt="Character" className="portrait-img" />
-                            <button className="btn-danger-icon remove-img-btn" onClick={removePortrait}>✕</button>
+                            <button className="btn-danger-icon remove-img-btn" onClick={removePortrait} aria-label="Remove portrait">✕</button>
                         </>
                     ) : (
                         <div className="portrait-placeholder">

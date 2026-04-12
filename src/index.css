@@ -1,3 +1,7 @@
+html {
+  font-size: 18px;
+}
+
 :root {
   /* Colors - Dark Fantasy Palette */
   --bg-color: #0f0a0d;
@@ -19,8 +23,8 @@
   /* Faded ink */
 
   /* Typography */
-  --font-body: 'Inter', system-ui, sans-serif;
-  --font-heading: 'Outfit', 'Inter', sans-serif;
+  --font-body: 'Crimson Pro', Georgia, serif;
+  --font-heading: 'Cinzel', Georgia, serif;
 
   /* Glassmorphism System */
   --glass-bg: rgba(18, 12, 16, 0.55);
@@ -40,6 +44,254 @@
   /* Transitions */
   --transition-fast: 0.15s ease-in-out;
   --transition-normal: 0.3s ease-in-out;
+
+  /* Heading shadow — overridden to none/soft on light themes */
+  --heading-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* ─── Themes ──────────────────────────────────────────────────────────────── */
+
+/* Shadow Realm (default) — identical to :root; explicit for clarity */
+[data-theme="shadow-realm"] {
+  --font-heading: 'Cinzel', Georgia, serif;
+  --font-body: 'Crimson Pro', Georgia, serif;
+  --bg-color: #0f0a0d;
+  --accent-gold: #d4af37;
+  --accent-gold-dim: rgba(212, 175, 55, 0.4);
+  --accent-crimson: #a01a22;
+  --accent-arcane: #7a52c4;
+  --text-main: #e8e0d5;
+  --text-muted: rgba(232, 224, 213, 0.75);
+  --glass-bg: rgba(32, 20, 28, 0.72);
+  --glass-bg-hover: rgba(42, 28, 36, 0.88);
+  --glass-border: rgba(212, 175, 55, 0.22);
+  --glass-border-strong: rgba(212, 175, 55, 0.48);
+  --glass-border-subtle: rgba(255, 255, 255, 0.05);
+  --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Parchment & Ink — aged manuscript, light mode */
+[data-theme="parchment"] {
+  --font-heading: 'IM Fell English', Georgia, serif;
+  --font-body: 'Lora', Georgia, serif;
+  --bg-color: #f5e8cc;
+  --accent-gold: #6b4f12;
+  --accent-gold-dim: rgba(107, 79, 18, 0.4);
+  --accent-crimson: #8b1a1a;
+  --accent-arcane: #2e5230;
+  --text-main: #1e1508;
+  --text-muted: rgba(30, 21, 8, 0.68);
+  --heading-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+  --glass-bg: rgba(165, 138, 90, 0.32);
+  --glass-bg-hover: rgba(145, 118, 70, 0.48);
+  --glass-border: rgba(107, 79, 18, 0.35);
+  --glass-border-strong: rgba(107, 79, 18, 0.65);
+  --glass-border-subtle: rgba(107, 79, 18, 0.12);
+  --glass-shadow: 0 6px 24px 0 rgba(80, 50, 10, 0.22), inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+}
+
+/* Arcane Scholar — midnight navy, warm gold, cool crimson */
+[data-theme="arcane-scholar"] {
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Crimson Pro', Georgia, serif;
+  --bg-color: #080d1a;
+  --accent-gold: #c8a84b;
+  --accent-gold-dim: rgba(200, 168, 75, 0.35);
+  --accent-crimson: #c0304a;
+  --accent-arcane: #5a82d8;
+  --text-main: #dde4f0;
+  --text-muted: rgba(221, 228, 240, 0.78);
+  --glass-bg: rgba(22, 32, 68, 0.75);
+  --glass-bg-hover: rgba(30, 42, 84, 0.90);
+  --glass-border: rgba(200, 168, 75, 0.18);
+  --glass-border-strong: rgba(200, 168, 75, 0.42);
+  --glass-border-subtle: rgba(255, 255, 255, 0.04);
+  --glass-shadow: 0 12px 40px 0 rgba(0, 0, 20, 0.6), inset 0 1px 0 0 rgba(200, 168, 75, 0.06);
+}
+
+/* Infernal Pact — charcoal, ember orange, blood red, sulfur arcane */
+[data-theme="infernal-pact"] {
+  --font-heading: 'Cinzel Decorative', 'Cinzel', Georgia, serif;
+  --font-body: 'Crimson Pro', Georgia, serif;
+  --bg-color: #0d0806;
+  --accent-gold: #e8610a;
+  --accent-gold-dim: rgba(232, 97, 10, 0.4);
+  --accent-crimson: #c0182a;
+  --accent-arcane: #c9a000;
+  --text-main: #f0ddd0;
+  --text-muted: rgba(240, 221, 208, 0.78);
+  --glass-bg: rgba(28, 14, 8, 0.72);
+  --glass-bg-hover: rgba(40, 20, 10, 0.88);
+  --glass-border: rgba(232, 97, 10, 0.20);
+  --glass-border-strong: rgba(232, 97, 10, 0.50);
+  --glass-border-subtle: rgba(255, 80, 20, 0.06);
+  --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(232, 97, 10, 0.08);
+}
+
+/* Celestial Dawn — ivory, pale gold, sky blue */
+[data-theme="celestial-dawn"] {
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Lora', Georgia, serif;
+  --bg-color: #f0eee8;
+  --accent-gold: #8a6e08;
+  --accent-gold-dim: rgba(138, 110, 8, 0.35);
+  --accent-crimson: #a82030;
+  --accent-arcane: #2a65a0;
+  --text-main: #12100a;
+  --text-muted: rgba(18, 16, 10, 0.65);
+  --heading-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  --glass-bg: rgba(148, 128, 88, 0.26);
+  --glass-bg-hover: rgba(128, 108, 68, 0.40);
+  --glass-border: rgba(138, 110, 8, 0.32);
+  --glass-border-strong: rgba(138, 110, 8, 0.62);
+  --glass-border-subtle: rgba(138, 110, 8, 0.10);
+  --glass-shadow: 0 6px 24px 0 rgba(80, 60, 0, 0.18), inset 0 1px 0 0 rgba(255, 255, 255, 0.65);
+}
+
+/* Eldritch Void — void black, sickly gold, blood red, eldritch teal */
+[data-theme="eldritch-void"] {
+  --font-heading: 'Uncial Antiqua', Georgia, serif;
+  --font-body: 'Crimson Pro', Georgia, serif;
+  --bg-color: #030508;
+  --accent-gold: #b8a030;
+  --accent-gold-dim: rgba(184, 160, 48, 0.35);
+  --accent-crimson: #aa1a3a;
+  --accent-arcane: #00c896;
+  --text-main: #c8ede6;
+  --text-muted: rgba(200, 237, 230, 0.82);
+  --glass-bg: rgba(8, 18, 32, 0.78);
+  --glass-bg-hover: rgba(14, 28, 48, 0.92);
+  --glass-border: rgba(184, 160, 48, 0.20);
+  --glass-border-strong: rgba(184, 160, 48, 0.44);
+  --glass-border-subtle: rgba(0, 200, 150, 0.06);
+  --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.7), inset 0 1px 0 0 rgba(184, 160, 48, 0.08);
+}
+
+/* Druid's Grove — deep forest, moss green, blood red, mystic teal */
+[data-theme="druids-grove"] {
+  --font-heading: 'Uncial Antiqua', Georgia, serif;
+  --font-body: 'Lora', Georgia, serif;
+  --bg-color: #060e08;
+  --accent-gold: #8fba4e;
+  --accent-gold-dim: rgba(143, 186, 78, 0.35);
+  --accent-crimson: #a82020;
+  --accent-arcane: #28b890;
+  --text-main: #d4e8c2;
+  --text-muted: rgba(212, 232, 194, 0.82);
+  --glass-bg: rgba(18, 32, 20, 0.78);
+  --glass-bg-hover: rgba(28, 46, 30, 0.92);
+  --glass-border: rgba(143, 186, 78, 0.22);
+  --glass-border-strong: rgba(143, 186, 78, 0.48);
+  --glass-border-subtle: rgba(62, 139, 92, 0.08);
+  --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(143, 186, 78, 0.10);
+}
+
+/* Frost Citadel — glacial dark, ice blue, cold red, aurora purple */
+[data-theme="frost-citadel"] {
+  --font-heading: 'Josefin Slab', Georgia, serif;
+  --font-body: 'Josefin Slab', Georgia, serif;
+  --bg-color: #050b12;
+  --accent-gold: #a8d4e8;
+  --accent-gold-dim: rgba(168, 212, 232, 0.32);
+  --accent-crimson: #c0304a;
+  --accent-arcane: #8860d0;
+  --text-main: #daeaf5;
+  --text-muted: rgba(218, 234, 245, 0.82);
+  --glass-bg: rgba(14, 28, 48, 0.82);
+  --glass-bg-hover: rgba(22, 40, 66, 0.94);
+  --glass-border: rgba(168, 212, 232, 0.22);
+  --glass-border-strong: rgba(168, 212, 232, 0.48);
+  --glass-border-subtle: rgba(79, 195, 247, 0.07);
+  --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.65), inset 0 1px 0 0 rgba(168, 212, 232, 0.10);
+}
+
+/* ─── Background gradients per theme ─────────────────────────────────────── */
+
+[data-theme="shadow-realm"] body,
+body {
+  background-image:
+    radial-gradient(circle at 10% 40%, rgba(77, 43, 134, 0.22), transparent 35%),
+    radial-gradient(circle at 90% 20%, rgba(160, 26, 34, 0.16), transparent 40%),
+    radial-gradient(circle at 50% 100%, rgba(212, 175, 55, 0.07), transparent 40%);
+}
+
+[data-theme="parchment"] body {
+  background-image:
+    radial-gradient(circle at 15% 30%, rgba(122, 92, 30, 0.1), transparent 40%),
+    radial-gradient(circle at 85% 15%, rgba(139, 32, 32, 0.08), transparent 35%),
+    radial-gradient(circle at 50% 90%, rgba(59, 94, 58, 0.06), transparent 40%);
+}
+
+[data-theme="parchment"] input,
+[data-theme="parchment"] textarea,
+[data-theme="parchment"] select {
+  background: rgba(107, 79, 18, 0.09);
+  color: #1e1508;
+  border-color: rgba(107, 79, 18, 0.28);
+}
+
+[data-theme="parchment"] input:focus,
+[data-theme="parchment"] textarea:focus,
+[data-theme="parchment"] select:focus {
+  background: rgba(107, 79, 18, 0.14);
+  color: #1e1508;
+}
+
+[data-theme="arcane-scholar"] body {
+  background-image:
+    radial-gradient(circle at 10% 40%, rgba(74, 111, 196, 0.2), transparent 35%),
+    radial-gradient(circle at 90% 20%, rgba(192, 48, 74, 0.14), transparent 40%),
+    radial-gradient(circle at 50% 100%, rgba(200, 168, 75, 0.06), transparent 40%);
+}
+
+[data-theme="infernal-pact"] body {
+  background-image:
+    radial-gradient(circle at 10% 40%, rgba(139, 40, 0, 0.25), transparent 35%),
+    radial-gradient(circle at 90% 20%, rgba(192, 24, 42, 0.18), transparent 40%),
+    radial-gradient(circle at 50% 100%, rgba(232, 97, 10, 0.08), transparent 40%);
+}
+
+[data-theme="celestial-dawn"] body {
+  background-image:
+    radial-gradient(circle at 10% 40%, rgba(60, 122, 184, 0.1), transparent 35%),
+    radial-gradient(circle at 90% 20%, rgba(192, 48, 74, 0.08), transparent 40%),
+    radial-gradient(circle at 50% 100%, rgba(184, 150, 12, 0.06), transparent 40%);
+}
+
+[data-theme="celestial-dawn"] input,
+[data-theme="celestial-dawn"] textarea,
+[data-theme="celestial-dawn"] select {
+  background: rgba(138, 110, 8, 0.09);
+  color: #12100a;
+  border-color: rgba(138, 110, 8, 0.28);
+}
+
+[data-theme="celestial-dawn"] input:focus,
+[data-theme="celestial-dawn"] textarea:focus,
+[data-theme="celestial-dawn"] select:focus {
+  background: rgba(138, 110, 8, 0.14);
+  color: #12100a;
+}
+
+[data-theme="eldritch-void"] body {
+  background-image:
+    radial-gradient(circle at 15% 35%, rgba(0, 200, 150, 0.14), transparent 35%),
+    radial-gradient(circle at 85% 20%, rgba(170, 26, 58, 0.18), transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(184, 160, 48, 0.06), transparent 40%);
+}
+
+[data-theme="druids-grove"] body {
+  background-image:
+    radial-gradient(circle at 10% 50%, rgba(62, 139, 92, 0.2), transparent 40%),
+    radial-gradient(circle at 80% 15%, rgba(192, 98, 42, 0.14), transparent 35%),
+    radial-gradient(circle at 50% 95%, rgba(143, 186, 78, 0.08), transparent 40%);
+}
+
+[data-theme="frost-citadel"] body {
+  background-image:
+    radial-gradient(circle at 10% 40%, rgba(79, 195, 247, 0.14), transparent 35%),
+    radial-gradient(circle at 88% 18%, rgba(110, 158, 197, 0.12), transparent 40%),
+    radial-gradient(circle at 50% 95%, rgba(168, 212, 232, 0.06), transparent 40%);
 }
 
 * {
@@ -78,7 +330,7 @@ h6 {
   font-weight: 500;
   color: var(--accent-gold);
   letter-spacing: 0.8px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  text-shadow: var(--heading-shadow);
 }
 
 button {

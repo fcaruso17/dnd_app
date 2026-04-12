@@ -1,5 +1,12 @@
 import { useCharacterStore } from '../../store/useCharacterStore';
 
+const TRAIT_FIELDS = [
+    { field: 'personality', label: 'Personality Traits' },
+    { field: 'ideals', label: 'Ideals' },
+    { field: 'bonds', label: 'Bonds' },
+    { field: 'flaws', label: 'Flaws' },
+];
+
 export const Traits = () => {
     const data = useCharacterStore(state => state.character.traits);
     const updateNestedField = useCharacterStore(state => state.updateNestedField);
@@ -16,46 +23,17 @@ export const Traits = () => {
                 />
             </div>
 
-            <div className="glass-panel trait-box">
-                <label htmlFor="input-personality">Personality Traits</label>
-                <textarea
-                    id="input-personality"
-                    value={data.personality}
-                    onChange={(e) => updateNestedField('traits', 'personality', e.target.value)}
-                    rows={3}
-                />
-            </div>
-
-            <div className="glass-panel trait-box">
-                <label htmlFor="input-ideals">Ideals</label>
-                <textarea
-                    id="input-ideals"
-                    value={data.ideals}
-                    onChange={(e) => updateNestedField('traits', 'ideals', e.target.value)}
-                    rows={3}
-                />
-            </div>
-
-            <div className="glass-panel trait-box">
-                <label htmlFor="input-bonds">Bonds</label>
-                <textarea
-                    id="input-bonds"
-                    value={data.bonds}
-                    onChange={(e) => updateNestedField('traits', 'bonds', e.target.value)}
-                    rows={3}
-                />
-            </div>
-
-            <div className="glass-panel trait-box">
-                <label htmlFor="input-flaws">Flaws</label>
-                <textarea
-                    id="input-flaws"
-                    value={data.flaws}
-                    onChange={(e) => updateNestedField('traits', 'flaws', e.target.value)}
-                    rows={3}
-                />
-            </div>
-
+            {TRAIT_FIELDS.map(({ field, label }) => (
+                <div key={field} className="glass-panel trait-box">
+                    <label htmlFor={`input-${field}`}>{label}</label>
+                    <textarea
+                        id={`input-${field}`}
+                        value={data[field]}
+                        onChange={(e) => updateNestedField('traits', field, e.target.value)}
+                        rows={3}
+                    />
+                </div>
+            ))}
         </div>
     );
 };

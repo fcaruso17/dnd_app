@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useCharacterStore } from '../../store/useCharacterStore';
+import { formatModifier } from '../../utils/format';
 
 export const Vitals = () => {
     const data = useCharacterStore(state => state.character.vitals);
@@ -16,7 +17,7 @@ export const Vitals = () => {
     };
 
     const addHitDicePool = () => {
-        updateNestedField('vitals', 'hitDice', [...data.hitDice, { class: '', die: 'd8', total: 1, expended: 0 }]);
+        updateNestedField('vitals', 'hitDice', [...data.hitDice, { id: crypto.randomUUID(), class: '', die: 'd8', total: 1, expended: 0 }]);
     };
 
     const removeHitDicePool = (index) => {
@@ -25,25 +26,9 @@ export const Vitals = () => {
     };
 
     const handleDamage = (amount) => {
-        let remainingDamage = amount;
-        let newTempHp = data.hpTemp;
-        let newCurrentHp = data.hpCurrent;
-
-        if (newTempHp > 0) {
-            if (newTempHp >= remainingDamage) {
-                newTempHp -= remainingDamage;
-                remainingDamage = 0;
-            } else {
-                remainingDamage -= newTempHp;
-                newTempHp = 0;
-            }
-            updateNestedField('vitals', 'hpTemp', newTempHp);
-        }
-
-        if (remainingDamage > 0) {
-            newCurrentHp = Math.max(newCurrentHp - remainingDamage, 0);
-            updateNestedField('vitals', 'hpCurrent', newCurrentHp);
-        }
+        const tempAbsorbed = Math.min(data.hpTemp, amount);
+        updateNestedField('vitals', 'hpTemp', data.hpTemp - tempAbsorbed);
+        updateNestedField('vitals', 'hpCurrent', Math.max(0, data.hpCurrent - (amount - tempAbsorbed)));
     };
 
     return (
@@ -61,7 +46,7 @@ export const Vitals = () => {
                 <div className="glass-panel stat-box">
                     <input
                         type="text"
-                        value={getModifier(attributes.dex) > 0 ? `+${getModifier(attributes.dex)}` : getModifier(attributes.dex)}
+                        value={formatModifier(getModifier(attributes.dex))}
                         readOnly
                         className="auto-calculated-input"
                     />
@@ -113,13 +98,13 @@ export const Vitals = () => {
                         />
                     </label>
 
-                    <div className="quick-heal-dmg" style={{ display: 'flex', gap: '0.25rem', alignItems: 'center' }}>
+                    <div className="quick-heal-dmg">
                         <input
                             type="number"
                             placeholder="1"
                             value={hpChangeAmount}
                             onChange={(e) => setHpChangeAmount(e.target.value)}
-                            style={{ width: '45px', fontSize: '0.9rem', textAlign: 'center', height: '28px', padding: '0 0.25rem' }}
+                            className="hp-change-input"
                         />
                         <button className="btn btn-sm" onClick={() => {
                             const val = parseInt(hpChangeAmount) || 1;
@@ -140,17 +125,17 @@ export const Vitals = () => {
                 <div className="glass-panel hit-dice-box">
                     <div className="box-title flex-between">
                         <span>Hit Dice</span>
-                        <button className="btn-sm" onClick={addHitDicePool}>+</button>
+                        <button className="btn-sm" onClick={addHitDicePool} aria-label="Add hit dice pool">+</button>
                     </div>
                     <div className="hit-dice-list">
                         {data.hitDice.map((hd, idx) => (
-                            <div key={idx} className="hit-dice-row">
+                            <div key={hd.id || idx} className="hit-dice-row">
                                 <input
                                     type="text"
                                     value={hd.die}
                                     placeholder="d8"
                                     onChange={(e) => handleHitDiceChange(idx, 'die', e.target.value)}
-                                    style={{ width: '40px' }}
+                                    className="hit-dice-input"
                                 />
                                 <span> Pools: </span>
                                 <input
@@ -158,7 +143,7 @@ export const Vitals = () => {
                                     value={hd.total - hd.expended}
                                     onChange={(e) => handleHitDiceChange(idx, 'expended', hd.total - (parseInt(e.target.value) || 0))}
                                     title="Available Hit Dice"
-                                    style={{ width: '40px' }}
+                                    className="hit-dice-input"
                                 />
                                 <span> / </span>
                                 <input
@@ -166,9 +151,9 @@ export const Vitals = () => {
                                     value={hd.total}
                                     onChange={(e) => handleHitDiceChange(idx, 'total', e.target.value)}
                                     title="Total Hit Dice"
-                                    style={{ width: '40px' }}
+                                    className="hit-dice-input"
                                 />
-                                <button className="btn-danger-icon" onClick={() => removeHitDicePool(idx)} disabled={data.hitDice.length === 1}>✕</button>
+                                <button className="btn-danger-icon" onClick={() => removeHitDicePool(idx)} disabled={data.hitDice.length === 1} aria-label="Remove hit dice pool">✕</button>
                             </div>
                         ))}
                     </div>
@@ -177,35 +162,41 @@ export const Vitals = () => {
                 {/* Death Saves */}
                 <div className="glass-panel death-saves-box">
                     <div className="box-title">Death Saves</div>
-                    <div className="death-save-row success">
+                    <div className="death-save-row">
                         <span>Successes</span>
                         <div className="checkboxes">
                             {[1, 2, 3].map(num => (
-                                <input
-                                    type="checkbox"
+                                <button
                                     key={`succ-${num}`}
-                                    checked={data.deathSaves.successes >= num}
-                                    onChange={() => {
+                                    className={`death-save-pip success ${data.deathSaves.successes >= num ? 'active' : ''}`}
+                                    onClick={() => {
                                         const newVal = data.deathSaves.successes >= num ? num - 1 : num;
                                         updateNestedField('vitals', 'deathSaves', { ...data.deathSaves, successes: newVal });
                                     }}
-                                />
+                                    aria-label={`Success ${num}: ${data.deathSaves.successes >= num ? 'filled' : 'empty'}`}
+                                    aria-pressed={data.deathSaves.successes >= num}
+                                >
+                                    {data.deathSaves.successes >= num ? '✓' : '○'}
+                                </button>
                             ))}
                         </div>
                     </div>
-                    <div className="death-save-row failure">
+                    <div className="death-save-row">
                         <span>Failures</span>
                         <div className="checkboxes">
                             {[1, 2, 3].map(num => (
-                                <input
-                                    type="checkbox"
+                                <button
                                     key={`fail-${num}`}
-                                    checked={data.deathSaves.failures >= num}
-                                    onChange={() => {
+                                    className={`death-save-pip failure ${data.deathSaves.failures >= num ? 'active' : ''}`}
+                                    onClick={() => {
                                         const newVal = data.deathSaves.failures >= num ? num - 1 : num;
                                         updateNestedField('vitals', 'deathSaves', { ...data.deathSaves, failures: newVal });
                                     }}
-                                />
+                                    aria-label={`Failure ${num}: ${data.deathSaves.failures >= num ? 'filled' : 'empty'}`}
+                                    aria-pressed={data.deathSaves.failures >= num}
+                                >
+                                    {data.deathSaves.failures >= num ? '✕' : '○'}
+                                </button>
                             ))}
                         </div>
                     </div>

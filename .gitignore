@@ -37,3 +37,7 @@ _agents/
 _agent/
 .gemini/
 brain/
+
+# Claude Code local overrides (personal, not shared)
+.claude.local.md
+.claude/
