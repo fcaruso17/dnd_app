@@ -223,11 +223,33 @@
 
 .class-entry {
     display: flex;
-    gap: 0.5rem;
+    flex-direction: column;
+    gap: 0.35rem;
 }
 
-.class-entry input {
+.class-entry-top {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.subclass-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-left: 0.25rem;
+}
+
+.subclass-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    min-width: 52px;
+}
+
+.subclass-input {
     flex: 1;
+    font-size: 0.85rem;
 }
 
 .btn-danger-icon {

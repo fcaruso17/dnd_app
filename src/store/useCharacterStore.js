@@ -10,7 +10,7 @@ const defaultCharacterState = {
         race: '',
         alignment: '',
         experiencePoints: 0,
-        classes: [{ id: crypto.randomUUID(), className: '', level: 1 }] // Array for multiclassing
+        classes: [{ id: crypto.randomUUID(), className: '', level: 1, subclass: '' }] // Array for multiclassing
     },
     attributes: {
         str: 10, dex: 10, con: 10, int: 10, wis: 10, cha: 10
