@@ -9,16 +9,6 @@ const fetchData = async (endpoint) => {
 };
 
 /**
- * Get full list of spells to search through
- */
-export const fetchAllSpells = async () => fetchData('/spells');
-
-/**
- * Get details for a specific spell index (e.g. "acid-arrow")
- */
-export const fetchSpellDetails = async (index) => fetchData(`/spells/${index}`);
-
-/**
  * Get full list of equipment
  */
 export const fetchEquipment = async () => fetchData('/equipment');

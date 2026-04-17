@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import spellcastingTables from '../data/spellcastingTables.json';
 
 // Default empty character structure based on 5E mechanics
 const defaultCharacterState = {
@@ -53,6 +54,8 @@ const defaultCharacterState = {
     },
     spellcasting: {
         classes: [],
+        spellcastingClasses: [],      // legacy — no longer used
+        spellcastingExclusions: [],   // classes the user has manually deselected from spell filter
         slots: {
             1: { total: 0, expended: 0 },
             2: { total: 0, expended: 0 },
@@ -70,11 +73,27 @@ const defaultCharacterState = {
     }
 };
 
+// Shallow-merge each top-level section with its defaults so that new fields
+// added to defaultCharacterState don't crash against old localStorage saves.
+const mergeWithDefaults = (saved) => {
+    const merged = { ...defaultCharacterState };
+    for (const key of Object.keys(defaultCharacterState)) {
+        const savedVal = saved[key];
+        const defaultVal = defaultCharacterState[key];
+        if (savedVal !== undefined && savedVal !== null && typeof savedVal === 'object' && !Array.isArray(savedVal)) {
+            merged[key] = { ...defaultVal, ...savedVal };
+        } else if (savedVal !== undefined) {
+            merged[key] = savedVal;
+        }
+    }
+    return merged;
+};
+
 const getInitialState = () => {
     const saved = localStorage.getItem('dnd-character');
     if (saved) {
         try {
-            return JSON.parse(saved);
+            return mergeWithDefaults(JSON.parse(saved));
         } catch {
             console.error("Failed to parse local storage data.");
             return defaultCharacterState;
@@ -108,7 +127,7 @@ export const useCharacterStore = create((set, get) => ({
         try {
             const parsed = JSON.parse(jsonData);
             if (typeof parsed !== 'object' || parsed === null) throw new Error('Not an object');
-            set({ character: { ...defaultCharacterState, ...parsed }, lastSaved: Date.now() });
+            set({ character: mergeWithDefaults(parsed), lastSaved: Date.now() });
             alert("Character imported successfully!");
         } catch {
             alert("Invalid JSON file format.");
@@ -140,6 +159,19 @@ export const useCharacterStore = create((set, get) => ({
     // Helper for ability modifiers
     getModifier: (score) => {
         return Math.floor(((parseInt(score) || 10) - 10) / 2);
+    },
+
+    // Returns the max number of prepared spells for a given class based on
+    // that class's current level in the character's class list.
+    // Returns 0 for non-prepared-caster classes (Barbarian, Fighter, Monk, Rogue).
+    getPreparedMax: (className) => {
+        const { character } = get();
+        const classEntry = character.header.classes.find(c => c.className === className);
+        if (!classEntry) return 0;
+        const level = Math.max(1, Math.min(20, parseInt(classEntry.level) || 1));
+        const table = spellcastingTables[className];
+        if (!table) return 0;
+        return table[level - 1] || 0;
     }
 }));
 

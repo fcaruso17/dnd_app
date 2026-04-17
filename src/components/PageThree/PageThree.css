@@ -16,34 +16,42 @@
     gap: 0.5rem;
 }
 
+.spell-class-row-header,
+.spell-class-row--auto {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0 0.25rem;
+}
+
 .spell-class-row-header {
-    display: flex;
-    gap: 0.5rem;
     font-size: 0.7rem;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
     color: var(--text-muted);
-    padding: 0 0.5rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--glass-border);
 }
 
-.spell-class-row {
-    display: flex;
-    gap: 0.5rem;
+.spell-class-row--auto {
+    padding: 0.4rem 0.25rem;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
 }
 
-.spell-class-row input[type="text"],
-.spell-class-row-header span:first-child {
-    flex: 2;
+.spell-class-row--auto:last-child {
+    border-bottom: none;
 }
 
-.spell-class-row select,
-.spell-class-row input[type="number"],
-.spell-class-row-header span:nth-child(n+2):not(:last-child) {
-    flex: 1;
+.spell-class-row--auto span:first-child {
+    font-weight: 600;
+    color: var(--accent-gold);
 }
 
-.spell-class-row-header span:last-child {
-    width: 32px;
-    flex: none;
+.spell-class-row--auto span:not(:first-child) {
+    color: var(--text-primary);
+    font-variant-numeric: tabular-nums;
+    text-align: center;
 }
 
 .spell-tracker-container {
@@ -236,4 +244,189 @@
     .spell-tracker-container {
         flex-direction: column;
     }
+}
+
+/* ── Prepared toggle ─────────────────────────────────── */
+.prepared-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--text-muted, rgba(255,255,255,0.4));
+    padding: 0 4px;
+    line-height: 1;
+    transition: color 0.15s, transform 0.1s;
+    flex-shrink: 0;
+}
+
+.prepared-toggle:hover:not(:disabled) {
+    color: var(--accent-gold);
+    transform: scale(1.2);
+}
+
+.prepared-toggle--on {
+    color: var(--accent-gold);
+}
+
+.prepared-toggle:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* ── Prepared count display ──────────────────────────── */
+.prepared-count {
+    font-size: 0.72rem;
+    color: var(--text-muted, rgba(255,255,255,0.5));
+    white-space: nowrap;
+    margin-left: 6px;
+}
+
+.prepared-count--full {
+    color: var(--accent-crimson);
+}
+
+/* ── Prepared spell row highlight ────────────────────── */
+.spell-prepared > .spell-item-header {
+    background: rgba(var(--accent-gold-rgb, 212,175,55), 0.07);
+    border-radius: 4px;
+}
+
+/* ── Concentration / Ritual tags ─────────────────────── */
+.spell-tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 700;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin-left: 5px;
+    vertical-align: middle;
+    letter-spacing: 0.03em;
+}
+
+.spell-tag--conc {
+    background: rgba(100, 180, 255, 0.2);
+    color: #64b4ff;
+    border: 1px solid rgba(100, 180, 255, 0.35);
+}
+
+.spell-tag--ritual {
+    background: rgba(180, 255, 140, 0.15);
+    color: #9de87a;
+    border: 1px solid rgba(180, 255, 140, 0.3);
+}
+
+/* ── Inline spell search ─────────────────────────────── */
+.spell-search-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.spell-search-input {
+    width: 100%;
+}
+
+.spell-search-results {
+    display: flex;
+    flex-direction: column;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid var(--glass-border, rgba(255,255,255,0.12));
+    border-radius: 6px;
+    background: var(--glass-bg, rgba(0,0,0,0.35));
+}
+
+.spell-search-result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--glass-border, rgba(255,255,255,0.07));
+    color: var(--text-primary, #fff);
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.1s;
+}
+
+.spell-search-result:last-child {
+    border-bottom: none;
+}
+
+.spell-search-result:hover {
+    background: var(--glass-hover, rgba(255,255,255,0.08));
+}
+
+.result-name {
+    font-size: 0.85rem;
+}
+
+.result-meta {
+    font-size: 0.72rem;
+    color: var(--text-muted, rgba(255,255,255,0.45));
+    margin-left: 8px;
+    white-space: nowrap;
+}
+
+/* ── Spellcasting class selector chips ───────────────── */
+.spellcasting-class-selector {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--glass-border, rgba(255,255,255,0.1));
+}
+
+.selector-label {
+    font-size: 0.75rem;
+    color: var(--text-muted, rgba(255,255,255,0.5));
+    white-space: nowrap;
+}
+
+.selector-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.class-chip {
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border, rgba(255,255,255,0.2));
+    background: none;
+    color: var(--text-muted, rgba(255,255,255,0.4));
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: background 0.15s ease-out, color 0.15s ease-out, border-color 0.15s ease-out, transform 0.1s ease-out, opacity 0.15s ease-out;
+}
+
+.class-chip:hover {
+    border-color: var(--accent-arcane, #7c6fa0);
+    color: var(--accent-arcane, #7c6fa0);
+}
+
+.class-chip:active {
+    transform: scale(0.95);
+}
+
+.class-chip--active {
+    background: rgba(var(--accent-arcane-rgb, 124,111,160), 0.18);
+    border-color: var(--accent-arcane, #7c6fa0);
+    color: var(--accent-arcane, #7c6fa0);
+    font-weight: 500;
+}
+
+.class-chip--active:hover {
+    border-color: var(--accent-arcane, #7c6fa0);
+    color: var(--accent-arcane, #7c6fa0);
+    opacity: 0.8;
+}
+
+/* ── Header class dropdown ───────────────────────────── */
+.class-select {
+    flex: 1;
+    min-width: 0;
 }

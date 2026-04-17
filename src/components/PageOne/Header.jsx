@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useCharacterStore } from '../../store/useCharacterStore';
 import { TraitModal } from './TraitModal';
+import { CLASSES } from '../../data/classes';
 
 const TRAIT_FIELDS = [
     { field: 'features',    label: 'Features & Traits' },
@@ -69,12 +70,14 @@ export const Header = () => {
                     </div>
                     {data.classes.map((cls, idx) => (
                         <div key={cls.id || idx} className="class-entry flex gap-2 mb-2">
-                            <input
-                                type="text"
-                                placeholder="Class"
+                            <select
                                 value={cls.className}
                                 onChange={(e) => handleClassChange(idx, 'className', e.target.value)}
-                            />
+                                className="class-select"
+                            >
+                                <option value="">— Select Class —</option>
+                                {CLASSES.map(c => <option key={c} value={c}>{c}</option>)}
+                            </select>
                             <input
                                 type="number"
                                 placeholder="Lvl"
