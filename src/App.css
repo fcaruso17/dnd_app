@@ -67,6 +67,18 @@
   box-shadow: 0 0 10px rgba(160, 26, 34, 0.25);
 }
 
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
 /* Theme Picker */
 .theme-picker {
   display: flex;

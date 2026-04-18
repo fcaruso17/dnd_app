@@ -1023,3 +1023,107 @@
 .inventory-search-wrapper {
     margin-top: 0.5rem;
 }
+
+/* ── Rest controls ───────────────────────────────────────── */
+.hd-rest-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--glass-border);
+    flex-wrap: wrap;
+}
+
+.btn-long-rest {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+}
+
+.btn-long-rest--armed {
+    background: rgba(212, 175, 55, 0.15);
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+    animation: long-rest-pulse 1s ease-in-out infinite;
+}
+
+@keyframes long-rest-pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.6; }
+}
+
+/* Short rest inline panel */
+.hd-rest-panel {
+    margin-top: 0.5rem;
+    padding: 0.75rem;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.hd-rest-panel-title {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent-arcane);
+    font-weight: 600;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.hd-spend-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.hd-spend-die {
+    font-family: var(--font-heading);
+    color: var(--accent-gold);
+    min-width: 2rem;
+}
+
+.hd-spend-avail {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    flex: 1;
+}
+
+.hd-spend-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.hd-spend-count {
+    min-width: 1.25rem;
+    text-align: center;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--accent-arcane);
+}
+
+.hd-spend-hp-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    color: var(--text-muted);
+}
+
+.hd-spend-hp-input {
+    width: 60px;
+    text-align: center;
+}
+
+.hd-rest-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.4rem;
+    margin-top: 0.25rem;
+}

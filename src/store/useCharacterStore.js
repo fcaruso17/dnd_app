@@ -70,6 +70,16 @@ const defaultCharacterState = {
         spells: {
             0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: []
         }
+    },
+    resources: {
+        rage: 0,
+        bardicInspiration: 0,
+        channelDivinity: 0,
+        wildShape: 0,
+        secondWind: 0,
+        focusPoints: 0,
+        favoredEnemy: 0,
+        sorceryPoints: 0,
     }
 };
 
@@ -101,6 +111,8 @@ const getInitialState = () => {
     }
     return defaultCharacterState;
 };
+
+const SHORT_REST_RESOURCES = ['channelDivinity', 'wildShape', 'secondWind', 'focusPoints'];
 
 export const useCharacterStore = create((set, get) => ({
     character: getInitialState(),
@@ -172,7 +184,45 @@ export const useCharacterStore = create((set, get) => ({
         const table = spellcastingTables[className];
         if (!table) return 0;
         return table[level - 1] || 0;
-    }
+    },
+
+    shortRest: () => set((state) => {
+        const reset = Object.fromEntries(SHORT_REST_RESOURCES.map((k) => [k, 0]));
+        return {
+            character: {
+                ...state.character,
+                resources: { ...state.character.resources, ...reset }
+            },
+            lastSaved: Date.now()
+        };
+    }),
+
+    longRest: () => set((state) => {
+        const { vitals, spellcasting } = state.character;
+        const resetSlots = Object.fromEntries(
+            Object.keys(spellcasting.slots).map(k => [k, { ...spellcasting.slots[k], expended: 0 }])
+        );
+        const resetHitDice = vitals.hitDice.map(hd => ({ ...hd, expended: 0 }));
+        return {
+            character: {
+                ...state.character,
+                vitals: {
+                    ...vitals,
+                    hpCurrent: vitals.hpMax,
+                    hitDice: resetHitDice,
+                    deathSaves: { successes: 0, failures: 0 }
+                },
+                spellcasting: {
+                    ...spellcasting,
+                    slots: resetSlots
+                },
+                resources: Object.fromEntries(
+                    Object.keys(defaultCharacterState.resources).map(k => [k, 0])
+                )
+            },
+            lastSaved: Date.now()
+        };
+    })
 }));
 
 // Setup automatic local storage persistence listener
