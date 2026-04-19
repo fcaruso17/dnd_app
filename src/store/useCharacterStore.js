@@ -26,9 +26,19 @@ const defaultCharacterState = {
     },
     skillsSaves: {
         inspiration: false,
-        proficiencies: [],
-        expertise: [],
+        // Per-skill proficiency tier. Absent key = no proficiency.
+        // Values: 'half' | 'proficient' | 'expertise'
+        skillProficiencies: {},
+        // Per-skill flat numeric bonus (positive or negative). Absent key = 0.
+        skillBonuses: {},
+        // Per-skill optional note describing the source (e.g. "JoAT", "Observant").
+        skillNotes: {},
+        // Binary save proficiency — array of ability keys ('str','dex',...).
         saveProficiencies: [],
+        // Per-save flat numeric bonus. Absent key = 0.
+        saveBonuses: {},
+        // Per-save optional note.
+        saveNotes: {},
     },
     combat: {
         attacks: [] // { name, bonus, damage, type }
@@ -96,6 +106,29 @@ const mergeWithDefaults = (saved) => {
             merged[key] = savedVal;
         }
     }
+
+    // One-time migration: legacy skillsSaves had `proficiencies: []` and
+    // `expertise: []`. New shape uses `skillProficiencies: { [name]: tier }`.
+    // Run when a legacy array exists and the new map is missing/empty.
+    const ss = merged.skillsSaves;
+    const hasLegacy = Array.isArray(ss.proficiencies) || Array.isArray(ss.expertise);
+    const hasNew = ss.skillProficiencies && Object.keys(ss.skillProficiencies).length > 0;
+    if (hasLegacy && !hasNew) {
+        const tiers = {};
+        for (const name of (ss.proficiencies || [])) tiers[name] = 'proficient';
+        // Expertise implies proficiency — always overwrite to the more permissive tier.
+        for (const name of (ss.expertise || [])) tiers[name] = 'expertise';
+        merged.skillsSaves = {
+            inspiration: ss.inspiration ?? false,
+            skillProficiencies: tiers,
+            skillBonuses: ss.skillBonuses ?? {},
+            skillNotes: ss.skillNotes ?? {},
+            saveProficiencies: ss.saveProficiencies ?? [],
+            saveBonuses: ss.saveBonuses ?? {},
+            saveNotes: ss.saveNotes ?? {},
+        };
+    }
+
     return merged;
 };
 
