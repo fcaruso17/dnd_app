@@ -109,15 +109,17 @@ const mergeWithDefaults = (saved) => {
 
     // One-time migration: legacy skillsSaves had `proficiencies: []` and
     // `expertise: []`. New shape uses `skillProficiencies: { [name]: tier }`.
-    // Run when a legacy array exists and the new map is missing/empty.
+    // Read from the raw saved payload (untyped) to sidestep TS inference on
+    // the new default shape, which no longer declares the legacy keys.
+    const rawSS = saved.skillsSaves || {};
     const ss = merged.skillsSaves;
-    const hasLegacy = Array.isArray(ss.proficiencies) || Array.isArray(ss.expertise);
+    const hasLegacy = Array.isArray(rawSS.proficiencies) || Array.isArray(rawSS.expertise);
     const hasNew = ss.skillProficiencies && Object.keys(ss.skillProficiencies).length > 0;
     if (hasLegacy && !hasNew) {
         const tiers = {};
-        for (const name of (ss.proficiencies || [])) tiers[name] = 'proficient';
+        for (const name of (rawSS.proficiencies || [])) tiers[name] = 'proficient';
         // Expertise implies proficiency — always overwrite to the more permissive tier.
-        for (const name of (ss.expertise || [])) tiers[name] = 'expertise';
+        for (const name of (rawSS.expertise || [])) tiers[name] = 'expertise';
         merged.skillsSaves = {
             inspiration: ss.inspiration ?? false,
             skillProficiencies: tiers,

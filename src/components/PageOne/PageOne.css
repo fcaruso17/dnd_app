@@ -692,16 +692,6 @@
     letter-spacing: 2px;
 }
 
-.passive-perception-box {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid var(--glass-border-strong);
-    border-radius: var(--radius-md);
-    padding: 0.75rem 1rem;
-    margin-bottom: 1.5rem;
-}
 
 .passive-val {
     font-size: 1.95rem;
@@ -722,20 +712,6 @@
     gap: 0;
 }
 
-.skill-row {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.25rem 0.5rem;
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
-    border-radius: var(--radius-sm);
-    transition: background var(--transition-fast);
-    font-size: 1rem;
-}
-
-.skill-row:hover {
-    background: var(--glass-bg-hover);
-}
 
 .skill-mod {
     font-family: var(--font-heading);
@@ -1126,4 +1102,198 @@
     justify-content: flex-end;
     gap: 0.4rem;
     margin-top: 0.25rem;
+}
+
+/* Skills & Saves — 4-tier pip segmented control */
+.tier-pips {
+    display: inline-flex;
+    gap: 2px;
+    flex-shrink: 0;
+}
+
+.tier-pip {
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-family: var(--font-body);
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--glass-border);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.tier-pip:hover {
+    border-color: var(--accent-arcane);
+    color: var(--text-main);
+}
+
+.tier-pip--active {
+    background: color-mix(in srgb, var(--accent-arcane) 22%, transparent);
+    border-color: var(--accent-arcane);
+    color: var(--accent-arcane);
+    font-weight: bold;
+}
+
+.tier-pip:focus-visible {
+    outline: 2px solid var(--accent-arcane);
+    outline-offset: 1px;
+}
+
+/* Skills & Saves — row structure for expand-on-click */
+.skill-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+}
+
+.skill-row--expanded {
+    background: color-mix(in srgb, var(--accent-arcane) 6%, transparent);
+    border-radius: var(--radius-sm);
+}
+
+.skill-row-main {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-sm);
+    transition: background var(--transition-fast);
+}
+
+.skill-row-main:hover {
+    background: var(--glass-bg-hover);
+}
+
+.skill-row--expanded .skill-row-main {
+    border-bottom-color: transparent;
+}
+
+.skill-row-toggle {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0;
+    background: transparent;
+    border: none;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    min-width: 0;
+}
+
+.skill-row-toggle:focus-visible {
+    outline: 2px solid var(--accent-arcane);
+    outline-offset: 2px;
+}
+
+/* Gold dot indicator when row has a misc bonus or a note */
+.skill-customization-dot {
+    margin-left: auto;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    box-shadow: 0 0 4px color-mix(in srgb, var(--accent-gold) 60%, transparent);
+    flex-shrink: 0;
+}
+
+/* Expanded details drawer */
+.skill-row-details {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem 0.6rem 0.75rem;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.skill-row-details-field {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.skill-row-details-field--wide {
+    flex: 1;
+    min-width: 140px;
+}
+
+.misc-bonus-input {
+    width: 52px;
+    padding: 0.25rem 0.4rem;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.25);
+    color: var(--text-main);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    -moz-appearance: textfield;
+}
+
+.misc-bonus-input::-webkit-outer-spin-button,
+.misc-bonus-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.misc-bonus-input--active {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+}
+
+.skill-note-input {
+    flex: 1;
+    min-width: 140px;
+    padding: 0.25rem 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    background: rgba(0, 0, 0, 0.25);
+    color: var(--text-main);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+}
+
+.skill-note-input:focus,
+.misc-bonus-input:focus {
+    outline: none;
+    border-color: var(--accent-arcane);
+}
+
+/* Stacked passive scores (Perception + Insight) */
+.passives-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--glass-border-strong);
+    border-radius: var(--radius-md);
+    background: rgba(0, 0, 0, 0.3);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.passive-box {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+}
+
+.passive-box + .passive-box {
+    border-top: 1px solid var(--glass-border);
 }
