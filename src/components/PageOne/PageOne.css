@@ -977,29 +977,6 @@
     color: #e5e4e2;
 }
 
-.equipment-box {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    flex: 1;
-}
-
-.equipment-box label {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    color: var(--accent-gold);
-    font-weight: 600;
-}
-
-.equipment-box textarea {
-    flex: 1;
-    resize: vertical;
-}
-
-.inventory-search-wrapper {
-    margin-top: 0.5rem;
-}
-
 /* ── Rest controls ───────────────────────────────────────── */
 .hd-rest-footer {
     display: flex;
@@ -1296,4 +1273,399 @@
 
 .passive-box + .passive-box {
     border-top: 1px solid var(--glass-border);
+}
+
+/* ---------- Attunement counter ---------- */
+.attunement-counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--glass-border, rgba(255,255,255,0.15));
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--accent-gold) 12%, transparent);
+    min-width: 110px;
+    transition: background 0.2s ease;
+}
+
+.attunement-counter-value {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent-gold);
+    line-height: 1;
+}
+
+.attunement-counter-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted, rgba(255,255,255,0.7));
+    margin-top: 0.25rem;
+}
+
+.attunement-counter--over {
+    /* Theme-independent warning yellow; text stays gold for contrast consistency. */
+    background: color-mix(in srgb, #facc15 35%, transparent);
+}
+
+/* ---------- Armor training ---------- */
+.armor-training {
+    border: 1px solid var(--glass-border, rgba(255,255,255,0.15));
+    border-radius: 8px;
+    padding: 0.5rem 0.9rem 0.7rem;
+    margin: 0;
+}
+
+.armor-training legend {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-gold);
+    padding: 0 0.5rem;
+}
+
+.armor-training-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    align-items: center;
+}
+
+.armor-training-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.95rem;
+}
+
+.armor-training-item input[type="checkbox"] {
+    /* Inherit the app's checkbox style (see global input rules in index.css). */
+    margin: 0;
+}
+
+/* ---------- Item row ---------- */
+.item-row {
+    border-bottom: 1px solid var(--glass-border, rgba(255,255,255,0.08));
+}
+
+.item-row:last-child {
+    border-bottom: none;
+}
+
+.item-row-main {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.item-row-qty {
+    flex: 0 0 2.5rem;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-muted, rgba(255,255,255,0.7));
+    font-size: 0.95rem;
+}
+
+.item-row-toggle {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: transparent;
+    border: none;
+    color: inherit;
+    padding: 0.55rem 0.5rem;
+    cursor: pointer;
+    font: inherit;
+    text-align: left;
+    border-radius: 6px;
+}
+
+.item-row-toggle:hover,
+.item-row-toggle:focus-visible {
+    background: color-mix(in srgb, var(--accent-gold) 10%, transparent);
+    outline: none;
+}
+
+.item-row-name {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.item-row-attuned-star {
+    color: var(--accent-gold);
+    font-size: 1.05rem;
+}
+
+.item-row-customization-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    flex: 0 0 auto;
+}
+
+.item-row-chevron {
+    color: var(--text-muted, rgba(255,255,255,0.6));
+    font-size: 1.1rem;
+    transition: transform 0.15s ease;
+}
+
+.item-row--expanded .item-row-chevron {
+    transform: rotate(90deg);
+}
+
+.item-row-details {
+    padding: 0.5rem 0.5rem 0.8rem 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.item-row-field {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+}
+
+.item-row-field > span {
+    flex: 0 0 5.5rem;
+    color: var(--text-muted, rgba(255,255,255,0.7));
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+}
+
+.item-row-field--wide input {
+    flex: 1 1 auto;
+}
+
+.item-row-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.2rem;
+}
+
+.item-row-qty-stepper {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.item-row-qty-stepper input {
+    width: 3.5rem;
+    text-align: center;
+    -moz-appearance: textfield;
+}
+
+.item-row-qty-stepper input::-webkit-outer-spin-button,
+.item-row-qty-stepper input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.item-row-qty-stepper button {
+    width: 1.8rem;
+    height: 1.8rem;
+    line-height: 1;
+    border-radius: 6px;
+    border: 1px solid var(--glass-border, rgba(255,255,255,0.15));
+    background: color-mix(in srgb, var(--accent-gold) 10%, transparent);
+    color: inherit;
+    cursor: pointer;
+}
+
+.item-row-qty-stepper button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.item-row-attune-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.item-row-delete {
+    margin-left: auto;
+    border: 1px solid color-mix(in srgb, var(--accent-crimson) 40%, transparent);
+    background: transparent;
+    color: var(--accent-crimson);
+    border-radius: 6px;
+    padding: 0.25rem 0.7rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.item-row-delete:hover {
+    background: color-mix(in srgb, var(--accent-crimson) 15%, transparent);
+}
+
+/* ---------- Rarity chip ---------- */
+.rarity-chip {
+    display: inline-block;
+    padding: 0.1rem 0.45rem;
+    border-radius: 999px;
+    /* Border uses currentColor (the inline-set rarity color) so the chip reads as
+       a chip on light-theme panels where the 22% translucent fill is subtle. */
+    border: 1px solid color-mix(in srgb, currentColor 55%, transparent);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    flex: 0 0 auto;
+}
+
+/* ---------- Inventory container layout ---------- */
+.inventory-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    /* Positioned so the undo toast can anchor inside it. */
+    position: relative;
+}
+
+.inventory-top-row {
+    display: flex;
+    gap: 1rem;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.inventory-top-row .currency-box {
+    flex: 1 1 auto;
+}
+
+.inventory-filter-row {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.inventory-filter-input {
+    flex: 1 1 14rem;
+    min-width: 10rem;
+}
+
+.inventory-action-btn {
+    padding: 0.4rem 0.9rem;
+    border-radius: 6px;
+    border: 1px solid var(--glass-border, rgba(255,255,255,0.15));
+    background: color-mix(in srgb, var(--accent-gold) 14%, transparent);
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+}
+
+.inventory-action-btn:hover {
+    background: color-mix(in srgb, var(--accent-gold) 25%, transparent);
+}
+
+.inventory-db-picker {
+    /* The ApiSearchDropdown renders its dropdown via portal; this wrapper only hosts the input. */
+}
+
+/* ---------- Filter chips ---------- */
+.items-filter-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.items-filter-chip {
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid var(--glass-border, rgba(255,255,255,0.15));
+    background: transparent;
+    color: var(--text-muted, rgba(255,255,255,0.8));
+    font-size: 0.85rem;
+    cursor: pointer;
+    font: inherit;
+}
+
+.items-filter-chip--active {
+    background: color-mix(in srgb, var(--accent-gold) 22%, transparent);
+    color: var(--accent-gold);
+    border-color: color-mix(in srgb, var(--accent-gold) 45%, transparent);
+}
+
+.items-filter-chip--magic {
+    margin-left: 0.5rem;
+}
+
+.items-filter-chip--magic.items-filter-chip--active {
+    background: color-mix(in srgb, var(--accent-arcane) 22%, transparent);
+    color: var(--accent-arcane);
+    border-color: color-mix(in srgb, var(--accent-arcane) 45%, transparent);
+}
+
+/* ---------- Items list ---------- */
+.items-list {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--glass-border, rgba(255,255,255,0.1));
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.items-list-empty {
+    padding: 0.7rem 1rem;
+    color: var(--text-muted, rgba(255,255,255,0.6));
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.items-list-empty-action {
+    background: none;
+    border: none;
+    color: var(--accent-gold);
+    cursor: pointer;
+    font: inherit;
+    padding: 0;
+    text-decoration: underline;
+}
+
+/* ---------- Undo toast ---------- */
+.undo-toast {
+    position: absolute;
+    bottom: 0.7rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.undo-toast button {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+    border-radius: 999px;
+    padding: 0.15rem 0.7rem;
+    cursor: pointer;
+    font: inherit;
+}
+
+.undo-toast button:hover {
+    background: rgba(255, 255, 255, 0.12);
 }

@@ -1,5 +1,7 @@
 import { create } from 'zustand';
 import spellcastingTables from '../data/spellcastingTables.json';
+import itemsDatabase from '../data/items.json';
+import { migrateLegacyEquipment, normalizeItems } from '../utils/items';
 
 // Default empty character structure based on 5E mechanics
 const defaultCharacterState = {
@@ -45,7 +47,14 @@ const defaultCharacterState = {
     },
     inventory: {
         cp: 0, sp: 0, ep: 0, gp: 0, pp: 0,
-        equipment: ''
+        // Structured item list. Each row is a fully-hydrated record; edits to items.json
+        // do NOT retroactively mutate a character's inventory.
+        // Shape: { id, name, quantity, type: 'weapon'|'armor'|'gear'|'tool',
+        //          rarity: null|'common'|'uncommon'|'rare'|'very rare'|'legendary'|'artifact',
+        //          attuned, description, notes, custom }
+        items: [],
+        // Armor / shield proficiency training (2024 PHB).
+        training: { light: false, medium: false, heavy: false, shields: false }
     },
     traits: {
         personality: '',
@@ -130,6 +139,32 @@ const mergeWithDefaults = (saved) => {
             saveNotes: ss.saveNotes ?? {},
         };
     }
+
+    // One-time migration: legacy `inventory.equipment: string` becomes structured `items[]`.
+    // Read from the raw saved payload (untyped) to sidestep inference on the new default
+    // shape, which no longer declares the legacy `equipment` field.
+    const rawInv = saved.inventory || {};
+    const inv = merged.inventory;
+
+    const hasLegacyEquipment = typeof rawInv.equipment === 'string' && rawInv.equipment.trim() !== '';
+    const hasNewItems = Array.isArray(rawInv.items) && rawInv.items.length > 0;
+
+    if (hasLegacyEquipment && !hasNewItems) {
+        inv.items = migrateLegacyEquipment(rawInv.equipment, itemsDatabase);
+    } else {
+        inv.items = normalizeItems(rawInv.items);
+    }
+
+    // Defensively strip the legacy field if it survived the shallow merge.
+    delete inv.equipment;
+
+    // Ensure training is shape-complete even for pre-overhaul saves.
+    inv.training = {
+        light:   rawInv.training?.light === true,
+        medium:  rawInv.training?.medium === true,
+        heavy:   rawInv.training?.heavy === true,
+        shields: rawInv.training?.shields === true,
+    };
 
     return merged;
 };

@@ -45,12 +45,13 @@ Auto-saves to `localStorage` key `dnd-character` on every character state change
 
 Eight presets defined as `[data-theme="X"]` CSS variable overrides in `src/index.css`: `shadow-realm` (default), `parchment`, `arcane-scholar`, `infernal-pact`, `celestial-dawn`, `eldritch-void`, `druids-grove`, `frost-citadel`. Theme is applied to `document.documentElement` — all panels, backgrounds, and accents update instantly.
 
-Each theme overrides `--font-heading` and `--font-body` in addition to all color variables — fonts change with the theme. To add a new theme: add a `[data-theme="X"]` block in `index.css` overriding all `--font-*`, `--accent-*`, `--glass-*`, `--text-*`, and `--bg-color` variables, add a `body` background-image block, and add an entry `{ id, label, swatch }` to the `THEMES` array in `useTheme.js`.
+Each theme overrides `--font-heading` and `--font-body` in addition to all color variables — fonts change with the theme. To add a new theme: add a `[data-theme="X"]` block in `index.css` overriding all `--font-*`, `--accent-*`, `--rarity-*`, `--glass-*`, `--text-*`, and `--bg-color` variables, add a `body` background-image block, and add an entry `{ id, label, swatch }` to the `THEMES` array in `useTheme.js`.
 
 **Semantic color contract** (do not break across themes):
 - `--accent-gold` → headings, primary UI accents, active labels (must read as a warm or contextual "primary" color)
 - `--accent-crimson` → HP bars, damage indicators, death save failures, danger (must register as a warning/danger color)
 - `--accent-arcane` → spellcasting panels, magical elements (must be distinct from both gold and crimson)
+- `--rarity-common` / `--rarity-uncommon` / `--rarity-rare` / `--rarity-veryrare` / `--rarity-legendary` / `--rarity-artifact` → magic-item rarity chips. Dedicated family — do NOT reuse `--accent-gold` or `--accent-crimson` for rarity (they collide with "primary" and "HP/damage"). Each theme overrides all six. Rarity chips use `color-mix(in srgb, var(--rarity-X) 22%, transparent)` for their background and full-opacity `var(--rarity-X)` for their text.
 
 **Light theme gotchas:**
 - The global `input/textarea/select` rule uses `background: rgba(0,0,0,0.25)`. Both `parchment` and `celestial-dawn` have scoped overrides immediately after their `body` background-image blocks to fix this, including a separate `:focus` override (global focus sets `background: rgba(0,0,0,0.4)` which also goes dark).
