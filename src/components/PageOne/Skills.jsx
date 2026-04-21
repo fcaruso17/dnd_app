@@ -1,5 +1,8 @@
+import { useEffect, useRef, useState } from 'react';
 import { useCharacterStore } from '../../store/useCharacterStore';
-import { formatModifier } from '../../utils/format';
+import { profBonusForTier } from '../../utils/skills';
+import { SkillRow } from './SkillRow';
+import { SaveRow } from './SaveRow';
 
 const SKILL_MAP = {
     'Acrobatics': 'dex',
@@ -37,22 +40,55 @@ export const Skills = () => {
 
     const profBonus = getProficiencyBonus();
 
+    // expandedRow is `skill:Athletics` | `save:str` | null.
+    const [expandedRow, setExpandedRow] = useState(null);
+    const containerRef = useRef(null);
+
+    // Close on click outside the panel.
+    useEffect(() => {
+        if (!expandedRow) return;
+        const handler = (e) => {
+            if (containerRef.current && !containerRef.current.contains(e.target)) {
+                setExpandedRow(null);
+            }
+        };
+        document.addEventListener('mousedown', handler);
+        return () => document.removeEventListener('mousedown', handler);
+    }, [expandedRow]);
+
+    // Close on Escape.
+    useEffect(() => {
+        if (!expandedRow) return;
+        const handler = (e) => {
+            if (e.key === 'Escape') setExpandedRow(null);
+        };
+        document.addEventListener('keydown', handler);
+        return () => document.removeEventListener('keydown', handler);
+    }, [expandedRow]);
+
     const getSkillTotal = (skillName, statKey) => {
-        let total = getModifier(attributes[statKey]);
-        if (data.proficiencies.includes(skillName)) total += profBonus;
-        return total;
+        const tier = data.skillProficiencies?.[skillName];
+        const bonus = data.skillBonuses?.[skillName] ?? 0;
+        return getModifier(attributes[statKey]) + profBonusForTier(tier, profBonus) + bonus;
     };
 
     const getSaveTotal = (stat) => {
-        let total = getModifier(attributes[stat]);
-        if ((data.saveProficiencies || []).includes(stat)) total += profBonus;
-        return total;
+        const isProf = (data.saveProficiencies || []).includes(stat);
+        const bonus = data.saveBonuses?.[stat] ?? 0;
+        return getModifier(attributes[stat]) + (isProf ? profBonus : 0) + bonus;
+    };
+
+    const setSkillTier = (skill, tier) => {
+        const next = { ...(data.skillProficiencies || {}) };
+        if (tier === undefined) delete next[skill]; else next[skill] = tier;
+        updateNestedField('skillsSaves', 'skillProficiencies', next);
     };
 
     const passivePerception = 10 + getSkillTotal('Perception', 'wis');
+    const passiveInsight    = 10 + getSkillTotal('Insight', 'wis');
 
     return (
-        <div className="glass-panel skills-container">
+        <div className="glass-panel skills-container" ref={containerRef}>
             <div className="skills-top-modules">
                 <label className="inspiration-toggle">
                     <input
@@ -74,51 +110,58 @@ export const Skills = () => {
                 <div className="skills-grid">
                     {STATS_LIST.map(stat => {
                         const isProf = (data.saveProficiencies || []).includes(stat);
+                        const rowKey = `save:${stat}`;
                         return (
-                            <div key={stat} className="skill-row">
-                                <input
-                                    type="checkbox"
-                                    checked={isProf}
-                                    onChange={() => updateNestedField('skillsSaves', 'saveProficiencies', toggleArrayItem(data.saveProficiencies || [], stat))}
-                                    title="Proficient"
-                                />
-                                <div className="skill-mod">{formatModifier(getSaveTotal(stat))}</div>
-                                <span className={`skill-name skill-name-capitalize ${isProf ? 'active' : ''}`}>
-                                    {stat}
-                                </span>
-                            </div>
+                            <SaveRow
+                                key={stat}
+                                stat={stat}
+                                isProf={isProf}
+                                total={getSaveTotal(stat)}
+                                isExpanded={expandedRow === rowKey}
+                                onToggleExpand={() => setExpandedRow(expandedRow === rowKey ? null : rowKey)}
+                                onToggleProf={() => updateNestedField(
+                                    'skillsSaves',
+                                    'saveProficiencies',
+                                    toggleArrayItem(data.saveProficiencies || [], stat)
+                                )}
+                            />
                         );
                     })}
                 </div>
             </div>
 
             <div className="skills-list">
-                <h4>Skills & Proficiencies</h4>
+                <h4>Skills &amp; Proficiencies</h4>
                 <div className="skills-grid">
                     {SKILLS_LIST.map(skill => {
-                        const isProf = data.proficiencies.includes(skill);
                         const statKey = SKILL_MAP[skill];
+                        const tier = data.skillProficiencies?.[skill];
+                        const rowKey = `skill:${skill}`;
                         return (
-                            <div key={skill} className="skill-row">
-                                <input
-                                    type="checkbox"
-                                    checked={isProf}
-                                    onChange={() => updateNestedField('skillsSaves', 'proficiencies', toggleArrayItem(data.proficiencies, skill))}
-                                    title="Proficient"
-                                />
-                                <div className="skill-mod">{formatModifier(getSkillTotal(skill, statKey))}</div>
-                                <span className={`skill-name ${isProf ? 'active' : ''}`}>
-                                    {skill} <span className="skill-stat-abbr">({statKey.toUpperCase()})</span>
-                                </span>
-                            </div>
+                            <SkillRow
+                                key={skill}
+                                skill={skill}
+                                statKey={statKey}
+                                tier={tier}
+                                total={getSkillTotal(skill, statKey)}
+                                isExpanded={expandedRow === rowKey}
+                                onToggleExpand={() => setExpandedRow(expandedRow === rowKey ? null : rowKey)}
+                                onTierChange={(newTier) => setSkillTier(skill, newTier)}
+                            />
                         );
                     })}
                 </div>
             </div>
 
-            <div className="passive-perception-box">
-                <div className="passive-val">{passivePerception}</div>
-                <div className="passive-label">Passive Wisdom (Perception)</div>
+            <div className="passives-container">
+                <div className="passive-box">
+                    <div className="passive-val">{passivePerception}</div>
+                    <div className="passive-label">Passive Wisdom (Perception)</div>
+                </div>
+                <div className="passive-box">
+                    <div className="passive-val">{passiveInsight}</div>
+                    <div className="passive-label">Passive Wisdom (Insight)</div>
+                </div>
             </div>
         </div>
     );

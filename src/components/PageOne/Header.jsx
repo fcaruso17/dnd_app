@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useCharacterStore } from '../../store/useCharacterStore';
 import { TraitModal } from './TraitModal';
+import { CLASSES, SUBCLASSES } from '../../data/classes';
 
 const TRAIT_FIELDS = [
     { field: 'features',    label: 'Features & Traits' },
@@ -21,12 +22,16 @@ export const Header = () => {
     const handleClassChange = (index, field, value) => {
         const newClasses = [...data.classes];
         if (field === 'level') value = parseInt(value) || 1;
-        newClasses[index] = { ...newClasses[index], [field]: value };
+        if (field === 'className') {
+            newClasses[index] = { ...newClasses[index], className: value, subclass: '' };
+        } else {
+            newClasses[index] = { ...newClasses[index], [field]: value };
+        }
         updateNestedField('header', 'classes', newClasses);
     };
 
     const addClass = () => {
-        updateNestedField('header', 'classes', [...data.classes, { id: crypto.randomUUID(), className: '', level: 1 }]);
+        updateNestedField('header', 'classes', [...data.classes, { id: crypto.randomUUID(), className: '', level: 1, subclass: '' }]);
     };
 
     const removeClass = (index) => {
@@ -67,30 +72,71 @@ export const Header = () => {
                         <span>Classes & Levels</span>
                         <button className="btn btn-sm" onClick={addClass}>+ Add Class</button>
                     </div>
-                    {data.classes.map((cls, idx) => (
-                        <div key={cls.id || idx} className="class-entry flex gap-2 mb-2">
-                            <input
-                                type="text"
-                                placeholder="Class"
-                                value={cls.className}
-                                onChange={(e) => handleClassChange(idx, 'className', e.target.value)}
-                            />
-                            <input
-                                type="number"
-                                placeholder="Lvl"
-                                min="1" max="20"
-                                value={cls.level}
-                                onChange={(e) => handleClassChange(idx, 'level', e.target.value)}
-                                className="class-level-input"
-                            />
-                            <button
-                                className="btn-danger-icon"
-                                onClick={() => removeClass(idx)}
-                                disabled={data.classes.length === 1}
-                                aria-label="Remove class"
-                            >✕</button>
-                        </div>
-                    ))}
+                    {data.classes.map((cls, idx) => {
+                        const isHomebrew = cls.subclass && !SUBCLASSES[cls.className]?.includes(cls.subclass);
+                        return (
+                            <div key={cls.id || idx} className="class-entry">
+                                <div className="class-entry-top">
+                                    <select
+                                        value={cls.className}
+                                        onChange={(e) => handleClassChange(idx, 'className', e.target.value)}
+                                        className="class-select"
+                                    >
+                                        <option value="">— Select Class —</option>
+                                        {CLASSES.map(c => <option key={c} value={c}>{c}</option>)}
+                                    </select>
+                                    <input
+                                        type="number"
+                                        placeholder="Lvl"
+                                        min="1" max="20"
+                                        value={cls.level}
+                                        onChange={(e) => handleClassChange(idx, 'level', e.target.value)}
+                                        className="class-level-input"
+                                    />
+                                    <button
+                                        className="btn-danger-icon"
+                                        onClick={() => removeClass(idx)}
+                                        disabled={data.classes.length === 1}
+                                        aria-label="Remove class"
+                                    >✕</button>
+                                </div>
+                                {cls.className && cls.level >= 3 && (
+                                    <div className="subclass-row">
+                                        <span className="subclass-label">Subclass</span>
+                                        {isHomebrew ? (
+                                            <input
+                                                type="text"
+                                                className="subclass-input"
+                                                placeholder="Homebrew subclass"
+                                                value={cls.subclass}
+                                                onChange={(e) => handleClassChange(idx, 'subclass', e.target.value)}
+                                                aria-label="Subclass (custom)"
+                                            />
+                                        ) : (
+                                            <select
+                                                className="subclass-input"
+                                                value={cls.subclass}
+                                                onChange={(e) => {
+                                                    if (e.target.value === '__other__') {
+                                                        handleClassChange(idx, 'subclass', ' ');
+                                                    } else {
+                                                        handleClassChange(idx, 'subclass', e.target.value);
+                                                    }
+                                                }}
+                                                aria-label="Subclass"
+                                            >
+                                                <option value="">— Select Subclass —</option>
+                                                {(SUBCLASSES[cls.className] || []).map(s => (
+                                                    <option key={s} value={s}>{s}</option>
+                                                ))}
+                                                <option value="__other__">Other… (homebrew)</option>
+                                            </select>
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+                        );
+                    })}
                 </div>
 
                 <div className="auto-calc-box">

@@ -41,3 +41,9 @@ brain/
 # Claude Code local overrides (personal, not shared)
 .claude.local.md
 .claude/
+CLAUDE.md
+
+# Source data and conversion tooling (not for version control)
+excel_files/
+scripts/
+docs/
