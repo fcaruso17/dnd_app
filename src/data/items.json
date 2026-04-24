@@ -1,446 +1,4324 @@
 [
-  { "name": "Longsword",          "type": "weapon", "rarity": null,       "requiresAttunement": false, "description": "",                                       "source": "SRD" },
-  { "name": "Shortbow",           "type": "weapon", "rarity": null,       "requiresAttunement": false, "description": "",                                       "source": "SRD" },
-  { "name": "Dagger",             "type": "weapon", "rarity": null,       "requiresAttunement": false, "description": "",                                       "source": "SRD" },
-  { "name": "Leather Armor",      "type": "armor",  "rarity": null,       "requiresAttunement": false, "description": "",                                       "source": "SRD" },
-  { "name": "Chain Mail",         "type": "armor",  "rarity": null,       "requiresAttunement": false, "description": "",                                       "source": "SRD" },
-  { "name": "Shield",             "type": "armor",  "rarity": null,       "requiresAttunement": false, "description": "",                                       "source": "SRD" },
-  { "name": "Backpack",           "type": "gear",   "rarity": null,       "requiresAttunement": false, "description": "",                                       "source": "SRD" },
-  { "name": "Bedroll",            "type": "gear",   "rarity": null,       "requiresAttunement": false, "description": "",                                       "source": "SRD" },
-  { "name": "Rope, Hempen (50ft)","type": "gear",   "rarity": null,       "requiresAttunement": false, "description": "",                                       "source": "SRD" },
-  { "name": "Rations (1 day)",    "type": "gear",   "rarity": null,       "requiresAttunement": false, "description": "",                                       "source": "SRD" },
-  { "name": "Thieves' Tools",     "type": "tool",   "rarity": null,       "requiresAttunement": false, "description": "",                                       "source": "SRD" },
-  { "name": "Potion of Healing",  "type": "gear",   "rarity": "common",   "requiresAttunement": false, "description": "Regain 2d4+2 hit points when consumed.",  "source": "DMG (2024)" },
-  { "name": "Cloak of Protection","type": "gear",   "rarity": "uncommon", "requiresAttunement": true,  "description": "+1 bonus to AC and to all saving throws.","source": "DMG (2024)" },
-  { "name": "Bag of Holding",     "type": "gear",   "rarity": "uncommon", "requiresAttunement": false, "description": "Extradimensional storage; 500 lb / 64 cubic ft capacity.", "source": "DMG (2024)" },
-  { "name": "+1 Longsword",       "type": "weapon", "rarity": "uncommon", "requiresAttunement": false, "description": "Magical longsword with a +1 bonus to attack and damage rolls.", "source": "DMG (2024)" },
-
-  { "name": "Club", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Greatclub", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Handaxe", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Javelin", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Light Hammer", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Mace", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Quarterstaff", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Sickle", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Spear", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Light Crossbow", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Dart", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Sling", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Battleaxe", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Flail", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Glaive", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Greataxe", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Greatsword", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Halberd", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Lance", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Maul", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Morningstar", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Pike", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Rapier", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Scimitar", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Shortsword", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Trident", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "War Pick", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Warhammer", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Whip", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Blowgun", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Hand Crossbow", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Heavy Crossbow", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Longbow", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Musket", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Pistol", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Net", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Arrows (20)", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Crossbow Bolts (20)", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Sling Bullets (20)", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Blowgun Needles (50)", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Firearm Bullets (10)", "type": "weapon", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-
-  { "name": "Padded Armor", "type": "armor", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Studded Leather Armor", "type": "armor", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Hide Armor", "type": "armor", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Chain Shirt", "type": "armor", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Scale Mail", "type": "armor", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Breastplate", "type": "armor", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Half Plate", "type": "armor", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Ring Mail", "type": "armor", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Splint Armor", "type": "armor", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Plate Armor", "type": "armor", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-
-  { "name": "Blanket", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Block and Tackle", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Candle", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Ball Bearings (1000)", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Bell", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Bucket", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Case, Crossbow Bolt", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Case, Map or Scroll", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Chalk", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Chest", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Climber's Kit", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Component Pouch", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Crowbar", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Clothes, Traveler's", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Clothes, Fine", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Clothes, Common", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Disguise Kit", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Explorer's Pack", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Fishing Tackle", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Flask or Tankard", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Grappling Hook", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Hammer", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Sledgehammer", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Healer's Kit", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Holy Symbol (Amulet)", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Holy Symbol (Emblem)", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Holy Symbol (Reliquary)", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Holy Water (flask)", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Hourglass", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Hunter's Trap", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Ink (1oz bottle)", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Ink Pen", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Jug or Pitcher", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Ladder (10ft)", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Lamp", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Hooded Lantern", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Bullseye Lantern", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Lock", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Magnifying Glass", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Manacles", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Mess Kit", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Steel Mirror", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Oil (flask)", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Paper (sheet)", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Parchment (sheet)", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Perfume (vial)", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Miner's Pick", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Piton", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Pole (10ft)", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Iron Pot", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Pouch", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Quiver", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Portable Ram", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Rope, Silk (50ft)", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Sack", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Merchant's Scale", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Sealing Wax", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Shovel", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Signal Whistle", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Signet Ring", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Soap", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Spellbook", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Iron Spike", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Spyglass", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Two-Person Tent", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Tinderbox", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Torch", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Vial", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Waterskin", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Whetstone", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Abacus", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Acid (vial)", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Alchemist's Fire (flask)", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Antitoxin (vial)", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Arcane Focus, Crystal", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Arcane Focus, Orb", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Arcane Focus, Rod", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Arcane Focus, Staff", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Arcane Focus, Wand", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Druidic Focus, Sprig of Mistletoe", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Druidic Focus, Totem", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Druidic Focus, Wooden Staff", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Druidic Focus, Yew Wand", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Basket", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Barrel", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Poison, Basic (vial)", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Diplomat's Pack", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Dungeoneer's Pack", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Entertainer's Pack", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Priest's Pack", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Scholar's Pack", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Burglar's Pack", "type": "gear", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-
-  { "name": "Alchemist's Supplies", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Brewer's Supplies", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Calligrapher's Supplies", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Carpenter's Tools", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Cartographer's Tools", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Cobbler's Tools", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Cook's Utensils", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Glassblower's Tools", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Jeweler's Tools", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Leatherworker's Tools", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Mason's Tools", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Painter's Supplies", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Potter's Tools", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Smith's Tools", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Tinker's Tools", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Weaver's Tools", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Woodcarver's Tools", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Dice Set", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Dragonchess Set", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Playing Card Set", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Three-Dragon Ante Set", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Bagpipes", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Drum", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Dulcimer", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Flute", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Lute", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Lyre", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Horn", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Pan Flute", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Shawm", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Viol", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Navigator's Tools", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Poisoner's Kit", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Herbalism Kit", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-  { "name": "Forgery Kit", "type": "tool", "rarity": null, "requiresAttunement": false, "description": "", "source": "SRD" },
-
-  { "name": "Spell Scroll (Cantrip)", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "A scroll inscribed with a cantrip; cast it once without expending a spell slot.", "source": "PHB (2024)" },
-  { "name": "Spell Scroll (1st Level)", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "A scroll inscribed with a 1st-level spell; cast it once without expending a spell slot.", "source": "PHB (2024)" },
-  { "name": "Spell Scroll (2nd Level)", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "A scroll inscribed with a 2nd-level spell; cast it once without expending a spell slot.", "source": "PHB (2024)" },
-  { "name": "Spell Scroll (3rd Level)", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "A scroll inscribed with a 3rd-level spell; cast it once without expending a spell slot.", "source": "PHB (2024)" },
-  { "name": "Spell Scroll (4th Level)", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "A scroll inscribed with a 4th-level spell; cast it once without expending a spell slot.", "source": "PHB (2024)" },
-  { "name": "Spell Scroll (5th Level)", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "A scroll inscribed with a 5th-level spell; cast it once without expending a spell slot.", "source": "PHB (2024)" },
-
-  { "name": "Bead of Nourishment", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "A bead that, when swallowed, provides a full day of food and water.", "source": "DMG (2024)" },
-  { "name": "Bead of Refreshment", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Dissolves in liquid to purify and flavor it like fresh spring water.", "source": "DMG (2024)" },
-  { "name": "Boots of False Tracks", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Leave humanoid tracks of a kind you choose instead of your own.", "source": "DMG (2024)" },
-  { "name": "Candle of the Deep", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "A candle whose flame is not extinguished underwater.", "source": "DMG (2024)" },
-  { "name": "Cast-Off Armor", "type": "armor", "rarity": "common", "requiresAttunement": false, "description": "Armor that can be doffed as an action using its command word.", "source": "DMG (2024)" },
-  { "name": "Charlatan's Die", "type": "gear", "rarity": "common", "requiresAttunement": true, "description": "A loaded die you can will to come up on any face you choose.", "source": "DMG (2024)" },
-  { "name": "Cloak of Billowing", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Billows dramatically on command for flair and distraction.", "source": "DMG (2024)" },
-  { "name": "Cloak of Many Fashions", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Changes color, style, and apparent material on command.", "source": "DMG (2024)" },
-  { "name": "Clockwork Amulet", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Once per day, replace an attack roll with a 10.", "source": "DMG (2024)" },
-  { "name": "Clothes of Mending", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Magically repair themselves of minor damage each day.", "source": "DMG (2024)" },
-  { "name": "Dark Shard Amulet", "type": "gear", "rarity": "common", "requiresAttunement": true, "description": "A warlock may use it as a spellcasting focus and regain a warlock cantrip on a DC 10 check.", "source": "DMG (2024)" },
-  { "name": "Dread Helm", "type": "armor", "rarity": "common", "requiresAttunement": false, "description": "A fearsome helm that makes the wearer's eyes glow red.", "source": "DMG (2024)" },
-  { "name": "Ear Horn of Hearing", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Negates the deafened condition while held to your ear.", "source": "DMG (2024)" },
-  { "name": "Enduring Spellbook", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "A spellbook that never deteriorates from age, water, or fire.", "source": "DMG (2024)" },
-  { "name": "Ersatz Eye", "type": "gear", "rarity": "common", "requiresAttunement": true, "description": "A replacement eye that lets you see normally on that side.", "source": "DMG (2024)" },
-  { "name": "Finder's Goggles", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Advantage on Perception checks to find small lost objects.", "source": "DMG (2024)" },
-  { "name": "Hat of Vermin", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Three times per day, produce a harmless tiny vermin from the hat.", "source": "DMG (2024)" },
-  { "name": "Hat of Wizardry", "type": "gear", "rarity": "common", "requiresAttunement": true, "description": "A wizard can use it as a spellcasting focus and recover a wizard cantrip.", "source": "DMG (2024)" },
-  { "name": "Heward's Handy Spice Pouch", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Produces any mundane spice called for by name.", "source": "DMG (2024)" },
-  { "name": "Horn of Silent Alarm", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Sends a silent alert to creatures of your choice within 600 feet.", "source": "DMG (2024)" },
-  { "name": "Imbued Wood Focus", "type": "gear", "rarity": "common", "requiresAttunement": true, "description": "A druid's wooden focus that grants a minor elemental flourish.", "source": "DMG (2024)" },
-  { "name": "Instrument of Illusions", "type": "tool", "rarity": "common", "requiresAttunement": true, "description": "While playing, create illusory visuals within 30 feet.", "source": "DMG (2024)" },
-  { "name": "Instrument of Scribing", "type": "tool", "rarity": "common", "requiresAttunement": true, "description": "Inscribe messages onto surfaces as you play.", "source": "DMG (2024)" },
-  { "name": "Lock of Trickery", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Appears ordinary but resists lockpicking (DC 15 to pick).", "source": "DMG (2024)" },
-  { "name": "Moon-Touched Sword", "type": "weapon", "rarity": "common", "requiresAttunement": false, "description": "Sheds bright moonlight in a 15-foot radius while drawn.", "source": "DMG (2024)" },
-  { "name": "Mystery Key", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Has a 5% chance of unlocking any nonmagical lock it tries.", "source": "DMG (2024)" },
-  { "name": "Orb of Direction", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Points toward true north on command while held.", "source": "DMG (2024)" },
-  { "name": "Orb of Time", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Tells the current time of day with perfect accuracy.", "source": "DMG (2024)" },
-  { "name": "Perfume of Bewitching", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "One application grants advantage on Charisma checks for 1 hour.", "source": "DMG (2024)" },
-  { "name": "Pipe of Smoke Monsters", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Exhale smoke that shapes into monstrous forms.", "source": "DMG (2024)" },
-  { "name": "Pole of Angling", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "A 10-foot pole that transforms into a fishing rod on command.", "source": "DMG (2024)" },
-  { "name": "Pole of Collapsing", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "A 10-foot pole that collapses to 1 foot or extends on command.", "source": "DMG (2024)" },
-  { "name": "Pot of Awakening", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Over 30 days, awakens a plant within into an Awakened Shrub.", "source": "DMG (2024)" },
-  { "name": "Potion of Climbing", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Gain a climbing speed equal to your walking speed for 1 hour.", "source": "DMG (2024)" },
-  { "name": "Prosthetic Limb", "type": "gear", "rarity": "common", "requiresAttunement": true, "description": "Functions as a natural limb of the wearer.", "source": "DMG (2024)" },
-  { "name": "Rope of Mending", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Cut pieces of this rope can be magically rejoined.", "source": "DMG (2024)" },
-  { "name": "Ruby of the War Mage", "type": "gear", "rarity": "common", "requiresAttunement": true, "description": "Affixed to a weapon, lets you use it as a spellcasting focus.", "source": "DMG (2024)" },
-  { "name": "Shield of Expression", "type": "armor", "rarity": "common", "requiresAttunement": false, "description": "Its face shows an emotional expression you choose.", "source": "DMG (2024)" },
-  { "name": "Smoldering Armor", "type": "armor", "rarity": "common", "requiresAttunement": false, "description": "Wisps of smoke constantly rise from this armor, harmless to the wearer.", "source": "DMG (2024)" },
-  { "name": "Staff of Adornment", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Up to three objects can float above the staff's tip.", "source": "DMG (2024)" },
-  { "name": "Staff of Birdcalls", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Emits bird calls from a list of common birds.", "source": "DMG (2024)" },
-  { "name": "Staff of Flowers", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Produce harmless living flowers from the staff's tip.", "source": "DMG (2024)" },
-  { "name": "Talking Doll", "type": "gear", "rarity": "common", "requiresAttunement": true, "description": "Records and speaks short phrases on command.", "source": "DMG (2024)" },
-  { "name": "Tankard of Sobriety", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Alcohol drunk from it never causes intoxication.", "source": "DMG (2024)" },
-  { "name": "Unbreakable Arrow", "type": "weapon", "rarity": "common", "requiresAttunement": false, "description": "An arrow that cannot be broken by nonmagical means.", "source": "DMG (2024)" },
-  { "name": "Veteran's Cane", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Transforms into a +1 longsword as a bonus action.", "source": "DMG (2024)" },
-  { "name": "Walloping Ammunition", "type": "weapon", "rarity": "common", "requiresAttunement": false, "description": "On a hit, target must save or be knocked prone.", "source": "DMG (2024)" },
-  { "name": "Wand of Conducting", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Generates musical notes as you gesture.", "source": "DMG (2024)" },
-  { "name": "Wand of Pyrotechnics", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Produces harmless sparks and bursts of color.", "source": "DMG (2024)" },
-  { "name": "Wand of Secrets", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Detects hidden doors and traps within 30 feet twice per day.", "source": "DMG (2024)" },
-  { "name": "Wand of Smiles", "type": "gear", "rarity": "common", "requiresAttunement": false, "description": "Causes the target to smile uncontrollably for 1 minute on a failed save.", "source": "DMG (2024)" },
-
-  { "name": "Alchemy Jug", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Produces various liquids, from water and wine to acid and oil.", "source": "DMG (2024)" },
-  { "name": "Amulet of Proof Against Detection and Location", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "The wearer cannot be targeted by divination magic or perceived through scrying.", "source": "DMG (2024)" },
-  { "name": "Bag of Tricks (Gray)", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Pull out a fuzzy ball that becomes a random beast to serve you.", "source": "DMG (2024)" },
-  { "name": "Bag of Tricks (Rust)", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Pull out a fuzzy ball that becomes a random beast to serve you.", "source": "DMG (2024)" },
-  { "name": "Bag of Tricks (Tan)", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Pull out a fuzzy ball that becomes a random beast to serve you.", "source": "DMG (2024)" },
-  { "name": "Boots of Elvenkind", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "Your steps make no sound, and you have advantage on Stealth checks.", "source": "DMG (2024)" },
-  { "name": "Boots of Striding and Springing", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "Walking speed becomes 30 ft. regardless of encumbrance, and you jump three times as far.", "source": "DMG (2024)" },
-  { "name": "Boots of the Winterlands", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "Resistance to cold damage; ignore difficult terrain from snow or ice.", "source": "DMG (2024)" },
-  { "name": "Bracers of Archery", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "Proficiency with longbow and shortbow; +2 damage with those weapons.", "source": "DMG (2024)" },
-  { "name": "Brooch of Shielding", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "Resistance to force damage and immunity to Magic Missile.", "source": "DMG (2024)" },
-  { "name": "Broom of Flying", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "A broom that can fly, carrying up to 400 lbs.", "source": "DMG (2024)" },
-  { "name": "Cap of Water Breathing", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Allows the wearer to breathe underwater while submerged.", "source": "DMG (2024)" },
-  { "name": "Chime of Opening", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Opens a nonmagical lock, latch, or door (10 charges).", "source": "DMG (2024)" },
-  { "name": "Circlet of Blasting", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Cast Scorching Ray once per day as a 2nd-level spell.", "source": "DMG (2024)" },
-  { "name": "Cloak of Elvenkind", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "Advantage on Stealth checks and disadvantage on Perception checks made to see you.", "source": "DMG (2024)" },
-  { "name": "Cloak of the Manta Ray", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Breathe underwater and gain a swimming speed of 60 feet.", "source": "DMG (2024)" },
-  { "name": "Decanter of Endless Water", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Pours forth streams or geysers of fresh or salt water on command.", "source": "DMG (2024)" },
-  { "name": "Deck of Illusions", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Draw a card to conjure an illusory creature until dismissed.", "source": "DMG (2024)" },
-  { "name": "Driftglobe", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Casts Light or Daylight on command; can hover and follow you.", "source": "DMG (2024)" },
-  { "name": "Dust of Disappearance", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Sprinkled on creatures, it makes them and their gear invisible for 2d4 minutes.", "source": "DMG (2024)" },
-  { "name": "Dust of Dryness", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Turns water into pellets; crush a pellet to release the water.", "source": "DMG (2024)" },
-  { "name": "Dust of Sneezing and Choking", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "When thrown, it causes creatures to sneeze uncontrollably on a failed save.", "source": "DMG (2024)" },
-  { "name": "Efficient Quiver", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Holds arrows, bolts, and larger objects like bows and spears.", "source": "DMG (2024)" },
-  { "name": "Elemental Gem", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Shattered to summon an elemental of the matching type.", "source": "DMG (2024)" },
-  { "name": "Elven Chain", "type": "armor", "rarity": "uncommon", "requiresAttunement": false, "description": "Chain shirt that counts as light armor for you; proficiency if unproficient.", "source": "DMG (2024)" },
-  { "name": "Eversmoking Bottle", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Uncorked to pour forth a thick cloud of smoke that heavily obscures.", "source": "DMG (2024)" },
-  { "name": "Eyes of Charming", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "Cast Charm Person as an action, three charges per day.", "source": "DMG (2024)" },
-  { "name": "Eyes of Minute Seeing", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Advantage on Investigation checks made to examine small details.", "source": "DMG (2024)" },
-  { "name": "Eyes of the Eagle", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "Advantage on Perception checks relying on sight.", "source": "DMG (2024)" },
-  { "name": "Figurine of Wondrous Power (Silver Raven)", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Transforms into a silver raven that follows your mental commands.", "source": "DMG (2024)" },
-  { "name": "Gauntlets of Ogre Power", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "Your Strength score becomes 19 while wearing them.", "source": "DMG (2024)" },
-  { "name": "Gem of Brightness", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Emits bright light or blinds a creature on command (50 charges).", "source": "DMG (2024)" },
-  { "name": "Gloves of Missile Snaring", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "As a reaction, reduce ranged weapon damage and possibly catch the projectile.", "source": "DMG (2024)" },
-  { "name": "Gloves of Swimming and Climbing", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "Climbing and swimming do not cost extra movement; advantage on Athletics for those tasks.", "source": "DMG (2024)" },
-  { "name": "Gloves of Thievery", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "+5 bonus to Sleight of Hand and lockpicking with Thieves' Tools.", "source": "DMG (2024)" },
-  { "name": "Goggles of Night", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Grant darkvision out to 60 feet.", "source": "DMG (2024)" },
-  { "name": "Hat of Disguise", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "Casts Disguise Self at will while worn.", "source": "DMG (2024)" },
-  { "name": "Headband of Intellect", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "Your Intelligence score becomes 19 while wearing it.", "source": "DMG (2024)" },
-  { "name": "Helm of Comprehending Languages", "type": "armor", "rarity": "uncommon", "requiresAttunement": true, "description": "Cast Comprehend Languages at will while wearing it.", "source": "DMG (2024)" },
-  { "name": "Helm of Telepathy", "type": "armor", "rarity": "uncommon", "requiresAttunement": true, "description": "Cast Detect Thoughts and Suggestion via the helm's charges.", "source": "DMG (2024)" },
-  { "name": "Horn of Blasting", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Blast a 30-foot cone of thunder damage; risk destruction on natural 1.", "source": "DMG (2024)" },
-  { "name": "Immovable Rod", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Press the button to fix the rod in place in midair until released.", "source": "DMG (2024)" },
-  { "name": "Javelin of Lightning", "type": "weapon", "rarity": "uncommon", "requiresAttunement": false, "description": "When thrown, becomes a 120-foot bolt of lightning dealing 4d6 damage.", "source": "DMG (2024)" },
-  { "name": "Keoghtom's Ointment", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Apply a dose to heal 2d8+2 HP and cure poisons or diseases.", "source": "DMG (2024)" },
-  { "name": "Lantern of Revealing", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Invisible creatures and objects are visible within its bright light.", "source": "DMG (2024)" },
-  { "name": "Mariner's Armor", "type": "armor", "rarity": "uncommon", "requiresAttunement": false, "description": "Swim speed equal to walking speed; cannot sink while wearing it.", "source": "DMG (2024)" },
-  { "name": "Medallion of Thoughts", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "Cast Detect Thoughts three times per day.", "source": "DMG (2024)" },
-  { "name": "Mithral Armor", "type": "armor", "rarity": "uncommon", "requiresAttunement": false, "description": "No Stealth disadvantage and no Strength prerequisite for this medium or heavy armor.", "source": "DMG (2024)" },
-  { "name": "Necklace of Adaptation", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "Breathe normally in any environment and resistance to harmful gases.", "source": "DMG (2024)" },
-  { "name": "Pearl of Power", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "Recover one expended spell slot of 3rd level or lower once per day.", "source": "DMG (2024)" },
-  { "name": "Periapt of Health", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "You are immune to contracting disease while wearing it.", "source": "DMG (2024)" },
-  { "name": "Periapt of Wound Closure", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "Stabilize automatically when dying; double HP regained from Hit Dice.", "source": "DMG (2024)" },
-  { "name": "Pipes of Haunting", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Play eerie music that can frighten creatures within 30 feet.", "source": "DMG (2024)" },
-  { "name": "Pipes of the Sewers", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "Summon and command swarms of rats while playing.", "source": "DMG (2024)" },
-  { "name": "Potion of Animal Friendship", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Cast Animal Friendship (save DC 13) for 1 hour after drinking.", "source": "DMG (2024)" },
-  { "name": "Potion of Fire Breath", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Exhale fire dealing 4d6 damage in a 30-foot line for up to 1 hour.", "source": "DMG (2024)" },
-  { "name": "Potion of Giant Strength (Hill)", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Your Strength becomes 21 for 1 hour.", "source": "DMG (2024)" },
-  { "name": "Potion of Greater Healing", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Regain 4d4+4 hit points when consumed.", "source": "DMG (2024)" },
-  { "name": "Potion of Growth", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Grow one size larger for up to 1 hour with advantage on Strength checks.", "source": "DMG (2024)" },
-  { "name": "Potion of Mind Reading", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Cast Detect Thoughts for the duration after drinking.", "source": "DMG (2024)" },
-  { "name": "Potion of Poison", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Appears to be another potion but poisons the drinker for 3d6 damage.", "source": "DMG (2024)" },
-  { "name": "Potion of Resistance", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Gain resistance to one damage type for 1 hour.", "source": "DMG (2024)" },
-  { "name": "Potion of Water Breathing", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Breathe underwater for 1 hour after drinking.", "source": "DMG (2024)" },
-  { "name": "Quaal's Feather Token", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "A small feather that produces a single magical effect when used.", "source": "DMG (2024)" },
-  { "name": "Quiver of Ehlonna", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Three compartments that hold far more than their size suggests.", "source": "DMG (2024)" },
-  { "name": "Ring of Jumping", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "Cast Jump as a bonus action; only yourself.", "source": "DMG (2024)" },
-  { "name": "Ring of Mind Shielding", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "Immune to Detect Thoughts, Suggestion, and alignment detection.", "source": "DMG (2024)" },
-  { "name": "Ring of Swimming", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Gain a swimming speed of 40 feet while wearing it.", "source": "DMG (2024)" },
-  { "name": "Ring of Warmth", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "Resistance to cold damage; comfortable in temperatures as low as -50 F.", "source": "DMG (2024)" },
-  { "name": "Ring of Water Walking", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Walk across any liquid surface as if solid ground.", "source": "DMG (2024)" },
-  { "name": "Robe of Useful Items", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Patches that become useful items like daggers, ponies, and doors.", "source": "DMG (2024)" },
-  { "name": "Rope of Climbing", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "A 60-foot rope that obeys verbal commands to climb and knot.", "source": "DMG (2024)" },
-  { "name": "Saddle of the Cavalier", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Cannot be dismounted against your will and advantage vs. being unseated.", "source": "DMG (2024)" },
-  { "name": "Scroll of Protection", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Creates a 5-minute ward that excludes creatures of one type.", "source": "DMG (2024)" },
-  { "name": "Sending Stones", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "A pair of stones that let you cast Sending to the other stone's holder.", "source": "DMG (2024)" },
-  { "name": "Sentinel Shield", "type": "armor", "rarity": "uncommon", "requiresAttunement": false, "description": "Advantage on initiative rolls and Perception checks.", "source": "DMG (2024)" },
-  { "name": "+1 Shield", "type": "armor", "rarity": "uncommon", "requiresAttunement": false, "description": "Grants a +1 bonus to AC beyond a normal shield.", "source": "DMG (2024)" },
-  { "name": "Slippers of Spider Climbing", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "Climb walls and ceilings with your hands free.", "source": "DMG (2024)" },
-  { "name": "Stone of Good Luck", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "+1 bonus to ability checks and saving throws.", "source": "DMG (2024)" },
-  { "name": "Sword of Vengeance", "type": "weapon", "rarity": "uncommon", "requiresAttunement": true, "description": "+1 weapon that compels the wielder toward vengeful behavior.", "source": "DMG (2024)" },
-  { "name": "Trident of Fish Command", "type": "weapon", "rarity": "uncommon", "requiresAttunement": true, "description": "Cast Dominate Beast on fish and swimming creatures (3 charges).", "source": "DMG (2024)" },
-  { "name": "Wand of Magic Detection", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Cast Detect Magic three times per day.", "source": "DMG (2024)" },
-  { "name": "Wand of Magic Missiles", "type": "gear", "rarity": "uncommon", "requiresAttunement": false, "description": "Cast Magic Missile at any level using its charges (7 charges).", "source": "DMG (2024)" },
-  { "name": "Wand of the War Mage +1", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "+1 to spell attack rolls; ignore half cover.", "source": "DMG (2024)" },
-  { "name": "Wand of Web", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "Cast Web from the wand using its charges.", "source": "DMG (2024)" },
-  { "name": "+1 Dagger", "type": "weapon", "rarity": "uncommon", "requiresAttunement": false, "description": "Magical dagger with a +1 bonus to attack and damage rolls.", "source": "DMG (2024)" },
-  { "name": "+1 Shortsword", "type": "weapon", "rarity": "uncommon", "requiresAttunement": false, "description": "Magical shortsword with a +1 bonus to attack and damage rolls.", "source": "DMG (2024)" },
-  { "name": "+1 Rapier", "type": "weapon", "rarity": "uncommon", "requiresAttunement": false, "description": "Magical rapier with a +1 bonus to attack and damage rolls.", "source": "DMG (2024)" },
-  { "name": "+1 Scimitar", "type": "weapon", "rarity": "uncommon", "requiresAttunement": false, "description": "Magical scimitar with a +1 bonus to attack and damage rolls.", "source": "DMG (2024)" },
-  { "name": "+1 Greatsword", "type": "weapon", "rarity": "uncommon", "requiresAttunement": false, "description": "Magical greatsword with a +1 bonus to attack and damage rolls.", "source": "DMG (2024)" },
-  { "name": "+1 Battleaxe", "type": "weapon", "rarity": "uncommon", "requiresAttunement": false, "description": "Magical battleaxe with a +1 bonus to attack and damage rolls.", "source": "DMG (2024)" },
-  { "name": "+1 Warhammer", "type": "weapon", "rarity": "uncommon", "requiresAttunement": false, "description": "Magical warhammer with a +1 bonus to attack and damage rolls.", "source": "DMG (2024)" },
-  { "name": "+1 Mace", "type": "weapon", "rarity": "uncommon", "requiresAttunement": false, "description": "Magical mace with a +1 bonus to attack and damage rolls.", "source": "DMG (2024)" },
-  { "name": "+1 Quarterstaff", "type": "weapon", "rarity": "uncommon", "requiresAttunement": false, "description": "Magical quarterstaff with a +1 bonus to attack and damage rolls.", "source": "DMG (2024)" },
-  { "name": "+1 Shortbow", "type": "weapon", "rarity": "uncommon", "requiresAttunement": false, "description": "Magical shortbow with a +1 bonus to attack and damage rolls.", "source": "DMG (2024)" },
-  { "name": "+1 Longbow", "type": "weapon", "rarity": "uncommon", "requiresAttunement": false, "description": "Magical longbow with a +1 bonus to attack and damage rolls.", "source": "DMG (2024)" },
-  { "name": "+1 Light Crossbow", "type": "weapon", "rarity": "uncommon", "requiresAttunement": false, "description": "Magical light crossbow with a +1 bonus to attack and damage rolls.", "source": "DMG (2024)" },
-  { "name": "+1 Heavy Crossbow", "type": "weapon", "rarity": "uncommon", "requiresAttunement": false, "description": "Magical heavy crossbow with a +1 bonus to attack and damage rolls.", "source": "DMG (2024)" },
-  { "name": "Winged Boots", "type": "gear", "rarity": "uncommon", "requiresAttunement": true, "description": "Gain a flying speed equal to your walking speed for up to 4 hours per day.", "source": "DMG (2024)" },
-
-  { "name": "Adamantine Armor", "type": "armor", "rarity": "rare", "requiresAttunement": false, "description": "Critical hits against the wearer become normal hits.", "source": "DMG (2024)" },
-  { "name": "Ammunition +2 (Arrows)", "type": "weapon", "rarity": "rare", "requiresAttunement": false, "description": "Magical arrows with a +2 bonus to attack and damage rolls.", "source": "DMG (2024)" },
-  { "name": "Ammunition +2 (Bolts)", "type": "weapon", "rarity": "rare", "requiresAttunement": false, "description": "Magical crossbow bolts with a +2 bonus to attack and damage rolls.", "source": "DMG (2024)" },
-  { "name": "Amulet of Health", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Your Constitution score becomes 19 while wearing it.", "source": "DMG (2024)" },
-  { "name": "Armor of Resistance (Fire)", "type": "armor", "rarity": "rare", "requiresAttunement": true, "description": "You have resistance to fire damage while wearing this armor.", "source": "DMG (2024)" },
-  { "name": "Armor of Resistance (Cold)", "type": "armor", "rarity": "rare", "requiresAttunement": true, "description": "You have resistance to cold damage while wearing this armor.", "source": "DMG (2024)" },
-  { "name": "Armor of Resistance (Lightning)", "type": "armor", "rarity": "rare", "requiresAttunement": true, "description": "You have resistance to lightning damage while wearing this armor.", "source": "DMG (2024)" },
-  { "name": "Bag of Beans", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "Plant a bean to produce a random magical effect.", "source": "DMG (2024)" },
-  { "name": "Bag of Devouring", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "Resembles a Bag of Holding but devours things placed inside.", "source": "DMG (2024)" },
-  { "name": "Berserker Axe", "type": "weapon", "rarity": "rare", "requiresAttunement": true, "description": "+1 battleaxe that grants bonus HP but can induce a rage curse.", "source": "DMG (2024)" },
-  { "name": "Boots of Levitation", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Cast Levitate on yourself at will.", "source": "DMG (2024)" },
-  { "name": "Boots of Speed", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Double your walking speed and grant disadvantage on opportunity attacks.", "source": "DMG (2024)" },
-  { "name": "Bowl of Commanding Water Elementals", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "Summon and command a water elemental once per day.", "source": "DMG (2024)" },
-  { "name": "Bracers of Defense", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "+2 bonus to AC while unarmored and not using a shield.", "source": "DMG (2024)" },
-  { "name": "Brazier of Commanding Fire Elementals", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "Summon and command a fire elemental once per day.", "source": "DMG (2024)" },
-  { "name": "Carpet of Flying", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "A flying carpet that carries riders at 40 feet per round.", "source": "DMG (2024)" },
-  { "name": "Cauldron of Plenty", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "Produces simmering soup enough to feed many people daily.", "source": "DMG (2024)" },
-  { "name": "Censer of Controlling Air Elementals", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "Summon and command an air elemental once per day.", "source": "DMG (2024)" },
-  { "name": "Chime of Resounding", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "Rings loud enough to daze creatures within 60 feet on a failed save.", "source": "DMG (2024)" },
-  { "name": "Circlet of Human Perfection", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Transform into an idealized human form while worn.", "source": "DMG (2024)" },
-  { "name": "Cloak of Displacement", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Attack rolls against you have disadvantage while you wear it.", "source": "DMG (2024)" },
-  { "name": "Cloak of the Bat", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Advantage on Stealth; transform into a bat and fly in dim light.", "source": "DMG (2024)" },
-  { "name": "Cube of Force", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Create a force cube around yourself with various protective faces.", "source": "DMG (2024)" },
-  { "name": "Daern's Instant Fortress", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "A small cube that becomes a 20-foot fortified tower on command.", "source": "DMG (2024)" },
-  { "name": "Dagger of Venom", "type": "weapon", "rarity": "rare", "requiresAttunement": false, "description": "+1 dagger that can coat itself in venom for extra poison damage once per day.", "source": "DMG (2024)" },
-  { "name": "Dimensional Shackles", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "Manacles that prevent teleportation and planar travel while worn.", "source": "DMG (2024)" },
-  { "name": "Dwarven Plate", "type": "armor", "rarity": "rare", "requiresAttunement": false, "description": "+2 bonus to AC; dwarven-forged plate armor.", "source": "DMG (2024)" },
-  { "name": "Dwarven Thrower", "type": "weapon", "rarity": "rare", "requiresAttunement": true, "description": "+3 warhammer (dwarves only) that returns when thrown; bonus damage to giants.", "source": "DMG (2024)" },
-  { "name": "Flame Tongue", "type": "weapon", "rarity": "rare", "requiresAttunement": true, "description": "Magic sword that ignites on command to deal an extra 2d6 fire damage.", "source": "DMG (2024)" },
-  { "name": "Folding Boat", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "A small box that unfolds into a 10-ft or 24-ft boat on command.", "source": "DMG (2024)" },
-  { "name": "Gem of Seeing", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Look through the gem to see invisible creatures and through illusions.", "source": "DMG (2024)" },
-  { "name": "Glamoured Studded Leather", "type": "armor", "rarity": "rare", "requiresAttunement": false, "description": "+1 studded leather that can change appearance to any outfit.", "source": "DMG (2024)" },
-  { "name": "Helm of Teleportation", "type": "armor", "rarity": "rare", "requiresAttunement": true, "description": "Cast Teleport from the helm using its charges.", "source": "DMG (2024)" },
-  { "name": "Horn of Valhalla (Silver)", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "Summons 2d4+2 berserkers once per week to fight for you.", "source": "DMG (2024)" },
-  { "name": "Horn of Valhalla (Brass)", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "Summons 3d4+3 berserkers once per week to fight for you.", "source": "DMG (2024)" },
-  { "name": "Horseshoes of Speed", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "A mount's walking speed is increased by 30 feet while shod.", "source": "DMG (2024)" },
-  { "name": "Iron Bands of Binding", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "Throw to restrain a Huge-or-smaller creature in iron bands.", "source": "DMG (2024)" },
-  { "name": "Mace of Disruption", "type": "weapon", "rarity": "rare", "requiresAttunement": true, "description": "Extra 2d6 radiant damage vs. undead and fiends; may destroy them outright.", "source": "DMG (2024)" },
-  { "name": "Mace of Smiting", "type": "weapon", "rarity": "rare", "requiresAttunement": false, "description": "+1 mace (+3 vs. constructs); bonus damage on critical hits to constructs.", "source": "DMG (2024)" },
-  { "name": "Mace of Terror", "type": "weapon", "rarity": "rare", "requiresAttunement": true, "description": "Expend a charge to frighten creatures within 30 feet for 1 minute.", "source": "DMG (2024)" },
-  { "name": "Mantle of Spell Resistance", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "You have advantage on saving throws against spells.", "source": "DMG (2024)" },
-  { "name": "Mirror of Life Trapping", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "Traps creatures that fail a save when they look into it.", "source": "DMG (2024)" },
-  { "name": "Necklace of Fireballs", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "Detach beads and throw them to explode as fireballs.", "source": "DMG (2024)" },
-  { "name": "Necklace of Prayer Beads", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Beads that let you cast selected cleric spells as bonus actions.", "source": "DMG (2024)" },
-  { "name": "Oathbow", "type": "weapon", "rarity": "rare", "requiresAttunement": true, "description": "Declare a sworn enemy; extra 3d6 damage and advantage against them.", "source": "DMG (2024)" },
-  { "name": "Periapt of Proof Against Poison", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Immunity to poison damage and the poisoned condition.", "source": "DMG (2024)" },
-  { "name": "Portable Hole", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "A 6-foot circle of cloth that opens into an extradimensional hole.", "source": "DMG (2024)" },
-  { "name": "Potion of Diminution", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "Drink to become Tiny with disadvantage on Strength rolls for 1d4 hours.", "source": "DMG (2024)" },
-  { "name": "Potion of Gaseous Form", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "Become gaseous as per the spell for 1 hour.", "source": "DMG (2024)" },
-  { "name": "Potion of Heroism", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "10 temporary HP and blessed by the spell Bless for 1 hour.", "source": "DMG (2024)" },
-  { "name": "Potion of Invisibility", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "Turn invisible for up to 1 hour or until you attack or cast a spell.", "source": "DMG (2024)" },
-  { "name": "Potion of Superior Healing", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "Regain 8d4+8 hit points when consumed.", "source": "DMG (2024)" },
-  { "name": "Ring of Animal Influence", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "Cast Animal Friendship, Fear (on beasts), or Speak with Animals.", "source": "DMG (2024)" },
-  { "name": "Ring of Evasion", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Expend a charge to succeed on a failed Dexterity save.", "source": "DMG (2024)" },
-  { "name": "Ring of Feather Falling", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Cast Feather Fall on yourself when you fall.", "source": "DMG (2024)" },
-  { "name": "Ring of Free Action", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Difficult terrain and paralysis/restraint do not affect you.", "source": "DMG (2024)" },
-  { "name": "Ring of Protection", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "+1 bonus to AC and to all saving throws.", "source": "DMG (2024)" },
-  { "name": "Ring of Resistance", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Resistance to one damage type (determined at creation).", "source": "DMG (2024)" },
-  { "name": "Ring of Spell Storing", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Stores up to 5 levels of spells cast into it for later use.", "source": "DMG (2024)" },
-  { "name": "Ring of the Ram", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Blast a target with a spectral ram using charges for damage or shove.", "source": "DMG (2024)" },
-  { "name": "Ring of X-Ray Vision", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "See through solid matter for 1 minute (risk of exhaustion).", "source": "DMG (2024)" },
-  { "name": "Rope of Entanglement", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "A 30-foot rope that animates to entangle a creature on command.", "source": "DMG (2024)" },
-  { "name": "Scimitar of Speed", "type": "weapon", "rarity": "rare", "requiresAttunement": true, "description": "+2 scimitar; make one attack with it as a bonus action each turn.", "source": "DMG (2024)" },
-  { "name": "+2 Shield", "type": "armor", "rarity": "rare", "requiresAttunement": false, "description": "Grants a +2 bonus to AC beyond a normal shield.", "source": "DMG (2024)" },
-  { "name": "Shield of Missile Attraction", "type": "armor", "rarity": "rare", "requiresAttunement": true, "description": "Resistance to ranged weapon damage; attracts ranged attacks toward you.", "source": "DMG (2024)" },
-  { "name": "Staff of Charming", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Cast Charm Person, Command, or Comprehend Languages from its charges.", "source": "DMG (2024)" },
-  { "name": "Staff of Healing", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Cast Cure Wounds, Lesser Restoration, or Mass Cure Wounds using charges.", "source": "DMG (2024)" },
-  { "name": "Staff of Swarming Insects", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Cast Giant Insect or Insect Plague using the staff's charges.", "source": "DMG (2024)" },
-  { "name": "Staff of the Python", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Throw to transform into a giant constrictor snake obedient to you.", "source": "DMG (2024)" },
-  { "name": "Staff of the Woodlands", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "+2 quarterstaff and spellcasting focus that casts nature spells.", "source": "DMG (2024)" },
-  { "name": "Staff of Withering", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "+2 quarterstaff; hits drain the target's Strength or Constitution.", "source": "DMG (2024)" },
-  { "name": "Stone of Controlling Earth Elementals", "type": "gear", "rarity": "rare", "requiresAttunement": false, "description": "Summon and command an earth elemental once per day.", "source": "DMG (2024)" },
-  { "name": "Sun Blade", "type": "weapon", "rarity": "rare", "requiresAttunement": true, "description": "Sheathed sunlight forms a +2 longsword blade; extra damage vs. undead.", "source": "DMG (2024)" },
-  { "name": "Tentacle Rod", "type": "weapon", "rarity": "rare", "requiresAttunement": true, "description": "Three tentacles lash out on command, reducing the target's speed.", "source": "DMG (2024)" },
-  { "name": "Vicious Weapon", "type": "weapon", "rarity": "rare", "requiresAttunement": false, "description": "On a critical hit, deal an extra 7 damage of the weapon's type.", "source": "DMG (2024)" },
-  { "name": "Wand of Binding", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Cast Hold Person or Hold Monster using its charges.", "source": "DMG (2024)" },
-  { "name": "Wand of Enemy Detection", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Senses the direction of the nearest hostile creature within 60 feet.", "source": "DMG (2024)" },
-  { "name": "Wand of Fear", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Cast Command (flee) or a cone of fear using charges.", "source": "DMG (2024)" },
-  { "name": "Wand of Fireballs", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Cast Fireball using the wand's charges.", "source": "DMG (2024)" },
-  { "name": "Wand of Lightning Bolts", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Cast Lightning Bolt using the wand's charges.", "source": "DMG (2024)" },
-  { "name": "Wand of Paralysis", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Release a thin ray that paralyzes a target on a failed save.", "source": "DMG (2024)" },
-  { "name": "Wand of the War Mage +2", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "+2 to spell attack rolls; ignore half cover.", "source": "DMG (2024)" },
-  { "name": "Wand of Wonder", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Expend a charge for a random wondrous magical effect.", "source": "DMG (2024)" },
-  { "name": "+2 Longsword", "type": "weapon", "rarity": "rare", "requiresAttunement": false, "description": "Magical longsword with a +2 bonus to attack and damage rolls.", "source": "DMG (2024)" },
-  { "name": "+2 Dagger", "type": "weapon", "rarity": "rare", "requiresAttunement": false, "description": "Magical dagger with a +2 bonus to attack and damage rolls.", "source": "DMG (2024)" },
-  { "name": "+2 Shortbow", "type": "weapon", "rarity": "rare", "requiresAttunement": false, "description": "Magical shortbow with a +2 bonus to attack and damage rolls.", "source": "DMG (2024)" },
-  { "name": "Wings of Flying", "type": "gear", "rarity": "rare", "requiresAttunement": true, "description": "Grow magical wings that grant a flying speed of 60 ft for up to 1 hour.", "source": "DMG (2024)" }
+  {
+    "name": "Longsword",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d8",
+    "damageType": "Slashing",
+    "damageVersatile": "1d10",
+    "range": "5 ft",
+    "properties": [
+      "Versatile"
+    ],
+    "mastery": "Sap"
+  },
+  {
+    "name": "Shortbow",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "simple",
+    "ability": "dex",
+    "damage": "1d6",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "80/320 ft",
+    "properties": [
+      "Ammunition",
+      "Two-Handed"
+    ],
+    "mastery": "Vex"
+  },
+  {
+    "name": "Dagger",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "simple",
+    "ability": "finesse",
+    "damage": "1d4",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [
+      "Finesse",
+      "Light",
+      "Thrown"
+    ],
+    "mastery": "Nick"
+  },
+  {
+    "name": "Leather Armor",
+    "type": "armor",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Chain Mail",
+    "type": "armor",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Shield",
+    "type": "armor",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Backpack",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Bedroll",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Rope, Hempen (50ft)",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Rations (1 day)",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Thieves' Tools",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Potion of Healing",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Regain 2d4+2 hit points when consumed.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Cloak of Protection",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "+1 bonus to AC and to all saving throws.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Bag of Holding",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Extradimensional storage; 500 lb / 64 cubic ft capacity.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "+1 Longsword",
+    "type": "weapon",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Magical longsword with a +1 bonus to attack and damage rolls.",
+    "source": "DMG (2024)",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d8",
+    "damageType": "Slashing",
+    "damageVersatile": "1d10",
+    "range": "5 ft",
+    "properties": [
+      "Versatile"
+    ],
+    "mastery": "Sap"
+  },
+  {
+    "name": "Club",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "simple",
+    "ability": "str",
+    "damage": "1d4",
+    "damageType": "Bludgeoning",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [
+      "Light"
+    ],
+    "mastery": "Slow"
+  },
+  {
+    "name": "Greatclub",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "simple",
+    "ability": "str",
+    "damage": "1d8",
+    "damageType": "Bludgeoning",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [
+      "Two-Handed"
+    ],
+    "mastery": "Push"
+  },
+  {
+    "name": "Handaxe",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "simple",
+    "ability": "str",
+    "damage": "1d6",
+    "damageType": "Slashing",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [
+      "Light",
+      "Thrown"
+    ],
+    "mastery": "Vex"
+  },
+  {
+    "name": "Javelin",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "simple",
+    "ability": "str",
+    "damage": "1d6",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [
+      "Thrown"
+    ],
+    "mastery": "Slow"
+  },
+  {
+    "name": "Light Hammer",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "simple",
+    "ability": "str",
+    "damage": "1d4",
+    "damageType": "Bludgeoning",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [
+      "Light",
+      "Thrown"
+    ],
+    "mastery": "Nick"
+  },
+  {
+    "name": "Mace",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "simple",
+    "ability": "str",
+    "damage": "1d6",
+    "damageType": "Bludgeoning",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [],
+    "mastery": "Sap"
+  },
+  {
+    "name": "Quarterstaff",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "simple",
+    "ability": "str",
+    "damage": "1d6",
+    "damageType": "Bludgeoning",
+    "damageVersatile": "1d8",
+    "range": "5 ft",
+    "properties": [
+      "Versatile"
+    ],
+    "mastery": "Topple"
+  },
+  {
+    "name": "Sickle",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "simple",
+    "ability": "str",
+    "damage": "1d4",
+    "damageType": "Slashing",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [
+      "Light"
+    ],
+    "mastery": "Nick"
+  },
+  {
+    "name": "Spear",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "simple",
+    "ability": "str",
+    "damage": "1d6",
+    "damageType": "Piercing",
+    "damageVersatile": "1d8",
+    "range": "5 ft",
+    "properties": [
+      "Thrown",
+      "Versatile"
+    ],
+    "mastery": "Sap"
+  },
+  {
+    "name": "Light Crossbow",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "simple",
+    "ability": "dex",
+    "damage": "1d8",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "80/320 ft",
+    "properties": [
+      "Ammunition",
+      "Loading",
+      "Two-Handed"
+    ],
+    "mastery": "Slow"
+  },
+  {
+    "name": "Dart",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "simple",
+    "ability": "finesse",
+    "damage": "1d4",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "20/60 ft",
+    "properties": [
+      "Finesse",
+      "Thrown"
+    ],
+    "mastery": "Vex"
+  },
+  {
+    "name": "Sling",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "simple",
+    "ability": "dex",
+    "damage": "1d4",
+    "damageType": "Bludgeoning",
+    "damageVersatile": null,
+    "range": "30/120 ft",
+    "properties": [
+      "Ammunition"
+    ],
+    "mastery": "Slow"
+  },
+  {
+    "name": "Battleaxe",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d8",
+    "damageType": "Slashing",
+    "damageVersatile": "1d10",
+    "range": "5 ft",
+    "properties": [
+      "Versatile"
+    ],
+    "mastery": "Topple"
+  },
+  {
+    "name": "Flail",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d8",
+    "damageType": "Bludgeoning",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [],
+    "mastery": "Sap"
+  },
+  {
+    "name": "Glaive",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d10",
+    "damageType": "Slashing",
+    "damageVersatile": null,
+    "range": "10 ft",
+    "properties": [
+      "Heavy",
+      "Reach",
+      "Two-Handed"
+    ],
+    "mastery": "Graze"
+  },
+  {
+    "name": "Greataxe",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d12",
+    "damageType": "Slashing",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [
+      "Heavy",
+      "Two-Handed"
+    ],
+    "mastery": "Cleave"
+  },
+  {
+    "name": "Greatsword",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "str",
+    "damage": "2d6",
+    "damageType": "Slashing",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [
+      "Heavy",
+      "Two-Handed"
+    ],
+    "mastery": "Graze"
+  },
+  {
+    "name": "Halberd",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d10",
+    "damageType": "Slashing",
+    "damageVersatile": null,
+    "range": "10 ft",
+    "properties": [
+      "Heavy",
+      "Reach",
+      "Two-Handed"
+    ],
+    "mastery": "Cleave"
+  },
+  {
+    "name": "Lance",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d10",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "10 ft",
+    "properties": [
+      "Heavy",
+      "Reach",
+      "Special"
+    ],
+    "mastery": "Topple"
+  },
+  {
+    "name": "Maul",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "str",
+    "damage": "2d6",
+    "damageType": "Bludgeoning",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [
+      "Heavy",
+      "Two-Handed"
+    ],
+    "mastery": "Topple"
+  },
+  {
+    "name": "Morningstar",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d8",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [],
+    "mastery": "Sap"
+  },
+  {
+    "name": "Pike",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d10",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "10 ft",
+    "properties": [
+      "Heavy",
+      "Reach",
+      "Two-Handed"
+    ],
+    "mastery": "Push"
+  },
+  {
+    "name": "Rapier",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "finesse",
+    "damage": "1d8",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [
+      "Finesse"
+    ],
+    "mastery": "Vex"
+  },
+  {
+    "name": "Scimitar",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "finesse",
+    "damage": "1d6",
+    "damageType": "Slashing",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [
+      "Finesse",
+      "Light"
+    ],
+    "mastery": "Nick"
+  },
+  {
+    "name": "Shortsword",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "finesse",
+    "damage": "1d6",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [
+      "Finesse",
+      "Light"
+    ],
+    "mastery": "Vex"
+  },
+  {
+    "name": "Trident",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d8",
+    "damageType": "Piercing",
+    "damageVersatile": "1d10",
+    "range": "5 ft",
+    "properties": [
+      "Thrown",
+      "Versatile"
+    ],
+    "mastery": "Topple"
+  },
+  {
+    "name": "War Pick",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d8",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [],
+    "mastery": "Sap"
+  },
+  {
+    "name": "Warhammer",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d8",
+    "damageType": "Bludgeoning",
+    "damageVersatile": "1d10",
+    "range": "5 ft",
+    "properties": [
+      "Versatile"
+    ],
+    "mastery": "Push"
+  },
+  {
+    "name": "Whip",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "finesse",
+    "damage": "1d4",
+    "damageType": "Slashing",
+    "damageVersatile": null,
+    "range": "10 ft",
+    "properties": [
+      "Finesse",
+      "Reach"
+    ],
+    "mastery": "Slow"
+  },
+  {
+    "name": "Blowgun",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "dex",
+    "damage": "1",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "25/100 ft",
+    "properties": [
+      "Ammunition",
+      "Loading"
+    ],
+    "mastery": "Vex"
+  },
+  {
+    "name": "Hand Crossbow",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "dex",
+    "damage": "1d6",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "30/120 ft",
+    "properties": [
+      "Ammunition",
+      "Light",
+      "Loading"
+    ],
+    "mastery": "Vex"
+  },
+  {
+    "name": "Heavy Crossbow",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "dex",
+    "damage": "1d10",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "100/400 ft",
+    "properties": [
+      "Ammunition",
+      "Heavy",
+      "Loading",
+      "Two-Handed"
+    ],
+    "mastery": "Push"
+  },
+  {
+    "name": "Longbow",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "dex",
+    "damage": "1d8",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "150/600 ft",
+    "properties": [
+      "Ammunition",
+      "Heavy",
+      "Two-Handed"
+    ],
+    "mastery": "Slow"
+  },
+  {
+    "name": "Musket",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "dex",
+    "damage": "1d12",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "40/120 ft",
+    "properties": [
+      "Ammunition",
+      "Loading",
+      "Two-Handed"
+    ],
+    "mastery": "Slow"
+  },
+  {
+    "name": "Pistol",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "dex",
+    "damage": "1d10",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "30/90 ft",
+    "properties": [
+      "Ammunition",
+      "Loading"
+    ],
+    "mastery": "Vex"
+  },
+  {
+    "name": "Net",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "martial",
+    "ability": "str",
+    "damage": null,
+    "damageType": null,
+    "damageVersatile": null,
+    "range": "5/15 ft",
+    "properties": [
+      "Special",
+      "Thrown"
+    ],
+    "mastery": "Slow"
+  },
+  {
+    "name": "Arrows (20)",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "simple",
+    "ability": "str",
+    "damage": null,
+    "damageType": null,
+    "damageVersatile": null,
+    "range": null,
+    "properties": [],
+    "mastery": null
+  },
+  {
+    "name": "Crossbow Bolts (20)",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "simple",
+    "ability": "str",
+    "damage": null,
+    "damageType": null,
+    "damageVersatile": null,
+    "range": null,
+    "properties": [],
+    "mastery": null
+  },
+  {
+    "name": "Sling Bullets (20)",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "simple",
+    "ability": "str",
+    "damage": null,
+    "damageType": null,
+    "damageVersatile": null,
+    "range": null,
+    "properties": [],
+    "mastery": null
+  },
+  {
+    "name": "Blowgun Needles (50)",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "simple",
+    "ability": "str",
+    "damage": null,
+    "damageType": null,
+    "damageVersatile": null,
+    "range": null,
+    "properties": [],
+    "mastery": null
+  },
+  {
+    "name": "Firearm Bullets (10)",
+    "type": "weapon",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD",
+    "category": "simple",
+    "ability": "str",
+    "damage": null,
+    "damageType": null,
+    "damageVersatile": null,
+    "range": null,
+    "properties": [],
+    "mastery": null
+  },
+  {
+    "name": "Padded Armor",
+    "type": "armor",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Studded Leather Armor",
+    "type": "armor",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Hide Armor",
+    "type": "armor",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Chain Shirt",
+    "type": "armor",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Scale Mail",
+    "type": "armor",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Breastplate",
+    "type": "armor",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Half Plate",
+    "type": "armor",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Ring Mail",
+    "type": "armor",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Splint Armor",
+    "type": "armor",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Plate Armor",
+    "type": "armor",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Blanket",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Block and Tackle",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Candle",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Ball Bearings (1000)",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Bell",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Bucket",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Case, Crossbow Bolt",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Case, Map or Scroll",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Chalk",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Chest",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Climber's Kit",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Component Pouch",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Crowbar",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Clothes, Traveler's",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Clothes, Fine",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Clothes, Common",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Disguise Kit",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Explorer's Pack",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Fishing Tackle",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Flask or Tankard",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Grappling Hook",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Hammer",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Sledgehammer",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Healer's Kit",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Holy Symbol (Amulet)",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Holy Symbol (Emblem)",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Holy Symbol (Reliquary)",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Holy Water (flask)",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Hourglass",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Hunter's Trap",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Ink (1oz bottle)",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Ink Pen",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Jug or Pitcher",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Ladder (10ft)",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Lamp",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Hooded Lantern",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Bullseye Lantern",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Lock",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Magnifying Glass",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Manacles",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Mess Kit",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Steel Mirror",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Oil (flask)",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Paper (sheet)",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Parchment (sheet)",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Perfume (vial)",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Miner's Pick",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Piton",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Pole (10ft)",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Iron Pot",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Pouch",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Quiver",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Portable Ram",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Rope, Silk (50ft)",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Sack",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Merchant's Scale",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Sealing Wax",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Shovel",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Signal Whistle",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Signet Ring",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Soap",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Spellbook",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Iron Spike",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Spyglass",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Two-Person Tent",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Tinderbox",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Torch",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Vial",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Waterskin",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Whetstone",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Abacus",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Acid (vial)",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Alchemist's Fire (flask)",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Antitoxin (vial)",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Arcane Focus, Crystal",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Arcane Focus, Orb",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Arcane Focus, Rod",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Arcane Focus, Staff",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Arcane Focus, Wand",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Druidic Focus, Sprig of Mistletoe",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Druidic Focus, Totem",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Druidic Focus, Wooden Staff",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Druidic Focus, Yew Wand",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Basket",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Barrel",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Poison, Basic (vial)",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Diplomat's Pack",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Dungeoneer's Pack",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Entertainer's Pack",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Priest's Pack",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Scholar's Pack",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Burglar's Pack",
+    "type": "gear",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Alchemist's Supplies",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Brewer's Supplies",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Calligrapher's Supplies",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Carpenter's Tools",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Cartographer's Tools",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Cobbler's Tools",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Cook's Utensils",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Glassblower's Tools",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Jeweler's Tools",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Leatherworker's Tools",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Mason's Tools",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Painter's Supplies",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Potter's Tools",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Smith's Tools",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Tinker's Tools",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Weaver's Tools",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Woodcarver's Tools",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Dice Set",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Dragonchess Set",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Playing Card Set",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Three-Dragon Ante Set",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Bagpipes",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Drum",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Dulcimer",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Flute",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Lute",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Lyre",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Horn",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Pan Flute",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Shawm",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Viol",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Navigator's Tools",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Poisoner's Kit",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Herbalism Kit",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Forgery Kit",
+    "type": "tool",
+    "rarity": null,
+    "requiresAttunement": false,
+    "description": "",
+    "source": "SRD"
+  },
+  {
+    "name": "Spell Scroll (Cantrip)",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "A scroll inscribed with a cantrip; cast it once without expending a spell slot.",
+    "source": "PHB (2024)"
+  },
+  {
+    "name": "Spell Scroll (1st Level)",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "A scroll inscribed with a 1st-level spell; cast it once without expending a spell slot.",
+    "source": "PHB (2024)"
+  },
+  {
+    "name": "Spell Scroll (2nd Level)",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "A scroll inscribed with a 2nd-level spell; cast it once without expending a spell slot.",
+    "source": "PHB (2024)"
+  },
+  {
+    "name": "Spell Scroll (3rd Level)",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "A scroll inscribed with a 3rd-level spell; cast it once without expending a spell slot.",
+    "source": "PHB (2024)"
+  },
+  {
+    "name": "Spell Scroll (4th Level)",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "A scroll inscribed with a 4th-level spell; cast it once without expending a spell slot.",
+    "source": "PHB (2024)"
+  },
+  {
+    "name": "Spell Scroll (5th Level)",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "A scroll inscribed with a 5th-level spell; cast it once without expending a spell slot.",
+    "source": "PHB (2024)"
+  },
+  {
+    "name": "Bead of Nourishment",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "A bead that, when swallowed, provides a full day of food and water.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Bead of Refreshment",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Dissolves in liquid to purify and flavor it like fresh spring water.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Boots of False Tracks",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Leave humanoid tracks of a kind you choose instead of your own.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Candle of the Deep",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "A candle whose flame is not extinguished underwater.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Cast-Off Armor",
+    "type": "armor",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Armor that can be doffed as an action using its command word.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Charlatan's Die",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": true,
+    "description": "A loaded die you can will to come up on any face you choose.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Cloak of Billowing",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Billows dramatically on command for flair and distraction.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Cloak of Many Fashions",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Changes color, style, and apparent material on command.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Clockwork Amulet",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Once per day, replace an attack roll with a 10.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Clothes of Mending",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Magically repair themselves of minor damage each day.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Dark Shard Amulet",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": true,
+    "description": "A warlock may use it as a spellcasting focus and regain a warlock cantrip on a DC 10 check.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Dread Helm",
+    "type": "armor",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "A fearsome helm that makes the wearer's eyes glow red.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Ear Horn of Hearing",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Negates the deafened condition while held to your ear.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Enduring Spellbook",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "A spellbook that never deteriorates from age, water, or fire.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Ersatz Eye",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": true,
+    "description": "A replacement eye that lets you see normally on that side.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Finder's Goggles",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Advantage on Perception checks to find small lost objects.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Hat of Vermin",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Three times per day, produce a harmless tiny vermin from the hat.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Hat of Wizardry",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": true,
+    "description": "A wizard can use it as a spellcasting focus and recover a wizard cantrip.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Heward's Handy Spice Pouch",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Produces any mundane spice called for by name.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Horn of Silent Alarm",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Sends a silent alert to creatures of your choice within 600 feet.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Imbued Wood Focus",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": true,
+    "description": "A druid's wooden focus that grants a minor elemental flourish.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Instrument of Illusions",
+    "type": "tool",
+    "rarity": "common",
+    "requiresAttunement": true,
+    "description": "While playing, create illusory visuals within 30 feet.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Instrument of Scribing",
+    "type": "tool",
+    "rarity": "common",
+    "requiresAttunement": true,
+    "description": "Inscribe messages onto surfaces as you play.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Lock of Trickery",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Appears ordinary but resists lockpicking (DC 15 to pick).",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Moon-Touched Sword",
+    "type": "weapon",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Sheds bright moonlight in a 15-foot radius while drawn.",
+    "source": "DMG (2024)",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d8",
+    "damageType": "Slashing",
+    "damageVersatile": "1d10",
+    "range": "5 ft",
+    "properties": [
+      "Versatile"
+    ],
+    "mastery": "Sap"
+  },
+  {
+    "name": "Mystery Key",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Has a 5% chance of unlocking any nonmagical lock it tries.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Orb of Direction",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Points toward true north on command while held.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Orb of Time",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Tells the current time of day with perfect accuracy.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Perfume of Bewitching",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "One application grants advantage on Charisma checks for 1 hour.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Pipe of Smoke Monsters",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Exhale smoke that shapes into monstrous forms.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Pole of Angling",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "A 10-foot pole that transforms into a fishing rod on command.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Pole of Collapsing",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "A 10-foot pole that collapses to 1 foot or extends on command.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Pot of Awakening",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Over 30 days, awakens a plant within into an Awakened Shrub.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Potion of Climbing",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Gain a climbing speed equal to your walking speed for 1 hour.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Prosthetic Limb",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": true,
+    "description": "Functions as a natural limb of the wearer.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Rope of Mending",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Cut pieces of this rope can be magically rejoined.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Ruby of the War Mage",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": true,
+    "description": "Affixed to a weapon, lets you use it as a spellcasting focus.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Shield of Expression",
+    "type": "armor",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Its face shows an emotional expression you choose.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Smoldering Armor",
+    "type": "armor",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Wisps of smoke constantly rise from this armor, harmless to the wearer.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Staff of Adornment",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Up to three objects can float above the staff's tip.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Staff of Birdcalls",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Emits bird calls from a list of common birds.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Staff of Flowers",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Produce harmless living flowers from the staff's tip.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Talking Doll",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": true,
+    "description": "Records and speaks short phrases on command.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Tankard of Sobriety",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Alcohol drunk from it never causes intoxication.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Unbreakable Arrow",
+    "type": "weapon",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "An arrow that cannot be broken by nonmagical means.",
+    "source": "DMG (2024)",
+    "category": "simple",
+    "ability": "str",
+    "damage": null,
+    "damageType": null,
+    "damageVersatile": null,
+    "range": null,
+    "properties": [],
+    "mastery": null
+  },
+  {
+    "name": "Veteran's Cane",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Transforms into a +1 longsword as a bonus action.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Walloping Ammunition",
+    "type": "weapon",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "On a hit, target must save or be knocked prone.",
+    "source": "DMG (2024)",
+    "category": "simple",
+    "ability": "str",
+    "damage": null,
+    "damageType": null,
+    "damageVersatile": null,
+    "range": null,
+    "properties": [],
+    "mastery": null
+  },
+  {
+    "name": "Wand of Conducting",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Generates musical notes as you gesture.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Wand of Pyrotechnics",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Produces harmless sparks and bursts of color.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Wand of Secrets",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Detects hidden doors and traps within 30 feet twice per day.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Wand of Smiles",
+    "type": "gear",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Causes the target to smile uncontrollably for 1 minute on a failed save.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Alchemy Jug",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Produces various liquids, from water and wine to acid and oil.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Amulet of Proof Against Detection and Location",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "The wearer cannot be targeted by divination magic or perceived through scrying.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Bag of Tricks (Gray)",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Pull out a fuzzy ball that becomes a random beast to serve you.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Bag of Tricks (Rust)",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Pull out a fuzzy ball that becomes a random beast to serve you.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Bag of Tricks (Tan)",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Pull out a fuzzy ball that becomes a random beast to serve you.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Boots of Elvenkind",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Your steps make no sound, and you have advantage on Stealth checks.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Boots of Striding and Springing",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Walking speed becomes 30 ft. regardless of encumbrance, and you jump three times as far.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Boots of the Winterlands",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Resistance to cold damage; ignore difficult terrain from snow or ice.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Bracers of Archery",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Proficiency with longbow and shortbow; +2 damage with those weapons.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Brooch of Shielding",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Resistance to force damage and immunity to Magic Missile.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Broom of Flying",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "A broom that can fly, carrying up to 400 lbs.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Cap of Water Breathing",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Allows the wearer to breathe underwater while submerged.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Chime of Opening",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Opens a nonmagical lock, latch, or door (10 charges).",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Circlet of Blasting",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Cast Scorching Ray once per day as a 2nd-level spell.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Cloak of Elvenkind",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Advantage on Stealth checks and disadvantage on Perception checks made to see you.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Cloak of the Manta Ray",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Breathe underwater and gain a swimming speed of 60 feet.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Decanter of Endless Water",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Pours forth streams or geysers of fresh or salt water on command.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Deck of Illusions",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Draw a card to conjure an illusory creature until dismissed.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Driftglobe",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Casts Light or Daylight on command; can hover and follow you.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Dust of Disappearance",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Sprinkled on creatures, it makes them and their gear invisible for 2d4 minutes.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Dust of Dryness",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Turns water into pellets; crush a pellet to release the water.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Dust of Sneezing and Choking",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "When thrown, it causes creatures to sneeze uncontrollably on a failed save.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Efficient Quiver",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Holds arrows, bolts, and larger objects like bows and spears.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Elemental Gem",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Shattered to summon an elemental of the matching type.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Elven Chain",
+    "type": "armor",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Chain shirt that counts as light armor for you; proficiency if unproficient.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Eversmoking Bottle",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Uncorked to pour forth a thick cloud of smoke that heavily obscures.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Eyes of Charming",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Cast Charm Person as an action, three charges per day.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Eyes of Minute Seeing",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Advantage on Investigation checks made to examine small details.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Eyes of the Eagle",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Advantage on Perception checks relying on sight.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Figurine of Wondrous Power (Silver Raven)",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Transforms into a silver raven that follows your mental commands.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Gauntlets of Ogre Power",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Your Strength score becomes 19 while wearing them.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Gem of Brightness",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Emits bright light or blinds a creature on command (50 charges).",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Gloves of Missile Snaring",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "As a reaction, reduce ranged weapon damage and possibly catch the projectile.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Gloves of Swimming and Climbing",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Climbing and swimming do not cost extra movement; advantage on Athletics for those tasks.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Gloves of Thievery",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "+5 bonus to Sleight of Hand and lockpicking with Thieves' Tools.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Goggles of Night",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Grant darkvision out to 60 feet.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Hat of Disguise",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Casts Disguise Self at will while worn.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Headband of Intellect",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Your Intelligence score becomes 19 while wearing it.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Helm of Comprehending Languages",
+    "type": "armor",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Cast Comprehend Languages at will while wearing it.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Helm of Telepathy",
+    "type": "armor",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Cast Detect Thoughts and Suggestion via the helm's charges.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Horn of Blasting",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Blast a 30-foot cone of thunder damage; risk destruction on natural 1.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Immovable Rod",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Press the button to fix the rod in place in midair until released.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Javelin of Lightning",
+    "type": "weapon",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "When thrown, becomes a 120-foot bolt of lightning dealing 4d6 damage.",
+    "source": "DMG (2024)",
+    "category": "simple",
+    "ability": "str",
+    "damage": "1d6",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [
+      "Thrown"
+    ],
+    "mastery": "Slow"
+  },
+  {
+    "name": "Keoghtom's Ointment",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Apply a dose to heal 2d8+2 HP and cure poisons or diseases.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Lantern of Revealing",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Invisible creatures and objects are visible within its bright light.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Mariner's Armor",
+    "type": "armor",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Swim speed equal to walking speed; cannot sink while wearing it.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Medallion of Thoughts",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Cast Detect Thoughts three times per day.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Mithral Armor",
+    "type": "armor",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "No Stealth disadvantage and no Strength prerequisite for this medium or heavy armor.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Necklace of Adaptation",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Breathe normally in any environment and resistance to harmful gases.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Pearl of Power",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Recover one expended spell slot of 3rd level or lower once per day.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Periapt of Health",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "You are immune to contracting disease while wearing it.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Periapt of Wound Closure",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Stabilize automatically when dying; double HP regained from Hit Dice.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Pipes of Haunting",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Play eerie music that can frighten creatures within 30 feet.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Pipes of the Sewers",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Summon and command swarms of rats while playing.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Potion of Animal Friendship",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Cast Animal Friendship (save DC 13) for 1 hour after drinking.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Potion of Fire Breath",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Exhale fire dealing 4d6 damage in a 30-foot line for up to 1 hour.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Potion of Giant Strength (Hill)",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Your Strength becomes 21 for 1 hour.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Potion of Greater Healing",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Regain 4d4+4 hit points when consumed.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Potion of Growth",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Grow one size larger for up to 1 hour with advantage on Strength checks.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Potion of Mind Reading",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Cast Detect Thoughts for the duration after drinking.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Potion of Poison",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Appears to be another potion but poisons the drinker for 3d6 damage.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Potion of Resistance",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Gain resistance to one damage type for 1 hour.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Potion of Water Breathing",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Breathe underwater for 1 hour after drinking.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Quaal's Feather Token",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "A small feather that produces a single magical effect when used.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Quiver of Ehlonna",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Three compartments that hold far more than their size suggests.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Ring of Jumping",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Cast Jump as a bonus action; only yourself.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Ring of Mind Shielding",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Immune to Detect Thoughts, Suggestion, and alignment detection.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Ring of Swimming",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Gain a swimming speed of 40 feet while wearing it.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Ring of Warmth",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Resistance to cold damage; comfortable in temperatures as low as -50 F.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Ring of Water Walking",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Walk across any liquid surface as if solid ground.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Robe of Useful Items",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Patches that become useful items like daggers, ponies, and doors.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Rope of Climbing",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "A 60-foot rope that obeys verbal commands to climb and knot.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Saddle of the Cavalier",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Cannot be dismounted against your will and advantage vs. being unseated.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Scroll of Protection",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Creates a 5-minute ward that excludes creatures of one type.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Sending Stones",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "A pair of stones that let you cast Sending to the other stone's holder.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Sentinel Shield",
+    "type": "armor",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Advantage on initiative rolls and Perception checks.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "+1 Shield",
+    "type": "armor",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Grants a +1 bonus to AC beyond a normal shield.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Slippers of Spider Climbing",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Climb walls and ceilings with your hands free.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Stone of Good Luck",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "+1 bonus to ability checks and saving throws.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Sword of Vengeance",
+    "type": "weapon",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "+1 weapon that compels the wielder toward vengeful behavior.",
+    "source": "DMG (2024)",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d8",
+    "damageType": "Slashing",
+    "damageVersatile": "1d10",
+    "range": "5 ft",
+    "properties": [
+      "Versatile"
+    ],
+    "mastery": "Sap"
+  },
+  {
+    "name": "Trident of Fish Command",
+    "type": "weapon",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Cast Dominate Beast on fish and swimming creatures (3 charges).",
+    "source": "DMG (2024)",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d8",
+    "damageType": "Piercing",
+    "damageVersatile": "1d10",
+    "range": "5 ft",
+    "properties": [
+      "Thrown",
+      "Versatile"
+    ],
+    "mastery": "Topple"
+  },
+  {
+    "name": "Wand of Magic Detection",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Cast Detect Magic three times per day.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Wand of Magic Missiles",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Cast Magic Missile at any level using its charges (7 charges).",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Wand of the War Mage +1",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "+1 to spell attack rolls; ignore half cover.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Wand of Web",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Cast Web from the wand using its charges.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "+1 Dagger",
+    "type": "weapon",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Magical dagger with a +1 bonus to attack and damage rolls.",
+    "source": "DMG (2024)",
+    "category": "simple",
+    "ability": "finesse",
+    "damage": "1d4",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [
+      "Finesse",
+      "Light",
+      "Thrown"
+    ],
+    "mastery": "Nick"
+  },
+  {
+    "name": "+1 Shortsword",
+    "type": "weapon",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Magical shortsword with a +1 bonus to attack and damage rolls.",
+    "source": "DMG (2024)",
+    "category": "martial",
+    "ability": "finesse",
+    "damage": "1d6",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [
+      "Finesse",
+      "Light"
+    ],
+    "mastery": "Vex"
+  },
+  {
+    "name": "+1 Rapier",
+    "type": "weapon",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Magical rapier with a +1 bonus to attack and damage rolls.",
+    "source": "DMG (2024)",
+    "category": "martial",
+    "ability": "finesse",
+    "damage": "1d8",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [
+      "Finesse"
+    ],
+    "mastery": "Vex"
+  },
+  {
+    "name": "+1 Scimitar",
+    "type": "weapon",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Magical scimitar with a +1 bonus to attack and damage rolls.",
+    "source": "DMG (2024)",
+    "category": "martial",
+    "ability": "finesse",
+    "damage": "1d6",
+    "damageType": "Slashing",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [
+      "Finesse",
+      "Light"
+    ],
+    "mastery": "Nick"
+  },
+  {
+    "name": "+1 Greatsword",
+    "type": "weapon",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Magical greatsword with a +1 bonus to attack and damage rolls.",
+    "source": "DMG (2024)",
+    "category": "martial",
+    "ability": "str",
+    "damage": "2d6",
+    "damageType": "Slashing",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [
+      "Heavy",
+      "Two-Handed"
+    ],
+    "mastery": "Graze"
+  },
+  {
+    "name": "+1 Battleaxe",
+    "type": "weapon",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Magical battleaxe with a +1 bonus to attack and damage rolls.",
+    "source": "DMG (2024)",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d8",
+    "damageType": "Slashing",
+    "damageVersatile": "1d10",
+    "range": "5 ft",
+    "properties": [
+      "Versatile"
+    ],
+    "mastery": "Topple"
+  },
+  {
+    "name": "+1 Warhammer",
+    "type": "weapon",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Magical warhammer with a +1 bonus to attack and damage rolls.",
+    "source": "DMG (2024)",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d8",
+    "damageType": "Bludgeoning",
+    "damageVersatile": "1d10",
+    "range": "5 ft",
+    "properties": [
+      "Versatile"
+    ],
+    "mastery": "Push"
+  },
+  {
+    "name": "+1 Mace",
+    "type": "weapon",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Magical mace with a +1 bonus to attack and damage rolls.",
+    "source": "DMG (2024)",
+    "category": "simple",
+    "ability": "str",
+    "damage": "1d6",
+    "damageType": "Bludgeoning",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [],
+    "mastery": "Sap"
+  },
+  {
+    "name": "+1 Quarterstaff",
+    "type": "weapon",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Magical quarterstaff with a +1 bonus to attack and damage rolls.",
+    "source": "DMG (2024)",
+    "category": "simple",
+    "ability": "str",
+    "damage": "1d6",
+    "damageType": "Bludgeoning",
+    "damageVersatile": "1d8",
+    "range": "5 ft",
+    "properties": [
+      "Versatile"
+    ],
+    "mastery": "Topple"
+  },
+  {
+    "name": "+1 Shortbow",
+    "type": "weapon",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Magical shortbow with a +1 bonus to attack and damage rolls.",
+    "source": "DMG (2024)",
+    "category": "simple",
+    "ability": "dex",
+    "damage": "1d6",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "80/320 ft",
+    "properties": [
+      "Ammunition",
+      "Two-Handed"
+    ],
+    "mastery": "Vex"
+  },
+  {
+    "name": "+1 Longbow",
+    "type": "weapon",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Magical longbow with a +1 bonus to attack and damage rolls.",
+    "source": "DMG (2024)",
+    "category": "martial",
+    "ability": "dex",
+    "damage": "1d8",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "150/600 ft",
+    "properties": [
+      "Ammunition",
+      "Heavy",
+      "Two-Handed"
+    ],
+    "mastery": "Slow"
+  },
+  {
+    "name": "+1 Light Crossbow",
+    "type": "weapon",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Magical light crossbow with a +1 bonus to attack and damage rolls.",
+    "source": "DMG (2024)",
+    "category": "simple",
+    "ability": "dex",
+    "damage": "1d8",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "80/320 ft",
+    "properties": [
+      "Ammunition",
+      "Loading",
+      "Two-Handed"
+    ],
+    "mastery": "Slow"
+  },
+  {
+    "name": "+1 Heavy Crossbow",
+    "type": "weapon",
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "description": "Magical heavy crossbow with a +1 bonus to attack and damage rolls.",
+    "source": "DMG (2024)",
+    "category": "martial",
+    "ability": "dex",
+    "damage": "1d10",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "100/400 ft",
+    "properties": [
+      "Ammunition",
+      "Heavy",
+      "Loading",
+      "Two-Handed"
+    ],
+    "mastery": "Push"
+  },
+  {
+    "name": "Winged Boots",
+    "type": "gear",
+    "rarity": "uncommon",
+    "requiresAttunement": true,
+    "description": "Gain a flying speed equal to your walking speed for up to 4 hours per day.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Adamantine Armor",
+    "type": "armor",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Critical hits against the wearer become normal hits.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Ammunition +2 (Arrows)",
+    "type": "weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Magical arrows with a +2 bonus to attack and damage rolls.",
+    "source": "DMG (2024)",
+    "category": "simple",
+    "ability": "str",
+    "damage": null,
+    "damageType": null,
+    "damageVersatile": null,
+    "range": null,
+    "properties": [],
+    "mastery": null
+  },
+  {
+    "name": "Ammunition +2 (Bolts)",
+    "type": "weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Magical crossbow bolts with a +2 bonus to attack and damage rolls.",
+    "source": "DMG (2024)",
+    "category": "simple",
+    "ability": "str",
+    "damage": null,
+    "damageType": null,
+    "damageVersatile": null,
+    "range": null,
+    "properties": [],
+    "mastery": null
+  },
+  {
+    "name": "Amulet of Health",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Your Constitution score becomes 19 while wearing it.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Armor of Resistance (Fire)",
+    "type": "armor",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "You have resistance to fire damage while wearing this armor.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Armor of Resistance (Cold)",
+    "type": "armor",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "You have resistance to cold damage while wearing this armor.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Armor of Resistance (Lightning)",
+    "type": "armor",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "You have resistance to lightning damage while wearing this armor.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Bag of Beans",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Plant a bean to produce a random magical effect.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Bag of Devouring",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Resembles a Bag of Holding but devours things placed inside.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Berserker Axe",
+    "type": "weapon",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "+1 battleaxe that grants bonus HP but can induce a rage curse.",
+    "source": "DMG (2024)",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d8",
+    "damageType": "Slashing",
+    "damageVersatile": "1d10",
+    "range": "5 ft",
+    "properties": [
+      "Versatile"
+    ],
+    "mastery": "Topple"
+  },
+  {
+    "name": "Boots of Levitation",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Cast Levitate on yourself at will.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Boots of Speed",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Double your walking speed and grant disadvantage on opportunity attacks.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Bowl of Commanding Water Elementals",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Summon and command a water elemental once per day.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Bracers of Defense",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "+2 bonus to AC while unarmored and not using a shield.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Brazier of Commanding Fire Elementals",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Summon and command a fire elemental once per day.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Carpet of Flying",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "A flying carpet that carries riders at 40 feet per round.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Cauldron of Plenty",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Produces simmering soup enough to feed many people daily.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Censer of Controlling Air Elementals",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Summon and command an air elemental once per day.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Chime of Resounding",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Rings loud enough to daze creatures within 60 feet on a failed save.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Circlet of Human Perfection",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Transform into an idealized human form while worn.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Cloak of Displacement",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Attack rolls against you have disadvantage while you wear it.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Cloak of the Bat",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Advantage on Stealth; transform into a bat and fly in dim light.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Cube of Force",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Create a force cube around yourself with various protective faces.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Daern's Instant Fortress",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "A small cube that becomes a 20-foot fortified tower on command.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Dagger of Venom",
+    "type": "weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "+1 dagger that can coat itself in venom for extra poison damage once per day.",
+    "source": "DMG (2024)",
+    "category": "simple",
+    "ability": "finesse",
+    "damage": "1d4",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [
+      "Finesse",
+      "Light",
+      "Thrown"
+    ],
+    "mastery": "Nick"
+  },
+  {
+    "name": "Dimensional Shackles",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Manacles that prevent teleportation and planar travel while worn.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Dwarven Plate",
+    "type": "armor",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "+2 bonus to AC; dwarven-forged plate armor.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Dwarven Thrower",
+    "type": "weapon",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "+3 warhammer (dwarves only) that returns when thrown; bonus damage to giants.",
+    "source": "DMG (2024)",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d8",
+    "damageType": "Bludgeoning",
+    "damageVersatile": "1d10",
+    "range": "5 ft",
+    "properties": [
+      "Versatile"
+    ],
+    "mastery": "Push"
+  },
+  {
+    "name": "Flame Tongue",
+    "type": "weapon",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Magic sword that ignites on command to deal an extra 2d6 fire damage.",
+    "source": "DMG (2024)",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d8",
+    "damageType": "Slashing",
+    "damageVersatile": "1d10",
+    "range": "5 ft",
+    "properties": [
+      "Versatile"
+    ],
+    "mastery": "Sap"
+  },
+  {
+    "name": "Folding Boat",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "A small box that unfolds into a 10-ft or 24-ft boat on command.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Gem of Seeing",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Look through the gem to see invisible creatures and through illusions.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Glamoured Studded Leather",
+    "type": "armor",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "+1 studded leather that can change appearance to any outfit.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Helm of Teleportation",
+    "type": "armor",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Cast Teleport from the helm using its charges.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Horn of Valhalla (Silver)",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Summons 2d4+2 berserkers once per week to fight for you.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Horn of Valhalla (Brass)",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Summons 3d4+3 berserkers once per week to fight for you.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Horseshoes of Speed",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "A mount's walking speed is increased by 30 feet while shod.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Iron Bands of Binding",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Throw to restrain a Huge-or-smaller creature in iron bands.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Mace of Disruption",
+    "type": "weapon",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Extra 2d6 radiant damage vs. undead and fiends; may destroy them outright.",
+    "source": "DMG (2024)",
+    "category": "simple",
+    "ability": "str",
+    "damage": "1d6",
+    "damageType": "Bludgeoning",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [],
+    "mastery": "Sap"
+  },
+  {
+    "name": "Mace of Smiting",
+    "type": "weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "+1 mace (+3 vs. constructs); bonus damage on critical hits to constructs.",
+    "source": "DMG (2024)",
+    "category": "simple",
+    "ability": "str",
+    "damage": "1d6",
+    "damageType": "Bludgeoning",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [],
+    "mastery": "Sap"
+  },
+  {
+    "name": "Mace of Terror",
+    "type": "weapon",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Expend a charge to frighten creatures within 30 feet for 1 minute.",
+    "source": "DMG (2024)",
+    "category": "simple",
+    "ability": "str",
+    "damage": "1d6",
+    "damageType": "Bludgeoning",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [],
+    "mastery": "Sap"
+  },
+  {
+    "name": "Mantle of Spell Resistance",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "You have advantage on saving throws against spells.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Mirror of Life Trapping",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Traps creatures that fail a save when they look into it.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Necklace of Fireballs",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Detach beads and throw them to explode as fireballs.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Necklace of Prayer Beads",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Beads that let you cast selected cleric spells as bonus actions.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Oathbow",
+    "type": "weapon",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Declare a sworn enemy; extra 3d6 damage and advantage against them.",
+    "source": "DMG (2024)",
+    "category": "martial",
+    "ability": "dex",
+    "damage": "1d8",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "150/600 ft",
+    "properties": [
+      "Ammunition",
+      "Heavy",
+      "Two-Handed"
+    ],
+    "mastery": "Slow"
+  },
+  {
+    "name": "Periapt of Proof Against Poison",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Immunity to poison damage and the poisoned condition.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Portable Hole",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "A 6-foot circle of cloth that opens into an extradimensional hole.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Potion of Diminution",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Drink to become Tiny with disadvantage on Strength rolls for 1d4 hours.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Potion of Gaseous Form",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Become gaseous as per the spell for 1 hour.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Potion of Heroism",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "10 temporary HP and blessed by the spell Bless for 1 hour.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Potion of Invisibility",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Turn invisible for up to 1 hour or until you attack or cast a spell.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Potion of Superior Healing",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Regain 8d4+8 hit points when consumed.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Ring of Animal Influence",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Cast Animal Friendship, Fear (on beasts), or Speak with Animals.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Ring of Evasion",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Expend a charge to succeed on a failed Dexterity save.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Ring of Feather Falling",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Cast Feather Fall on yourself when you fall.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Ring of Free Action",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Difficult terrain and paralysis/restraint do not affect you.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Ring of Protection",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "+1 bonus to AC and to all saving throws.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Ring of Resistance",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Resistance to one damage type (determined at creation).",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Ring of Spell Storing",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Stores up to 5 levels of spells cast into it for later use.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Ring of the Ram",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Blast a target with a spectral ram using charges for damage or shove.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Ring of X-Ray Vision",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "See through solid matter for 1 minute (risk of exhaustion).",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Rope of Entanglement",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "A 30-foot rope that animates to entangle a creature on command.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Scimitar of Speed",
+    "type": "weapon",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "+2 scimitar; make one attack with it as a bonus action each turn.",
+    "source": "DMG (2024)",
+    "category": "martial",
+    "ability": "finesse",
+    "damage": "1d6",
+    "damageType": "Slashing",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [
+      "Finesse",
+      "Light"
+    ],
+    "mastery": "Nick"
+  },
+  {
+    "name": "+2 Shield",
+    "type": "armor",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Grants a +2 bonus to AC beyond a normal shield.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Shield of Missile Attraction",
+    "type": "armor",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Resistance to ranged weapon damage; attracts ranged attacks toward you.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Staff of Charming",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Cast Charm Person, Command, or Comprehend Languages from its charges.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Staff of Healing",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Cast Cure Wounds, Lesser Restoration, or Mass Cure Wounds using charges.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Staff of Swarming Insects",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Cast Giant Insect or Insect Plague using the staff's charges.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Staff of the Python",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Throw to transform into a giant constrictor snake obedient to you.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Staff of the Woodlands",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "+2 quarterstaff and spellcasting focus that casts nature spells.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Staff of Withering",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "+2 quarterstaff; hits drain the target's Strength or Constitution.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Stone of Controlling Earth Elementals",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Summon and command an earth elemental once per day.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Sun Blade",
+    "type": "weapon",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Sheathed sunlight forms a +2 longsword blade; extra damage vs. undead.",
+    "source": "DMG (2024)",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d8",
+    "damageType": "Slashing",
+    "damageVersatile": "1d10",
+    "range": "5 ft",
+    "properties": [
+      "Versatile"
+    ],
+    "mastery": "Sap"
+  },
+  {
+    "name": "Tentacle Rod",
+    "type": "weapon",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Three tentacles lash out on command, reducing the target's speed.",
+    "source": "DMG (2024)",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d6",
+    "damageType": "Bludgeoning",
+    "damageVersatile": null,
+    "range": "10 ft",
+    "properties": [
+      "Reach"
+    ],
+    "mastery": null
+  },
+  {
+    "name": "Vicious Weapon",
+    "type": "weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "On a critical hit, deal an extra 7 damage of the weapon's type.",
+    "source": "DMG (2024)",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d8",
+    "damageType": "Slashing",
+    "damageVersatile": "1d10",
+    "range": "5 ft",
+    "properties": [
+      "Versatile"
+    ],
+    "mastery": "Sap"
+  },
+  {
+    "name": "Wand of Binding",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Cast Hold Person or Hold Monster using its charges.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Wand of Enemy Detection",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Senses the direction of the nearest hostile creature within 60 feet.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Wand of Fear",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Cast Command (flee) or a cone of fear using charges.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Wand of Fireballs",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Cast Fireball using the wand's charges.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Wand of Lightning Bolts",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Cast Lightning Bolt using the wand's charges.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Wand of Paralysis",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Release a thin ray that paralyzes a target on a failed save.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Wand of the War Mage +2",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "+2 to spell attack rolls; ignore half cover.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "Wand of Wonder",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Expend a charge for a random wondrous magical effect.",
+    "source": "DMG (2024)"
+  },
+  {
+    "name": "+2 Longsword",
+    "type": "weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Magical longsword with a +2 bonus to attack and damage rolls.",
+    "source": "DMG (2024)",
+    "category": "martial",
+    "ability": "str",
+    "damage": "1d8",
+    "damageType": "Slashing",
+    "damageVersatile": "1d10",
+    "range": "5 ft",
+    "properties": [
+      "Versatile"
+    ],
+    "mastery": "Sap"
+  },
+  {
+    "name": "+2 Dagger",
+    "type": "weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Magical dagger with a +2 bonus to attack and damage rolls.",
+    "source": "DMG (2024)",
+    "category": "simple",
+    "ability": "finesse",
+    "damage": "1d4",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "5 ft",
+    "properties": [
+      "Finesse",
+      "Light",
+      "Thrown"
+    ],
+    "mastery": "Nick"
+  },
+  {
+    "name": "+2 Shortbow",
+    "type": "weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Magical shortbow with a +2 bonus to attack and damage rolls.",
+    "source": "DMG (2024)",
+    "category": "simple",
+    "ability": "dex",
+    "damage": "1d6",
+    "damageType": "Piercing",
+    "damageVersatile": null,
+    "range": "80/320 ft",
+    "properties": [
+      "Ammunition",
+      "Two-Handed"
+    ],
+    "mastery": "Vex"
+  },
+  {
+    "name": "Wings of Flying",
+    "type": "gear",
+    "rarity": "rare",
+    "requiresAttunement": true,
+    "description": "Grow magical wings that grant a flying speed of 60 ft for up to 1 hour.",
+    "source": "DMG (2024)"
+  }
 ]

@@ -1669,3 +1669,362 @@
 .undo-toast button:hover {
     background: rgba(255, 255, 255, 0.12);
 }
+
+/* ── Equip slot chips on weapon item rows ─────────────────────────── */
+
+.equip-slot-chips {
+    display: flex;
+    gap: 6px;
+    padding: 4px 8px 6px;
+}
+
+.equip-slot-chip {
+    padding: 2px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.equip-slot-chip:hover:not(:disabled) {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.equip-slot-chip--active {
+    background: color-mix(in srgb, var(--accent) 20%, transparent);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.equip-slot-chip--disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* ── Magic bonus display in item expanded details ─────────────────── */
+
+.magic-bonus-display {
+    min-width: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--accent);
+}
+
+/* ── Finesse ability override toggle ──────────────────────────────── */
+
+.finesse-toggle {
+    display: flex;
+    gap: 4px;
+}
+
+.finesse-toggle-btn {
+    padding: 2px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.finesse-toggle-btn--active {
+    background: color-mix(in srgb, var(--accent) 20%, transparent);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* ── Weapon proficiency checkboxes in OtherProficiencies ──────────── */
+
+.weapon-prof-section {
+    margin-bottom: 10px;
+}
+
+.weapon-prof-label {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.weapon-prof-checkboxes {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.weapon-prof-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+/* ── Attacks panel zones ──────────────────────────────────────────── */
+
+.attacks-zone {
+    margin-bottom: 16px;
+}
+
+.attacks-zone-title {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 4px;
+}
+
+/* ── Equipped weapon attack rows ──────────────────────────────────── */
+
+.attacks-header-row--equipped {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr 1.2fr 2fr 1fr;
+    gap: 8px;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 0 4px 4px;
+}
+
+.attack-row--equipped {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr 1.2fr 2fr 1fr;
+    gap: 8px;
+    align-items: center;
+    padding: 6px 4px;
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 40%, transparent);
+    font-size: 0.88rem;
+}
+
+/* ── Weapon property chips ────────────────────────────────────────── */
+
+.weapon-property-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+}
+
+.weapon-property-chip {
+    padding: 1px 5px;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+/* ── Weapon mastery tag ───────────────────────────────────────────── */
+
+.weapon-mastery-tag {
+    padding: 2px 7px;
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--accent) 15%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+    color: var(--accent);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+/* ── Weapon Cards (B+C combo design) ─────────────────────────────── */
+
+.weapon-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.weapon-card {
+    border: 1px solid var(--glass-border);
+    border-left: 3px solid var(--accent-gold);
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--accent-gold) 4%, transparent);
+    overflow: hidden;
+    transition: border-color 0.15s;
+}
+
+.weapon-card:hover {
+    border-color: var(--glass-border-strong);
+    border-left-color: var(--accent-gold);
+}
+
+/* Header: weapon name + slot badge */
+.weapon-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 12px 6px;
+    border-bottom: 1px solid var(--glass-border);
+    background: color-mix(in srgb, var(--accent-gold) 6%, transparent);
+}
+
+.weapon-card-name {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--accent-gold);
+    letter-spacing: 0.03em;
+}
+
+.weapon-slot-badge {
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border: 1px solid var(--glass-border);
+    border-radius: 3px;
+    padding: 1px 6px;
+}
+
+/* Stat block: 3-column grid */
+.weapon-card-stats {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr 1.2fr;
+    border-bottom: 1px solid var(--glass-border-subtle);
+}
+
+.weapon-card-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 10px;
+    border-right: 1px solid var(--glass-border-subtle);
+    gap: 2px;
+}
+
+.weapon-card-stat:last-child {
+    border-right: none;
+}
+
+.weapon-card-stat-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.weapon-card-stat-value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary, #e8e0d5);
+    line-height: 1.1;
+}
+
+.weapon-card-stat-sub {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    line-height: 1;
+}
+
+/* Attack bonus column gets gold treatment */
+.weapon-card-stat--bonus .weapon-card-stat-value {
+    font-size: 1.35rem;
+    color: var(--accent-gold);
+}
+
+/* Footer: properties + mastery */
+.weapon-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 12px;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+/* ── Custom attack alternating rows ───────────────────────────────── */
+
+.custom-attack-row--alt {
+    background: color-mix(in srgb, var(--accent-gold) 3%, transparent);
+    border-radius: 3px;
+}
+
+/* ── Custom attack card — editable inputs styled to match read-only cards ── */
+
+.weapon-card--custom .weapon-card-header {
+    gap: 8px;
+}
+
+/* Name input looks like the gold weapon name */
+.weapon-card-name-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--accent-gold);
+    letter-spacing: 0.03em;
+    min-width: 0;
+    padding: 0;
+}
+
+.weapon-card-name-input::placeholder {
+    color: color-mix(in srgb, var(--accent-gold) 40%, transparent);
+    font-weight: 400;
+}
+
+/* Stat inputs inside the stat block columns */
+.weapon-card-stat-input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--glass-border);
+    outline: none;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary, #e8e0d5);
+    padding: 1px 4px;
+    transition: border-color 0.15s;
+}
+
+.weapon-card-stat-input:focus {
+    border-bottom-color: var(--accent-gold);
+}
+
+.weapon-card-stat-input::placeholder {
+    font-weight: 400;
+    opacity: 0.4;
+}
+
+/* Bonus input gets the gold large-number treatment */
+.weapon-card-stat-input--bonus {
+    font-size: 1.35rem;
+    color: var(--accent-gold);
+}
+
+.weapon-card-stat-input--bonus::placeholder {
+    color: var(--accent-gold);
+}
+
+/* Delete button sits in the card header, small and unobtrusive */
+.weapon-card-delete {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    padding: 2px 4px;
+    border-radius: 3px;
+    transition: color 0.15s;
+    flex-shrink: 0;
+}
+
+.weapon-card-delete:hover {
+    color: var(--accent-crimson, #c0392b);
+}

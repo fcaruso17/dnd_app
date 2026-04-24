@@ -1,4 +1,5 @@
 import { useCharacterStore } from '../../store/useCharacterStore';
+import { getWeaponStats } from '../../utils/weapons';
 import {
     RARITY_LABELS,
     rarityVarKey,
@@ -7,8 +8,14 @@ import {
     clampQuantity,
 } from '../../utils/items';
 
-// Keeps render isolation: this row only re-renders when its own fields in the
-// inventory.items array change, not on unrelated inventory edits.
+const EQUIP_SLOTS = [
+    { key: 'main',        label: 'Main Hand' },
+    { key: 'off',         label: 'Off Hand'  },
+    { key: 'two-handed',  label: '2H'        },
+];
+
+// This component re-renders only when its own item's fields change,
+// not on unrelated inventory edits, preserving render isolation.
 export const ItemRow = ({ item, isExpanded, onToggleExpand, onDelete }) => {
     const items = useCharacterStore(state => state.character.inventory.items);
     const updateNestedField = useCharacterStore(state => state.updateNestedField);
@@ -25,6 +32,7 @@ export const ItemRow = ({ item, isExpanded, onToggleExpand, onDelete }) => {
     const rarityKey = magic ? rarityVarKey(item.rarity) : null;
     const rarityLabel = magic ? RARITY_LABELS[item.rarity] : null;
     const customized = hasCustomization(item);
+    const weaponStats = item.type === 'weapon' ? getWeaponStats(item.name) : null;
 
     const attunedSuffix = item.attuned ? ', attuned' : '';
     const ariaLabel = magic
@@ -65,6 +73,36 @@ export const ItemRow = ({ item, isExpanded, onToggleExpand, onDelete }) => {
                 </button>
             </div>
 
+            {/* Equip slot chips — weapons only, always visible */}
+            {item.type === 'weapon' && (
+                <div className="equip-slot-chips" role="group" aria-label={`Equip ${item.name}`}>
+                    {EQUIP_SLOTS.map(({ key, label }) => {
+                        const isTwoHanded = key === 'two-handed';
+                        const disabled = isTwoHanded && weaponStats != null &&
+                            !weaponStats.properties.includes('Two-Handed') &&
+                            !weaponStats.properties.includes('Versatile');
+                        return (
+                            <button
+                                key={key}
+                                type="button"
+                                className={[
+                                    'equip-slot-chip',
+                                    item.equippedSlot === key ? 'equip-slot-chip--active' : '',
+                                    disabled ? 'equip-slot-chip--disabled' : '',
+                                ].filter(Boolean).join(' ')}
+                                onClick={() => patchItem({ equippedSlot: item.equippedSlot === key ? null : key })}
+                                disabled={disabled}
+                                aria-pressed={item.equippedSlot === key}
+                                aria-label={item.equippedSlot === key ? `Unequip from ${label}` : `Equip to ${label}`}
+                                title={item.equippedSlot === key ? 'Click to unequip' : undefined}
+                            >
+                                {item.equippedSlot === key ? `✕ ${label}` : label}
+                            </button>
+                        );
+                    })}
+                </div>
+            )}
+
             {isExpanded && (
                 <div className="item-row-details" id={detailsId}>
                     <label className="item-row-field item-row-field--wide">
@@ -87,6 +125,52 @@ export const ItemRow = ({ item, isExpanded, onToggleExpand, onDelete }) => {
                             aria-label={`Notes for ${item.name}`}
                         />
                     </label>
+
+                    {/* Magic bonus stepper — weapons only */}
+                    {item.type === 'weapon' && (
+                        <div className="item-row-field">
+                            <span>Magic Bonus</span>
+                            <div className="item-row-qty-stepper" role="group" aria-label={`Magic bonus for ${item.name}`}>
+                                <button
+                                    type="button"
+                                    onClick={() => patchItem({ magicBonus: Math.max(0, (item.magicBonus || 0) - 1) })}
+                                    disabled={(item.magicBonus || 0) <= 0}
+                                    aria-label="Decrease magic bonus"
+                                >
+                                    −
+                                </button>
+                                <span className="magic-bonus-display">+{item.magicBonus || 0}</span>
+                                <button
+                                    type="button"
+                                    onClick={() => patchItem({ magicBonus: Math.min(3, (item.magicBonus || 0) + 1) })}
+                                    disabled={(item.magicBonus || 0) >= 3}
+                                    aria-label="Increase magic bonus"
+                                >
+                                    +
+                                </button>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Ability override — Finesse weapons only */}
+                    {item.type === 'weapon' && weaponStats?.ability === 'finesse' && (
+                        <div className="item-row-field">
+                            <span>Attack with</span>
+                            <div className="finesse-toggle" role="group" aria-label={`Ability for ${item.name}`}>
+                                {['str', 'dex'].map(ability => (
+                                    <button
+                                        key={ability}
+                                        type="button"
+                                        className={`finesse-toggle-btn${(item.abilityOverride ?? 'str') === ability ? ' finesse-toggle-btn--active' : ''}`}
+                                        onClick={() => patchItem({ abilityOverride: ability })}
+                                        aria-pressed={(item.abilityOverride ?? 'str') === ability}
+                                    >
+                                        {ability.toUpperCase()}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    )}
 
                     <div className="item-row-controls">
                         <div className="item-row-qty-stepper" role="group" aria-label={`Quantity of ${item.name}`}>
