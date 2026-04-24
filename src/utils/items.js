@@ -49,6 +49,9 @@ const newRow = (name, dbEntry) => {
             description: dbEntry.description || '',
             notes: '',
             custom: false,
+            equippedSlot: null,
+            magicBonus: 0,
+            abilityOverride: null,
         };
     }
     return {
@@ -61,6 +64,9 @@ const newRow = (name, dbEntry) => {
         description: '',
         notes: '',
         custom: true,
+        equippedSlot: null,
+        magicBonus: 0,
+        abilityOverride: null,
     };
 };
 
@@ -95,5 +101,9 @@ export const normalizeItems = (savedItems) => {
             description: typeof i.description === 'string' ? i.description : '',
             notes: typeof i.notes === 'string' ? i.notes : '',
             custom: i.custom === true,
+            equippedSlot: ['main', 'off', 'two-handed'].includes(i.equippedSlot) ? i.equippedSlot : null,
+            magicBonus: Number.isInteger(i.magicBonus) && i.magicBonus >= 0 && i.magicBonus <= 3
+                ? i.magicBonus : 0,
+            abilityOverride: ['str', 'dex'].includes(i.abilityOverride) ? i.abilityOverride : null,
         }));
 };
