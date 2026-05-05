@@ -9,12 +9,13 @@ A fully-digital, backend-free alternative to the 3-page physical Dungeons & Drag
 - **Multiclassing Support**: Add multiple classes — total level and proficiency bonus recalculate automatically. Pool hit dice and manage separate spell save DCs per caster class.
 - **Structured Inventory**: 436-entry local item database covering SRD + 2024 PHB/DMG — weapons, armor, gear, and tools tagged by rarity (common through artifact). Add items from the database or create fully custom ones. Per-item quantity stepper, description, notes, and soft-delete with a 3-second undo toast.
 - **Attunement & Armor Training**: 2024-aware attunement counter with a soft 3-item cap and over-limit warning. Track which armor types (Light / Medium / Heavy / Shields) your character is trained in.
-- **Attacks Panel**: Equip weapons directly from your inventory using Main Hand / Off Hand / 2H slot chips. Attack bonus auto-calculates from your ability modifier, proficiency bonus, and any magic bonus — matching the 2024 PHB Excel sheet. Full weapon stat parity: damage dice, versatile die, range, all 2024 properties, and Weapon Mastery. Custom attacks (Unarmed Strike, natural weapons, etc.) sit in the same panel as editable cards.
+- **Attacks Panel**: Unified table view of equipped weapons and custom attacks. Equip weapons directly using Main Hand / Off Hand / 2H slot chips with automatic mutual-exclusion (only one weapon per hand, two-handed clears both). Attack bonus auto-calculates from ability modifier, proficiency bonus, and magic bonus — matching 2024 PHB. Full weapon stat parity: damage dice, versatile die, range, all 2024 properties, and Weapon Mastery. Custom attacks sit alongside database weapons with full editing support.
 - **Spells**: Full spell database with class and level filters. Track spell slots per level with pip counters that reset on long rest. Prepared spell limits auto-calculate per class.
 - **Auto-Save**: Every change is written to `localStorage` instantly. Close the tab and return exactly where you left off — including which tab you were on.
 - **Export / Import JSON**: Back up your character or share it with your DM. Full character data round-trips cleanly as a `.json` file.
 - **Character Portrait**: Upload a custom portrait from your machine. Stored as base64 — no image hosting required.
-- **Accessible by Design**: Keyboard-navigable tabs (arrow keys), ARIA roles throughout, death saves use both color and shape (✓/✕), and the browser tab title reflects your character's name.
+- **Character Details**: Dedicated page for personality traits, ideals, bonds, flaws, appearance, backstory, allies, and possessions. Collapsible sections keep the interface clean while preserving access to deep character lore.
+- **Accessible by Design**: Keyboard-navigable tabs (arrow keys), ARIA roles throughout, death saves use both color and shape (✓/✕), responsive layout scales from mobile to desktop, and the browser tab title reflects your character's name.
 
 ## Tech Stack
 

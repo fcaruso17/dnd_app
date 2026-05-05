@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import { useCharacterStore } from './store/useCharacterStore';
 import { useTheme } from './hooks/useTheme';
+import { parseAndValidate } from './utils/validate';
 
 import { PageOneCore } from './components/PageOne';
 import { PageTwoDetails } from './components/PageTwo';
@@ -9,14 +10,16 @@ import { PageThreeSpells } from './components/PageThree';
 
 function App() {
   const [activeTab, setActiveTab] = useState(() => {
-    const saved = parseInt(localStorage.getItem('dnd-active-tab'));
-    return saved >= 1 && saved <= 3 ? saved : 1;
+    const saved = localStorage.getItem('dnd-active-tab');
+    return parseAndValidate(saved, 1, 3, 1);
   });
   const exportCharacter = useCharacterStore(state => state.exportCharacter);
   const resetCharacter = useCharacterStore(state => state.resetCharacter);
   const importCharacter = useCharacterStore(state => state.importCharacter);
   const lastSaved = useCharacterStore(state => state.lastSaved);
   const characterName = useCharacterStore(state => state.character.header.characterName);
+  const isEditMode = useCharacterStore(state => state.isEditMode);
+  const toggleEditMode = useCharacterStore(state => state.toggleEditMode);
   const { theme, setTheme, themes } = useTheme();
 
   useEffect(() => {
@@ -50,63 +53,77 @@ function App() {
 
   return (
     <div className="app-container">
-      <header className="app-header">
-        <div>
-          <h1 className="header-title">The Codex</h1>
-          <div className="save-status saved">
-            Auto-saved locally • {new Date(lastSaved).toLocaleTimeString()}
+      {/* Single consolidated topbar */}
+      <header className="topbar" role="banner">
+        <div className="topbar-inner">
+          {/* Brand */}
+          <div className="topbar-brand">
+            <span className="topbar-title">The Codex</span>
+            <span className="topbar-save saved" title={`Last saved ${new Date(lastSaved).toLocaleTimeString()}`}>
+              ●
+            </span>
+          </div>
+
+          {/* Tabs inline */}
+          <nav className="topbar-tabs" role="tablist" onKeyDown={handleTabKeyDown}>
+            {[
+              { id: 1, label: 'Core & Combat' },
+              { id: 2, label: 'Details' },
+              { id: 3, label: 'Spellcasting' },
+            ].map(tab => (
+              <button
+                key={tab.id}
+                role="tab"
+                aria-selected={activeTab === tab.id}
+                className={`topbar-tab${activeTab === tab.id ? ' active' : ''}`}
+                onClick={() => handleTabChange(tab.id)}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </nav>
+
+          {/* Right controls — grouped and labeled */}
+          <div className="topbar-controls">
+            {/* Edit toggle with label */}
+            <button
+              className={`edit-toggle-btn${isEditMode ? ' edit-toggle-btn--active' : ''}`}
+              onClick={toggleEditMode}
+              aria-label={isEditMode ? 'Sheet is in edit mode. Click to lock.' : 'Sheet is locked for play. Click to enable editing.'}
+            >
+              <span className="edit-toggle-icon">{isEditMode ? '🔓' : '🔒'}</span>
+              <span className="edit-toggle-label">{isEditMode ? 'Editing' : 'Locked'}</span>
+            </button>
+
+            {/* Appearance group */}
+            <div className="topbar-appearance">
+              <span className="topbar-group-label">THEME</span>
+              <div className="theme-picker">
+                {themes.map(t => (
+                  <button
+                    key={t.id}
+                    className={`theme-swatch${theme === t.id ? ' active' : ''}`}
+                    style={{ background: t.swatch }}
+                    onClick={() => setTheme(t.id)}
+                    aria-label={`Switch to ${t.label} theme`}
+                    title={t.label}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Actions group */}
+            <div className="topbar-actions">
+              <label className="btn btn-sm">
+                Import
+                <input type="file" accept=".json" onChange={handleImport} style={{ display: 'none' }} />
+              </label>
+              <button className="btn btn-sm" onClick={exportCharacter}>Export</button>
+              <button className="btn btn-sm btn-danger" onClick={handleReset}>Reset</button>
+            </div>
           </div>
         </div>
-
-        <div className="theme-picker">
-          {themes.map(t => (
-            <button
-              key={t.id}
-              className={`theme-swatch ${theme === t.id ? 'active' : ''}`}
-              style={{ background: t.swatch }}
-              onClick={() => setTheme(t.id)}
-              aria-label={`Switch to ${t.label} theme`}
-              title={t.label}
-            />
-          ))}
-        </div>
-
-        <div className="header-controls">
-          <label className="btn" style={{ cursor: 'pointer' }}>
-            Import
-            <input type="file" accept=".json" onChange={handleImport} style={{ display: 'none' }} />
-          </label>
-          <button className="btn" onClick={exportCharacter}>Export .json</button>
-          <button className="btn btn-danger" onClick={handleReset}>Reset</button>
-        </div>
       </header>
-
-      <nav className="tabs-nav" role="tablist" onKeyDown={handleTabKeyDown}>
-        <button
-          role="tab"
-          aria-selected={activeTab === 1}
-          className={`tab-btn ${activeTab === 1 ? 'active' : ''}`}
-          onClick={() => handleTabChange(1)}
-        >
-          Core & Combat
-        </button>
-        <button
-          role="tab"
-          aria-selected={activeTab === 2}
-          className={`tab-btn ${activeTab === 2 ? 'active' : ''}`}
-          onClick={() => handleTabChange(2)}
-        >
-          Character Details
-        </button>
-        <button
-          role="tab"
-          aria-selected={activeTab === 3}
-          className={`tab-btn ${activeTab === 3 ? 'active' : ''}`}
-          onClick={() => handleTabChange(3)}
-        >
-          Spellcasting
-        </button>
-      </nav>
 
       <main key={activeTab} className="tab-content animate-fade-in">
         {activeTab === 1 && <PageOneCore />}

@@ -3,6 +3,9 @@ import spellcastingTables from '../data/spellcastingTables.json';
 import itemsDatabase from '../data/items.json';
 import { migrateLegacyEquipment, normalizeItems } from '../utils/items';
 
+const EDIT_MODE_KEY = 'dnd-edit-mode';
+const getInitialEditMode = () => localStorage.getItem(EDIT_MODE_KEY) === 'true';
+
 // Default empty character structure based on 5E mechanics
 const defaultCharacterState = {
     header: {
@@ -44,7 +47,8 @@ const defaultCharacterState = {
     },
     combat: {
         attacks: [],
-        weaponProficiencies: { simple: false, martial: false }
+        weaponProficiencies: { simple: false, martial: false },
+        customProficiencies: []
     },
     inventory: {
         cp: 0, sp: 0, ep: 0, gp: 0, pp: 0,
@@ -70,7 +74,8 @@ const defaultCharacterState = {
         backstory: '',
         additionalFeatures: '',
         treasure: '',
-        portraitBase64: null
+        portraitBase64: null,
+        proficienciesLanguages: ''
     },
     spellcasting: {
         classes: [],
@@ -188,6 +193,13 @@ const SHORT_REST_RESOURCES = ['channelDivinity', 'wildShape', 'secondWind', 'foc
 export const useCharacterStore = create((set, get) => ({
     character: getInitialState(),
     lastSaved: Date.now(),
+    isEditMode: getInitialEditMode(),
+
+    toggleEditMode: () => set((state) => {
+        const next = !state.isEditMode;
+        localStorage.setItem(EDIT_MODE_KEY, String(next));
+        return { isEditMode: next };
+    }),
 
     updateNestedField: (section, field, value) => set((state) => ({
         character: {
@@ -290,6 +302,93 @@ export const useCharacterStore = create((set, get) => ({
                 resources: Object.fromEntries(
                     Object.keys(defaultCharacterState.resources).map(k => [k, 0])
                 )
+            },
+            lastSaved: Date.now()
+        };
+    }),
+
+    addHitDice: () => set((state) => ({
+        character: {
+            ...state.character,
+            vitals: {
+                ...state.character.vitals,
+                hitDice: [
+                    ...state.character.vitals.hitDice,
+                    { id: crypto.randomUUID(), class: '', die: 'd8', total: 1, expended: 0 }
+                ]
+            }
+        },
+        lastSaved: Date.now()
+    })),
+
+    deleteHitDice: (id) => set((state) => ({
+        character: {
+            ...state.character,
+            vitals: {
+                ...state.character.vitals,
+                hitDice: state.character.vitals.hitDice.filter(hd => hd.id !== id)
+            }
+        },
+        lastSaved: Date.now()
+    })),
+
+    // Equip item/attack with mutual-exclusion logic (2024 PHB rules).
+    // Only one item per slot: main-hand, off-hand, two-handed.
+    // Two-handed clears both main and off.
+    // Applies across both custom attacks and inventory weapons.
+    equipItem: (itemId, slot, isCustomAttack = false) => set((state) => {
+        const { character } = state;
+        if (!slot) return state; // Unequip only — no mutual exclusion needed
+
+        const section = isCustomAttack ? 'combat' : 'inventory';
+        const field = isCustomAttack ? 'attacks' : 'items';
+        const items = character[section][field];
+
+        // Helper to check if a slot should be cleared
+        const shouldClear = (existingSlot) => {
+            if (slot === 'two-handed') {
+                // Two-handed uses both hands — unequip main and off
+                return existingSlot === 'main' || existingSlot === 'off';
+            } else {
+                // Single-hand slots: main or off
+                return existingSlot === slot;
+            }
+        };
+
+        // Update the current section (where the item being equipped lives)
+        let updated = items.map(item => {
+            if (item.id === itemId) {
+                return { ...item, equippedSlot: slot };
+            }
+            if (shouldClear(item.equippedSlot)) {
+                return { ...item, equippedSlot: null };
+            }
+            return item;
+        });
+
+        // Also unequip from the OTHER section (cross-section mutual exclusion)
+        const otherSection = isCustomAttack ? 'inventory' : 'combat';
+        const otherField = isCustomAttack ? 'items' : 'attacks';
+        const otherItems = character[otherSection][otherField];
+
+        let otherUpdated = otherItems.map(item => {
+            if (shouldClear(item.equippedSlot)) {
+                return { ...item, equippedSlot: null };
+            }
+            return item;
+        });
+
+        return {
+            character: {
+                ...character,
+                [section]: {
+                    ...character[section],
+                    [field]: updated
+                },
+                [otherSection]: {
+                    ...character[otherSection],
+                    [otherField]: otherUpdated
+                }
             },
             lastSaved: Date.now()
         };

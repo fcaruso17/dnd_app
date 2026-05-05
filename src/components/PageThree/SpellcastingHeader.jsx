@@ -146,7 +146,7 @@ export const SpellcastingHeader = () => {
 
                         return (
                             <div key={cls} className="spell-class-row unified-row">
-                                <span className="unified-class-name">{cls}</span>
+                                <span className="unified-class-name" data-class={cls}>{cls}</span>
 
                                 {isSpellcaster ? (
                                     <>
@@ -179,7 +179,7 @@ export const SpellcastingHeader = () => {
                 <div className="spell-classes-list">
                     {orderedClasses.map(cls => (
                         <div key={cls} className="unified-resource-only-row">
-                            <span className="unified-class-name">{cls}</span>
+                            <span className="unified-class-name" data-class={cls}>{cls}</span>
                             {renderResources(cls)}
                         </div>
                     ))}

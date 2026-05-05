@@ -87,6 +87,7 @@ export const migrateLegacyEquipment = (blob, database) => {
 
 // Defensively normalize a saved items[] array. Used by mergeWithDefaults on load/import.
 // Drops entries without a name. Fills missing fields with defaults. Clamps quantity.
+// Preserves all weapon/armor stat fields.
 export const normalizeItems = (savedItems) => {
     if (!Array.isArray(savedItems)) return [];
     return savedItems
@@ -105,5 +106,18 @@ export const normalizeItems = (savedItems) => {
             magicBonus: Number.isInteger(i.magicBonus) && i.magicBonus >= 0 && i.magicBonus <= 3
                 ? i.magicBonus : 0,
             abilityOverride: ['str', 'dex'].includes(i.abilityOverride) ? i.abilityOverride : null,
+            // Weapon-specific fields (preserved from database items)
+            damage: typeof i.damage === 'string' ? i.damage : undefined,
+            damageType: typeof i.damageType === 'string' ? i.damageType : undefined,
+            damageVersatile: typeof i.damageVersatile === 'string' ? i.damageVersatile : undefined,
+            category: typeof i.category === 'string' ? i.category : undefined,
+            ability: typeof i.ability === 'string' ? i.ability : undefined,
+            properties: Array.isArray(i.properties) ? i.properties : undefined,
+            range: typeof i.range === 'string' ? i.range : undefined,
+            mastery: typeof i.mastery === 'string' ? i.mastery : undefined,
+            // Armor-specific fields
+            armorClass: typeof i.armorClass === 'number' ? i.armorClass : undefined,
+            // Magic item flag
+            requiresAttunement: i.requiresAttunement === true,
         }));
 };
