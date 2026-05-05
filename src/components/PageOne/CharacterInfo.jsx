@@ -9,7 +9,7 @@ export const CharacterInfo = () => {
     const totalLevel = header.classes.reduce((s, c) => s + (c.level || 0), 0);
 
     return (
-        <div className="character-info-panel glass-panel">
+        <div className="character-info-panel">
             {/* Left Element: Character Name + Total Level (cohesive visual container) */}
             <div className="character-info-name-and-level">
                 {/* Character Name — left side */}
@@ -34,7 +34,7 @@ export const CharacterInfo = () => {
                 {!isEditMode && header.classes.length > 0 && (
                     <div className="character-info-total-level">
                         <span className="character-info-total-level-number">{totalLevel}</span>
-                        <span className="character-info-total-level-label">TOTAL<br/>LEVEL</span>
+                        <span className="character-info-total-level-label">TOTAL LEVEL</span>
                     </div>
                 )}
             </div>

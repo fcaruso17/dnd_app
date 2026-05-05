@@ -11,7 +11,7 @@ export const CombatStats = () => {
     const initiative = formatModifier(getModifier(attributes.dex));
 
     return (
-        <div className="combat-stats-panel glass-panel">
+        <div className="combat-stats-panel">
             <div className="combat-stats-grid">
                 {/* AC */}
                 <div className="combat-stat-box">

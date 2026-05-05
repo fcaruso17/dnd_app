@@ -25,7 +25,7 @@ export const SpellLevel = ({ level }) => {
     const [searchQuery, setSearchQuery] = useState('');
     const [expandedSpellId, setExpandedSpellId] = useState(null);
     const [customSpell, setCustomSpell] = useState({
-        name: '', castingTime: '', range: '', components: '', duration: '', desc: ''
+        name: '', castingTime: '', range: '', components: '', duration: '', desc: '', concentration: false
     });
 
     // Inline search results — no portal needed (inline flow, not positioned)
@@ -67,7 +67,7 @@ export const SpellLevel = ({ level }) => {
             ...data.spells,
             [level]: [...levelData, { id: crypto.randomUUID(), ...customSpell, prepared: false }]
         });
-        setCustomSpell({ name: '', castingTime: '', range: '', components: '', duration: '', desc: '' });
+        setCustomSpell({ name: '', castingTime: '', range: '', components: '', duration: '', desc: '', concentration: false });
         setIsAddingCustom(false);
     };
 
@@ -267,6 +267,14 @@ export const SpellLevel = ({ level }) => {
                             value={customSpell.desc}
                             onChange={(e) => setCustomSpell({ ...customSpell, desc: e.target.value })}
                         />
+                        <label className="custom-spell-checkbox">
+                            <input
+                                type="checkbox"
+                                checked={customSpell.concentration || false}
+                                onChange={(e) => setCustomSpell({ ...customSpell, concentration: e.target.checked })}
+                            />
+                            Requires Concentration
+                        </label>
                         <div className="custom-spell-actions">
                             <button className="btn btn-sm btn-primary" onClick={handleAddCustomSpell}>Add Spell</button>
                             <button className="btn-sm btn-danger ml-2" onClick={() => setIsAddingCustom(false)}>Cancel</button>

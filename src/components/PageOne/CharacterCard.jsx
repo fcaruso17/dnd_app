@@ -41,8 +41,8 @@ export const CharacterCard = () => {
             <div className="cc-section-label">PROFICIENCIES & LANGUAGES</div>
 
             {/* Languages Section */}
-            <div className="cc-languages-section">
-                <div className="cc-subsection-label">Languages</div>
+            <div className="cc-proficiency-group">
+                <div className="cc-proficiency-group-label">Languages</div>
                 {isEditMode
                     ? <textarea
                         className="cc-input"
@@ -55,12 +55,8 @@ export const CharacterCard = () => {
                 }
             </div>
 
-            {/* Other Proficiencies Section */}
-            <div className="cc-proficiencies-section">
-                <div className="cc-subsection-label">Other Proficiencies</div>
-
-                {/* Weapon Proficiencies */}
-                <div className="cc-proficiency-group">
+            {/* Weapon Proficiencies */}
+            <div className="cc-proficiency-group">
                     <div className="cc-proficiency-group-label">Weapon Proficiencies</div>
                     {isEditMode ? (
                         <div className="cc-proficiency-checkboxes">
@@ -82,16 +78,19 @@ export const CharacterCard = () => {
                             </label>
                         </div>
                     ) : (
-                        <div className="cc-proficiency-display">
-                            {[combat.weaponProficiencies.simple && 'Simple', combat.weaponProficiencies.martial && 'Martial']
-                                .filter(Boolean)
-                                .join(', ') || '—'}
-                        </div>
+                        <ul className="cc-profs-display-list">
+                            {[
+                                combat.weaponProficiencies.simple && { label: 'Simple Weapons' },
+                                combat.weaponProficiencies.martial && { label: 'Martial Weapons' }
+                            ].filter(Boolean).map((prof, idx) => (
+                                <li key={idx} className="cc-prof-display-item">{prof.label}</li>
+                            )) || [<li key="empty" className="cc-prof-display-item">—</li>]}
+                        </ul>
                     )}
-                </div>
+            </div>
 
-                {/* Armor Proficiencies */}
-                <div className="cc-proficiency-group">
+            {/* Armor Proficiencies */}
+            <div className="cc-proficiency-group">
                     <div className="cc-proficiency-group-label">Armor Proficiencies</div>
                     {isEditMode ? (
                         <div className="cc-proficiency-checkboxes">
@@ -129,57 +128,60 @@ export const CharacterCard = () => {
                             </label>
                         </div>
                     ) : (
-                        <div className="cc-proficiency-display">
-                            {['light', 'medium', 'heavy', 'shields']
-                                .map(t => inventory.training[t] && t.charAt(0).toUpperCase() + t.slice(1))
-                                .filter(Boolean)
-                                .join(', ') || '—'}
+                        <ul className="cc-profs-display-list">
+                            {[
+                                inventory.training.light && { label: 'Light Armor' },
+                                inventory.training.medium && { label: 'Medium Armor' },
+                                inventory.training.heavy && { label: 'Heavy Armor' },
+                                inventory.training.shields && { label: 'Shields' }
+                            ].filter(Boolean).map((prof, idx) => (
+                                <li key={idx} className="cc-prof-display-item">{prof.label}</li>
+                            )) || [<li key="empty" className="cc-prof-display-item">—</li>]}
+                        </ul>
+                    )}
+            </div>
+
+            {/* Other Proficiencies */}
+            {(customProfs.length > 0 || isEditMode) && (
+                <div className="cc-proficiency-group">
+                    <div className="cc-proficiency-group-label">Other Proficiencies</div>
+                    {customProfs.length > 0 && (
+                        <ul className="cc-custom-profs-list">
+                            {customProfs.map((prof, idx) => (
+                                <li key={idx} className="cc-custom-prof-item">
+                                    <span>{prof}</span>
+                                    {isEditMode && (
+                                        <button
+                                            className="cc-remove-prof"
+                                            onClick={() => handleRemoveProficiency(idx)}
+                                            aria-label="Remove proficiency"
+                                        >
+                                            ✕
+                                        </button>
+                                    )}
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                    {isEditMode && (
+                        <div className="cc-add-prof-input">
+                            <input
+                                type="text"
+                                value={newProf}
+                                onChange={e => setNewProf(e.target.value)}
+                                onKeyDown={e => e.key === 'Enter' && handleAddProficiency()}
+                                placeholder="Add custom proficiency..."
+                            />
+                            <button
+                                className="cc-add-prof-btn"
+                                onClick={handleAddProficiency}
+                            >
+                                +
+                            </button>
                         </div>
                     )}
                 </div>
-
-                {/* Custom Proficiencies */}
-                {(customProfs.length > 0 || isEditMode) && (
-                    <div className="cc-proficiency-group">
-                        <div className="cc-proficiency-group-label">Custom Proficiencies</div>
-                        {customProfs.length > 0 && (
-                            <ul className="cc-custom-profs-list">
-                                {customProfs.map((prof, idx) => (
-                                    <li key={idx} className="cc-custom-prof-item">
-                                        <span>{prof}</span>
-                                        {isEditMode && (
-                                            <button
-                                                className="cc-remove-prof"
-                                                onClick={() => handleRemoveProficiency(idx)}
-                                                aria-label="Remove proficiency"
-                                            >
-                                                ✕
-                                            </button>
-                                        )}
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
-                        {isEditMode && (
-                            <div className="cc-add-prof-input">
-                                <input
-                                    type="text"
-                                    value={newProf}
-                                    onChange={e => setNewProf(e.target.value)}
-                                    onKeyDown={e => e.key === 'Enter' && handleAddProficiency()}
-                                    placeholder="Add custom proficiency..."
-                                />
-                                <button
-                                    className="cc-add-prof-btn"
-                                    onClick={handleAddProficiency}
-                                >
-                                    +
-                                </button>
-                            </div>
-                        )}
-                    </div>
-                )}
-            </div>
+            )}
         </div>
     );
 };

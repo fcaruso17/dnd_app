@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import { useCharacterStore } from './store/useCharacterStore';
 import { useTheme } from './hooks/useTheme';
+import { parseAndValidate } from './utils/validate';
 
 import { PageOneCore } from './components/PageOne';
 import { PageTwoDetails } from './components/PageTwo';
@@ -9,8 +10,8 @@ import { PageThreeSpells } from './components/PageThree';
 
 function App() {
   const [activeTab, setActiveTab] = useState(() => {
-    const saved = parseInt(localStorage.getItem('dnd-active-tab'));
-    return saved >= 1 && saved <= 3 ? saved : 1;
+    const saved = localStorage.getItem('dnd-active-tab');
+    return parseAndValidate(saved, 1, 3, 1);
   });
   const exportCharacter = useCharacterStore(state => state.exportCharacter);
   const resetCharacter = useCharacterStore(state => state.resetCharacter);

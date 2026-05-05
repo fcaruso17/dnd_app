@@ -109,7 +109,7 @@ export const Skills = () => {
                         </div>
                     </div>
 
-                    <div className="skills-col-header">SAVES</div>
+                    <div className="skills-col-header">SAVING THROWS</div>
 
                     {STATS_LIST.map(stat => (
                         <Row
@@ -129,7 +129,7 @@ export const Skills = () => {
                 </div>
 
                 <div className="skills-col skills-col--skills">
-                    <div className="skills-col-header">SKILLS</div>
+                    <div className="skills-col-header">SKILLS AND PROFICIENCIES</div>
                     {SKILLS_LIST.map(name => (
                         <Row
                             key={name}

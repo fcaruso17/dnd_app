@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useCharacterStore } from '../../store/useCharacterStore';
-import { formatModifier } from '../../utils/format';
+import { parseDie } from '../../utils/validate';
+
 import { CLASSES, SUBCLASSES } from '../../data/classes';
 import { CharacterInfo } from './CharacterInfo';
 
@@ -33,14 +34,7 @@ export const CombatStrip = () => {
     const isDying    = vitals.hpCurrent === 0;
     const hpPct      = vitals.hpMax > 0 ? Math.min(100, (vitals.hpCurrent / vitals.hpMax) * 100) : 0;
     const tempPct    = vitals.hpMax > 0 ? Math.min(100, (vitals.hpTemp / vitals.hpMax) * 100) : 0;
-    const initiative = formatModifier(getModifier(attributes.dex));
 
-    const totalHitDice  = vitals.hitDice.reduce((sum, p) => sum + Math.max(0, p.total - p.expended), 0);
-    const hitDiceSummary = vitals.hitDice.length === 1
-        ? `${totalHitDice}${vitals.hitDice[0].die}`
-        : vitals.hitDice.map(p => `${Math.max(0,p.total-p.expended)}${p.die}`).join(' + ');
-
-    const totalLevel = header.classes.reduce((s, c) => s + (c.level || 0), 0);
 
     const startLongRest = () => {
         if (longRestPhase === 1) return;
@@ -75,7 +69,7 @@ export const CombatStrip = () => {
         let total = 0;
         vitals.hitDice.forEach(pool => {
             const n = parseInt(hdSpend[pool.id]) || 0;
-            const sides = parseInt((pool.die || 'd8').replace('d', ''));
+            const sides = parseDie(pool.die);
             const conMod = getModifier(attributes.con);
             for (let j = 0; j < n; j++) total += Math.floor(Math.random() * sides) + 1 + conMod;
         });
@@ -145,7 +139,7 @@ export const CombatStrip = () => {
                                             </option>
                                         ))}
                                     </select>
-                                    <input type="number" className="cs-level-edit tabular"
+                                    <input type="number" aria-label="Class level" className="cs-level-edit tabular"
                                         value={cls.level} min="1" max="20"
                                         onChange={e => updateClass(i, { level: parseInt(e.target.value) || 1 })} />
                                     {cls.className && cls.level >= 3 && SUBCLASSES[cls.className]?.length > 0 && (

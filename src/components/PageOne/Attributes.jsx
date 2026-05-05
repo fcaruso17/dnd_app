@@ -17,7 +17,7 @@ export const Attributes = () => {
     const isEditMode = useCharacterStore(s => s.isEditMode);
 
     return (
-        <div className="attributes-column glass-panel">
+        <div className="attributes-column">
             {/* Attributes Grid */}
             {ATTRS.map(({ key, label, title }) => (
                 <div key={key} className="attr-box" title={title}>
