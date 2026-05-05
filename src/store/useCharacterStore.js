@@ -330,7 +330,69 @@ export const useCharacterStore = create((set, get) => ({
             }
         },
         lastSaved: Date.now()
-    }))
+    })),
+
+    // Equip item/attack with mutual-exclusion logic (2024 PHB rules).
+    // Only one item per slot: main-hand, off-hand, two-handed.
+    // Two-handed clears both main and off.
+    // Applies across both custom attacks and inventory weapons.
+    equipItem: (itemId, slot, isCustomAttack = false) => set((state) => {
+        const { character } = state;
+        if (!slot) return state; // Unequip only — no mutual exclusion needed
+
+        const section = isCustomAttack ? 'combat' : 'inventory';
+        const field = isCustomAttack ? 'attacks' : 'items';
+        const items = character[section][field];
+
+        // Helper to check if a slot should be cleared
+        const shouldClear = (existingSlot) => {
+            if (slot === 'two-handed') {
+                // Two-handed uses both hands — unequip main and off
+                return existingSlot === 'main' || existingSlot === 'off';
+            } else {
+                // Single-hand slots: main or off
+                return existingSlot === slot;
+            }
+        };
+
+        // Update the current section (where the item being equipped lives)
+        let updated = items.map(item => {
+            if (item.id === itemId) {
+                return { ...item, equippedSlot: slot };
+            }
+            if (shouldClear(item.equippedSlot)) {
+                return { ...item, equippedSlot: null };
+            }
+            return item;
+        });
+
+        // Also unequip from the OTHER section (cross-section mutual exclusion)
+        const otherSection = isCustomAttack ? 'inventory' : 'combat';
+        const otherField = isCustomAttack ? 'items' : 'attacks';
+        const otherItems = character[otherSection][otherField];
+
+        let otherUpdated = otherItems.map(item => {
+            if (shouldClear(item.equippedSlot)) {
+                return { ...item, equippedSlot: null };
+            }
+            return item;
+        });
+
+        return {
+            character: {
+                ...character,
+                [section]: {
+                    ...character[section],
+                    [field]: updated
+                },
+                [otherSection]: {
+                    ...character[otherSection],
+                    [otherField]: otherUpdated
+                }
+            },
+            lastSaved: Date.now()
+        };
+    })
 }));
 
 // Setup automatic local storage persistence listener

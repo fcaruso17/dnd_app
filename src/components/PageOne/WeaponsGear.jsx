@@ -28,6 +28,7 @@ const CURRENCY_META = [
 export const WeaponsGear = () => {
     const inventory  = useCharacterStore(s => s.character.inventory);
     const update     = useCharacterStore(s => s.updateNestedField);
+    const equipItem  = useCharacterStore(s => s.equipItem);
 
     const [filterType, setFilterType]   = useState('All');
     const [magicOnly, setMagicOnly]     = useState(false);
@@ -305,7 +306,13 @@ export const WeaponsGear = () => {
                                                 ].map(({ key, label }) => (
                                                     <button key={key}
                                                         className={`wg-slot-btn pressable${item.equippedSlot === key ? ' wg-slot-btn--active' : ''}`}
-                                                        onClick={() => updateItem(item.id, { equippedSlot: item.equippedSlot === key ? null : key })}
+                                                        onClick={() => {
+                                                            if (item.equippedSlot === key) {
+                                                                updateItem(item.id, { equippedSlot: null });
+                                                            } else {
+                                                                equipItem(item.id, key, false);
+                                                            }
+                                                        }}
                                                     >{label}</button>
                                                 ))}
                                             </div>

@@ -1,11 +1,12 @@
 import { useCharacterStore } from '../../store/useCharacterStore';
-import { computeAttack, formatAtkBonus } from '../../utils/weapons';
+import { computeAttack, formatAtkBonus, getWeaponStats } from '../../utils/weapons';
 
 export const AttacksPanel = () => {
     const inventory  = useCharacterStore(s => s.character.inventory);
     const combat     = useCharacterStore(s => s.character.combat);
     const attributes = useCharacterStore(s => s.character.attributes);
     const update     = useCharacterStore(s => s.updateNestedField);
+    const equipItem  = useCharacterStore(s => s.equipItem);
     const getModifier = useCharacterStore(s => s.getModifier);
     const getProficiencyBonus = useCharacterStore(s => s.getProficiencyBonus);
     const isEditMode = useCharacterStore(s => s.isEditMode);
@@ -15,7 +16,7 @@ export const AttacksPanel = () => {
 
     const addCustomAttack = () =>
         update('combat', 'attacks', [...customAttacks, {
-            id: crypto.randomUUID(), name: '', bonus: '', damage: '1d6', type: 'bludgeoning',
+            id: crypto.randomUUID(), name: '', ability: 'str', bonus: '', damage: '1d6', type: 'bludgeoning', equippedSlot: null, attuned: false,
         }]);
 
     const updateCustomAttack = (id, patch) =>
@@ -44,19 +45,19 @@ export const AttacksPanel = () => {
                 <tbody>
                     {equippedWeapons.map(item => {
                         const attackData = computeAttack(item, { attributes, combat, getModifier, getProficiencyBonus });
-                        const ability = item.ability === 'finesse' ? (item.abilityOverride ?? 'str') : item.ability;
-                        const abilityDisplay = item.ability === 'finesse' ? 'Finesse (Str)' : (ability ? ability.toUpperCase() : '—');
+                        const stats = item.damage != null ? item : getWeaponStats(item.name);
+                        const weaponAbility = stats?.ability ?? '—';
+                        const abilityDisplay = weaponAbility === 'finesse' ? 'Finesse (Str)' : (weaponAbility && weaponAbility !== '—' ? weaponAbility.toUpperCase() : '—');
                         return (
                             <tr key={item.id} className="attacks-row--equipped">
                                 <td className="attacks-cell-name">{item.name}</td>
-                                <td className="attacks-cell-dmg tabular">{attackData.damageLabel} ({attackData.damageType})</td>
-                                <td colSpan={4}>
-                                    <span className="attacks-cell-ability">Ability: {abilityDisplay}</span>
-                                    <span className="attacks-cell-atk tabular">ATK: {formatAtkBonus(attackData.atkBonus)}</span>
-                                    <span className="attacks-cell-badge">
-                                        <span className="attacks-slot-badge">
-                                            {item.equippedSlot === 'two-handed' ? '2H' : item.equippedSlot.toUpperCase()}
-                                        </span>
+                                <td className="attacks-cell-ability">{abilityDisplay}</td>
+                                <td className="attacks-cell-atk tabular">{formatAtkBonus(attackData.atkBonus)}</td>
+                                <td className="attacks-cell-dmg tabular">{attackData.damageLabel}</td>
+                                <td className="attacks-cell-type">{attackData.damageType}</td>
+                                <td className="attacks-cell-badge">
+                                    <span className="attacks-slot-badge">
+                                        {item.equippedSlot === 'two-handed' ? '2H' : item.equippedSlot.toUpperCase()}
                                     </span>
                                 </td>
                             </tr>
@@ -77,6 +78,20 @@ export const AttacksPanel = () => {
                                             onChange={e => updateCustomAttack(atk.id, { name: e.target.value })}
                                             placeholder="Attack name"
                                         />
+                                    </td>
+                                    <td className="attacks-cell-ability">
+                                        <select
+                                            aria-label="Attack ability modifier" className="attacks-input-ability"
+                                            value={atk.ability || 'str'}
+                                            onChange={e => updateCustomAttack(atk.id, { ability: e.target.value })}
+                                        >
+                                            <option value="str">STR</option>
+                                            <option value="dex">DEX</option>
+                                            <option value="con">CON</option>
+                                            <option value="int">INT</option>
+                                            <option value="wis">WIS</option>
+                                            <option value="cha">CHA</option>
+                                        </select>
                                     </td>
                                     <td className="attacks-cell-atk tabular">
                                         <input
@@ -105,22 +120,51 @@ export const AttacksPanel = () => {
                                             placeholder="type"
                                         />
                                     </td>
-                                    <td className="attacks-cell-action">
-                                        <button
-                                            className="attacks-delete-btn pressable"
-                                            onClick={() => deleteCustomAttack(atk.id)}
-                                            aria-label="Delete custom attack"
-                                        >✕</button>
+                                    <td className="attacks-cell-badge">
+                                        <div className="attacks-edit-controls">
+                                            <div className="attacks-slot-buttons">
+                                                {[
+                                                    { key: 'main', label: 'Main' },
+                                                    { key: 'off', label: 'Off' },
+                                                    { key: 'two-handed', label: '2H' },
+                                                ].map(({ key, label }) => (
+                                                    <button key={key}
+                                                        className={`attacks-slot-btn pressable${atk.equippedSlot === key ? ' attacks-slot-btn--active' : ''}`}
+                                                        onClick={() => {
+                                                            if (atk.equippedSlot === key) {
+                                                                updateCustomAttack(atk.id, { equippedSlot: null });
+                                                            } else {
+                                                                equipItem(atk.id, key, true);
+                                                            }
+                                                        }}
+                                                    >{label}</button>
+                                                ))}
+                                            </div>
+                                            <label className="attacks-attune-toggle">
+                                                <input type="checkbox" checked={atk.attuned || false}
+                                                    onChange={e => updateCustomAttack(atk.id, { attuned: e.target.checked })}
+                                                />
+                                                Attune
+                                            </label>
+                                            <button
+                                                className="attacks-delete-btn pressable"
+                                                onClick={() => deleteCustomAttack(atk.id)}
+                                                aria-label="Delete custom attack"
+                                            >✕</button>
+                                        </div>
                                     </td>
                                 </>
                             ) : (
                                 <>
                                     <td className="attacks-cell-name">{atk.name}</td>
+                                    <td className="attacks-cell-ability">{(atk.ability || 'str').toUpperCase()}</td>
                                     <td className="attacks-cell-atk tabular">{atk.bonus || '—'}</td>
                                     <td className="attacks-cell-dmg tabular">{atk.damage}</td>
                                     <td className="attacks-cell-type">{atk.type}</td>
                                     <td className="attacks-cell-badge">
-                                        <span className="attacks-custom-badge">CUSTOM</span>
+                                        <span className={atk.equippedSlot ? "attacks-slot-badge" : "attacks-custom-badge"}>
+                                            {atk.equippedSlot === 'two-handed' ? '2H' : (atk.equippedSlot ? atk.equippedSlot.toUpperCase() : 'CUSTOM')}
+                                        </span>
                                     </td>
                                 </>
                             )}
