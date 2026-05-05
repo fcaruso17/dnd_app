@@ -44,7 +44,7 @@ export const ApiSearchDropdown = ({ placeholder, query, onQueryChange, results, 
                         [1, 2, 3].map(n => <li key={n} className="skeleton-row" aria-hidden="true" />)
                     ) : (
                         results.map(res => (
-                            <li key={res.index} onClick={() => onSelect(res.index)}>
+                            <li key={res.index} onClick={() => onSelect(res)}>
                                 {res.name}
                             </li>
                         ))

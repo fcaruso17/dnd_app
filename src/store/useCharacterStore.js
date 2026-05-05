@@ -3,6 +3,9 @@ import spellcastingTables from '../data/spellcastingTables.json';
 import itemsDatabase from '../data/items.json';
 import { migrateLegacyEquipment, normalizeItems } from '../utils/items';
 
+const EDIT_MODE_KEY = 'dnd-edit-mode';
+const getInitialEditMode = () => localStorage.getItem(EDIT_MODE_KEY) === 'true';
+
 // Default empty character structure based on 5E mechanics
 const defaultCharacterState = {
     header: {
@@ -44,7 +47,8 @@ const defaultCharacterState = {
     },
     combat: {
         attacks: [],
-        weaponProficiencies: { simple: false, martial: false }
+        weaponProficiencies: { simple: false, martial: false },
+        customProficiencies: []
     },
     inventory: {
         cp: 0, sp: 0, ep: 0, gp: 0, pp: 0,
@@ -70,7 +74,8 @@ const defaultCharacterState = {
         backstory: '',
         additionalFeatures: '',
         treasure: '',
-        portraitBase64: null
+        portraitBase64: null,
+        proficienciesLanguages: ''
     },
     spellcasting: {
         classes: [],
@@ -188,6 +193,13 @@ const SHORT_REST_RESOURCES = ['channelDivinity', 'wildShape', 'secondWind', 'foc
 export const useCharacterStore = create((set, get) => ({
     character: getInitialState(),
     lastSaved: Date.now(),
+    isEditMode: getInitialEditMode(),
+
+    toggleEditMode: () => set((state) => {
+        const next = !state.isEditMode;
+        localStorage.setItem(EDIT_MODE_KEY, String(next));
+        return { isEditMode: next };
+    }),
 
     updateNestedField: (section, field, value) => set((state) => ({
         character: {
@@ -293,7 +305,32 @@ export const useCharacterStore = create((set, get) => ({
             },
             lastSaved: Date.now()
         };
-    })
+    }),
+
+    addHitDice: () => set((state) => ({
+        character: {
+            ...state.character,
+            vitals: {
+                ...state.character.vitals,
+                hitDice: [
+                    ...state.character.vitals.hitDice,
+                    { id: crypto.randomUUID(), class: '', die: 'd8', total: 1, expended: 0 }
+                ]
+            }
+        },
+        lastSaved: Date.now()
+    })),
+
+    deleteHitDice: (id) => set((state) => ({
+        character: {
+            ...state.character,
+            vitals: {
+                ...state.character.vitals,
+                hitDice: state.character.vitals.hitDice.filter(hd => hd.id !== id)
+            }
+        },
+        lastSaved: Date.now()
+    }))
 }));
 
 // Setup automatic local storage persistence listener

@@ -30,6 +30,9 @@ dist-ssr
 .env.test.local
 .env.production.local
 
+# Superpowers brainstorm sessions (local only)
+.superpowers/
+
 # AI Agents and local configurations
 .agents/
 .agent/

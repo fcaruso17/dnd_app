@@ -1,18 +1,18 @@
 import { useCharacterStore } from '../../store/useCharacterStore';
 
-export const Lore = () => {
+export const Allies = () => {
     const data = useCharacterStore(state => state.character.details);
     const updateNestedField = useCharacterStore(state => state.updateNestedField);
 
     return (
         <details open>
-            <summary>Backstory</summary>
+            <summary>Allies & Organizations</summary>
             <div className="lore-container">
                 <textarea
-                    id="input-backstory"
-                    value={data.backstory}
-                    onChange={(e) => updateNestedField('details', 'backstory', e.target.value)}
-                    placeholder="Write your epic origin tale here..."
+                    id="input-allies"
+                    value={data.allies}
+                    onChange={(e) => updateNestedField('details', 'allies', e.target.value)}
+                    placeholder="Who are your allies? What organizations are you part of?"
                 />
             </div>
         </details>

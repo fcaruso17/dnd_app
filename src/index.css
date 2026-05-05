@@ -55,7 +55,7 @@ html {
   --transition-fast: 0.15s ease-in-out;
   --transition-normal: 0.3s ease-in-out;
 
-  /* Heading shadow — overridden to none/soft on light themes */
+  /* Heading shadow */
   --heading-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
@@ -79,32 +79,6 @@ html {
   --glass-border-subtle: rgba(255, 255, 255, 0.05);
   --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
   /* --rarity-* inherited from :root (same values as shadow-realm defaults). */
-}
-
-/* Parchment & Ink — aged manuscript, light mode */
-[data-theme="parchment"] {
-  --font-heading: 'IM Fell English', Georgia, serif;
-  --font-body: 'Lora', Georgia, serif;
-  --bg-color: #f5e8cc;
-  --accent-gold: #6b4f12;
-  --accent-gold-dim: rgba(107, 79, 18, 0.4);
-  --accent-crimson: #8b1a1a;
-  --accent-arcane: #2e5230;
-  --rarity-common:    #6b7280;
-  --rarity-uncommon:  #15803d;
-  --rarity-rare:      #1d4ed8;
-  --rarity-veryrare:  #7e22ce;
-  --rarity-legendary: #92400e;
-  --rarity-artifact:  #b91c1c;
-  --text-main: #1e1508;
-  --text-muted: rgba(30, 21, 8, 0.68);
-  --heading-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
-  --glass-bg: rgba(165, 138, 90, 0.32);
-  --glass-bg-hover: rgba(145, 118, 70, 0.48);
-  --glass-border: rgba(107, 79, 18, 0.35);
-  --glass-border-strong: rgba(107, 79, 18, 0.65);
-  --glass-border-subtle: rgba(107, 79, 18, 0.12);
-  --glass-shadow: 0 6px 24px 0 rgba(80, 50, 10, 0.22), inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
 }
 
 /* Arcane Scholar — midnight navy, warm gold, cool crimson */
@@ -132,57 +106,6 @@ html {
   --glass-shadow: 0 12px 40px 0 rgba(0, 0, 20, 0.6), inset 0 1px 0 0 rgba(200, 168, 75, 0.06);
 }
 
-/* Infernal Pact — charcoal, ember orange, blood red, sulfur arcane */
-[data-theme="infernal-pact"] {
-  --font-heading: 'Cinzel Decorative', 'Cinzel', Georgia, serif;
-  --font-body: 'Crimson Pro', Georgia, serif;
-  --bg-color: #0d0806;
-  --accent-gold: #e8610a;
-  --accent-gold-dim: rgba(232, 97, 10, 0.4);
-  --accent-crimson: #c0182a;
-  --accent-arcane: #c9a000;
-  --rarity-common:    #a8a29e;
-  --rarity-uncommon:  #86efac;
-  --rarity-rare:      #93c5fd;
-  --rarity-veryrare:  #d8b4fe;
-  --rarity-legendary: #fb923c;
-  --rarity-artifact:  #fda4af;
-  --text-main: #f0ddd0;
-  --text-muted: rgba(240, 221, 208, 0.78);
-  --glass-bg: rgba(28, 14, 8, 0.72);
-  --glass-bg-hover: rgba(40, 20, 10, 0.88);
-  --glass-border: rgba(232, 97, 10, 0.20);
-  --glass-border-strong: rgba(232, 97, 10, 0.50);
-  --glass-border-subtle: rgba(255, 80, 20, 0.06);
-  --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(232, 97, 10, 0.08);
-}
-
-/* Celestial Dawn — ivory, pale gold, sky blue */
-[data-theme="celestial-dawn"] {
-  --font-heading: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Lora', Georgia, serif;
-  --bg-color: #f0eee8;
-  --accent-gold: #8a6e08;
-  --accent-gold-dim: rgba(138, 110, 8, 0.35);
-  --accent-crimson: #a82030;
-  --accent-arcane: #2a65a0;
-  --rarity-common:    #64748b;
-  --rarity-uncommon:  #16a34a;
-  --rarity-rare:      #2563eb;
-  --rarity-veryrare:  #9333ea;
-  --rarity-legendary: #a16207;
-  --rarity-artifact:  #dc2626;
-  --text-main: #12100a;
-  --text-muted: rgba(18, 16, 10, 0.65);
-  --heading-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-  --glass-bg: rgba(148, 128, 88, 0.26);
-  --glass-bg-hover: rgba(128, 108, 68, 0.40);
-  --glass-border: rgba(138, 110, 8, 0.32);
-  --glass-border-strong: rgba(138, 110, 8, 0.62);
-  --glass-border-subtle: rgba(138, 110, 8, 0.10);
-  --glass-shadow: 0 6px 24px 0 rgba(80, 60, 0, 0.18), inset 0 1px 0 0 rgba(255, 255, 255, 0.65);
-}
-
 /* Eldritch Void — void black, sickly gold, blood red, eldritch teal */
 [data-theme="eldritch-void"] {
   --font-heading: 'Uncial Antiqua', Georgia, serif;
@@ -208,56 +131,6 @@ html {
   --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.7), inset 0 1px 0 0 rgba(184, 160, 48, 0.08);
 }
 
-/* Druid's Grove — deep forest, moss green, blood red, mystic teal */
-[data-theme="druids-grove"] {
-  --font-heading: 'Uncial Antiqua', Georgia, serif;
-  --font-body: 'Lora', Georgia, serif;
-  --bg-color: #060e08;
-  --accent-gold: #8fba4e;
-  --accent-gold-dim: rgba(143, 186, 78, 0.35);
-  --accent-crimson: #a82020;
-  --accent-arcane: #28b890;
-  --rarity-common:    #a8a29e;
-  --rarity-uncommon:  #65a30d;
-  --rarity-rare:      #0ea5e9;
-  --rarity-veryrare:  #a855f7;
-  --rarity-legendary: #eab308;
-  --rarity-artifact:  #dc2626;
-  --text-main: #d4e8c2;
-  --text-muted: rgba(212, 232, 194, 0.82);
-  --glass-bg: rgba(18, 32, 20, 0.78);
-  --glass-bg-hover: rgba(28, 46, 30, 0.92);
-  --glass-border: rgba(143, 186, 78, 0.22);
-  --glass-border-strong: rgba(143, 186, 78, 0.48);
-  --glass-border-subtle: rgba(62, 139, 92, 0.08);
-  --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(143, 186, 78, 0.10);
-}
-
-/* Frost Citadel — glacial dark, ice blue, cold red, aurora purple */
-[data-theme="frost-citadel"] {
-  --font-heading: 'Josefin Slab', Georgia, serif;
-  --font-body: 'Josefin Slab', Georgia, serif;
-  --bg-color: #050b12;
-  --accent-gold: #a8d4e8;
-  --accent-gold-dim: rgba(168, 212, 232, 0.32);
-  --accent-crimson: #c0304a;
-  --accent-arcane: #8860d0;
-  --rarity-common:    #94a3b8;
-  --rarity-uncommon:  #10b981;
-  --rarity-rare:      #3b82f6;
-  --rarity-veryrare:  #8b5cf6;
-  --rarity-legendary: #eab308;
-  --rarity-artifact:  #ef4444;
-  --text-main: #daeaf5;
-  --text-muted: rgba(218, 234, 245, 0.82);
-  --glass-bg: rgba(14, 28, 48, 0.82);
-  --glass-bg-hover: rgba(22, 40, 66, 0.94);
-  --glass-border: rgba(168, 212, 232, 0.22);
-  --glass-border-strong: rgba(168, 212, 232, 0.48);
-  --glass-border-subtle: rgba(79, 195, 247, 0.07);
-  --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.65), inset 0 1px 0 0 rgba(168, 212, 232, 0.10);
-}
-
 /* ─── Background gradients per theme ─────────────────────────────────────── */
 
 [data-theme="shadow-realm"] body,
@@ -268,33 +141,6 @@ body {
     radial-gradient(circle at 50% 100%, rgba(212, 175, 55, 0.07), transparent 40%);
 }
 
-[data-theme="parchment"] body {
-  background-image:
-    radial-gradient(circle at 15% 30%, rgba(122, 92, 30, 0.1), transparent 40%),
-    radial-gradient(circle at 85% 15%, rgba(139, 32, 32, 0.08), transparent 35%),
-    radial-gradient(circle at 50% 90%, rgba(59, 94, 58, 0.06), transparent 40%);
-}
-
-[data-theme="parchment"] input,
-[data-theme="parchment"] textarea,
-[data-theme="parchment"] select {
-  background: rgba(107, 79, 18, 0.09);
-  color: #1e1508;
-  border-color: rgba(107, 79, 18, 0.28);
-}
-
-[data-theme="parchment"] select {
-  color-scheme: light;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231e1508' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-}
-
-[data-theme="parchment"] input:focus,
-[data-theme="parchment"] textarea:focus,
-[data-theme="parchment"] select:focus {
-  background: rgba(107, 79, 18, 0.14);
-  color: #1e1508;
-}
-
 [data-theme="arcane-scholar"] body {
   background-image:
     radial-gradient(circle at 10% 40%, rgba(74, 111, 196, 0.2), transparent 35%),
@@ -302,59 +148,11 @@ body {
     radial-gradient(circle at 50% 100%, rgba(200, 168, 75, 0.06), transparent 40%);
 }
 
-[data-theme="infernal-pact"] body {
-  background-image:
-    radial-gradient(circle at 10% 40%, rgba(139, 40, 0, 0.25), transparent 35%),
-    radial-gradient(circle at 90% 20%, rgba(192, 24, 42, 0.18), transparent 40%),
-    radial-gradient(circle at 50% 100%, rgba(232, 97, 10, 0.08), transparent 40%);
-}
-
-[data-theme="celestial-dawn"] body {
-  background-image:
-    radial-gradient(circle at 10% 40%, rgba(60, 122, 184, 0.1), transparent 35%),
-    radial-gradient(circle at 90% 20%, rgba(192, 48, 74, 0.08), transparent 40%),
-    radial-gradient(circle at 50% 100%, rgba(184, 150, 12, 0.06), transparent 40%);
-}
-
-[data-theme="celestial-dawn"] input,
-[data-theme="celestial-dawn"] textarea,
-[data-theme="celestial-dawn"] select {
-  background: rgba(138, 110, 8, 0.09);
-  color: #12100a;
-  border-color: rgba(138, 110, 8, 0.28);
-}
-
-[data-theme="celestial-dawn"] select {
-  color-scheme: light;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2312100a' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-}
-
-[data-theme="celestial-dawn"] input:focus,
-[data-theme="celestial-dawn"] textarea:focus,
-[data-theme="celestial-dawn"] select:focus {
-  background: rgba(138, 110, 8, 0.14);
-  color: #12100a;
-}
-
 [data-theme="eldritch-void"] body {
   background-image:
     radial-gradient(circle at 15% 35%, rgba(0, 200, 150, 0.14), transparent 35%),
     radial-gradient(circle at 85% 20%, rgba(170, 26, 58, 0.18), transparent 40%),
     radial-gradient(circle at 50% 90%, rgba(184, 160, 48, 0.06), transparent 40%);
-}
-
-[data-theme="druids-grove"] body {
-  background-image:
-    radial-gradient(circle at 10% 50%, rgba(62, 139, 92, 0.2), transparent 40%),
-    radial-gradient(circle at 80% 15%, rgba(192, 98, 42, 0.14), transparent 35%),
-    radial-gradient(circle at 50% 95%, rgba(143, 186, 78, 0.08), transparent 40%);
-}
-
-[data-theme="frost-citadel"] body {
-  background-image:
-    radial-gradient(circle at 10% 40%, rgba(79, 195, 247, 0.14), transparent 35%),
-    radial-gradient(circle at 88% 18%, rgba(110, 158, 197, 0.12), transparent 40%),
-    radial-gradient(circle at 50% 95%, rgba(168, 212, 232, 0.06), transparent 40%);
 }
 
 * {
