@@ -29,7 +29,7 @@ html {
   /* Text */
   --text-main: #e8e0d5;
   /* Parchment white/light tan */
-  --text-muted: rgba(232, 224, 213, 0.6);
+  --text-muted: rgba(232, 224, 213, 0.75);
   /* Faded ink */
 
   /* Typography */
@@ -86,8 +86,8 @@ html {
   --font-heading: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Crimson Pro', Georgia, serif;
   --bg-color: #080d1a;
-  --accent-gold: #c8a84b;
-  --accent-gold-dim: rgba(200, 168, 75, 0.35);
+  --accent-gold: #dab844;
+  --accent-gold-dim: rgba(218, 184, 68, 0.35);
   --accent-crimson: #c0304a;
   --accent-arcane: #5a82d8;
   --rarity-common:    #94a3b8;
@@ -97,7 +97,7 @@ html {
   --rarity-legendary: #facc15;
   --rarity-artifact:  #fb7185;
   --text-main: #dde4f0;
-  --text-muted: rgba(221, 228, 240, 0.78);
+  --text-muted: rgba(221, 228, 240, 0.75);
   --glass-bg: rgba(22, 32, 68, 0.75);
   --glass-bg-hover: rgba(30, 42, 84, 0.90);
   --glass-border: rgba(200, 168, 75, 0.18);
@@ -111,8 +111,8 @@ html {
   --font-heading: 'Uncial Antiqua', Georgia, serif;
   --font-body: 'Crimson Pro', Georgia, serif;
   --bg-color: #030508;
-  --accent-gold: #b8a030;
-  --accent-gold-dim: rgba(184, 160, 48, 0.35);
+  --accent-gold: #d4a643;
+  --accent-gold-dim: rgba(212, 166, 67, 0.35);
   --accent-crimson: #aa1a3a;
   --accent-arcane: #00c896;
   --rarity-common:    #a1a1aa;
@@ -122,8 +122,8 @@ html {
   --rarity-legendary: #facc15;
   --rarity-artifact:  #f87171;
   --text-main: #c8ede6;
-  --text-muted: rgba(200, 237, 230, 0.82);
-  --glass-bg: rgba(8, 18, 32, 0.78);
+  --text-muted: rgba(200, 237, 230, 0.75);
+  --glass-bg: rgba(8, 18, 32, 0.72);
   --glass-bg-hover: rgba(14, 28, 48, 0.92);
   --glass-border: rgba(184, 160, 48, 0.20);
   --glass-border-strong: rgba(184, 160, 48, 0.44);
